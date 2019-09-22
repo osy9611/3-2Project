@@ -159,7 +159,7 @@ public class Player : MonoBehaviour
             {
                 case 0:
                     SetItem = true;
-                    PrismDummy = Instantiate(prism, new Vector2(transform.position.x+3.0f,transform.position.y), prism.transform.rotation);
+                    PrismDummy = Instantiate(prism, new Vector2(transform.position.x+3.0f,transform.position.y), Quaternion.identity);
                     Time.timeScale = 0.5f;
                     ItemKeyDownCount++;
                     break;
