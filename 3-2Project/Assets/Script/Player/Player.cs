@@ -260,6 +260,7 @@ public class Player : MonoBehaviour
                 WallSliding = false;
                 if(WallDir ==x)
                 {
+                    StartCoroutine(ClimbWall());
                     Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * x, wallJumpForce * wallJumpDirection.y);
                     rigidbody.velocity = forceToAdd;
                 }

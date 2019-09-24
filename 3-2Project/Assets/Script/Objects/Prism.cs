@@ -9,10 +9,12 @@ public class Prism : MonoBehaviour
     RaycastHit2D hit;
     public Transform raserPos;
     public Transform LayHit;
-    Prism Obj;
-
+    public Prism Obj;
+    public Prism HitObj;
     public LineRenderer laser;
 
+    public Transform HitPoint;
+    public Transform StoreTrans;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,48 +24,66 @@ public class Prism : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.SetItem)
+        if (RazerON)
         {
-            if (RazerON)
+            laser.enabled = true;
+            hit = Physics2D.Linecast(raserPos.position, raserPos.up * 200);
+            laser.SetPosition(0, raserPos.position);
+            if (hit.collider)
             {
-                laser.enabled = true;
-                hit = Physics2D.Raycast(raserPos.position, raserPos.up);
-
-                laser.SetPosition(0, raserPos.position);
-                if (hit.collider)
+                if (hit.collider.gameObject.tag != "Player")
                 {
-                    LayHit = hit.collider.gameObject.transform;
                     laser.SetPosition(1, hit.point);
-                    if (hit.collider.gameObject.tag == "LightIn")
+                }
+                if (hit.collider.gameObject.tag == "LightIn")
+                {
+                    HitPoint = hit.collider.transform;
+                    if (Obj==null)
                     {
-                        if (Obj != hit.collider.gameObject)
-                        {
-                            Obj = hit.collider.gameObject.transform.parent.GetComponent<Prism>();
-                            Obj.RazerON = true;
-                        }
+                        Obj = hit.collider.gameObject.transform.parent.GetComponent<Prism>();
+                        Obj.HitObj = GetComponent<Prism>();
                     }
                     else
                     {
-                        if (Obj != null)
-                        {
-                            Obj.RazerON = false;
-                            Obj = null;
-                        }
-                    }
-                    if (hit.collider.gameObject.tag == "Player")
-                    {
-
+                        Obj.RazerON = true;
                     }
                 }
                 else
                 {
-                    laser.SetPosition(1, raserPos.up * 200);
+                    if(Obj!=null)
+                    {
+                        Obj.RazerON = false;
+                    }
+                }
+                if (hit.collider.gameObject.tag == "LightOut")
+                {
+                    if(Obj ==null)
+                    {
+                        Obj = hit.collider.gameObject.transform.parent.GetComponent<Prism>();
+                    }
+                    else
+                    {
+                        if (Obj.transform.position != hit.collider.gameObject.transform.position)
+                        {
+                            Obj.laser.enabled = false;
+                        }
+                    }
+                    Obj = null;
+                }
+
+                if (hit.collider.gameObject.tag == "Player")
+                {
+                    
                 }
             }
             else
             {
-                laser.enabled = false;
+                laser.SetPosition(1, new Vector2(raserPos.position.x, -raserPos.position.y * 200));
             }
+        }
+        else
+        {
+            laser.enabled = false;
         }
     }
 }

@@ -6,63 +6,77 @@ public class Lazer : MonoBehaviour
 {
     public Player player;
     RaycastHit2D hit;
-    public Vector3 RayTrans;
+    public Transform HitPoint;
     public Transform LayHit;
+    public Transform OriginPos;
+    public Transform Target;
     Prism Obj;
-
     LineRenderer laser;
-
+    public bool RazerOn;
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
         laser = GetComponent<LineRenderer>();
+        Target = OriginPos;
     }
-
     // Update is called once per frame
     void Update()
     {
-        hit = Physics2D.Raycast(transform.position, transform.right);
-        Debug.DrawRay(transform.position, hit.point, new Color(1, 0, 0), Vector3.Distance(transform.position, hit.point));
+        hit = Physics2D.Linecast(transform.position, Target.position);
         laser.SetPosition(0, transform.position);
-        if (hit.collider)
+
+        if(hit.collider!=null)
         {
             if (hit.collider.gameObject.tag != "Player")
             {
-                LayHit = hit.collider.gameObject.transform;
                 laser.SetPosition(1, hit.point);
             }
             if (hit.collider.gameObject.tag == "LightIn")
             {
-               
-                if (Obj != hit.collider.gameObject)
+                HitPoint = hit.collider.transform;
+                if (Obj == null)
                 {
                     Obj = hit.collider.gameObject.transform.parent.GetComponent<Prism>();
+                    Obj.HitObj = GetComponent<Prism>();
+                }
+                else
+                {
                     Obj.RazerON = true;
                 }
             }
             else
             {
-                if(Obj!=null)
+                if (Obj != null)
                 {
                     Obj.RazerON = false;
                     Obj = null;
                 }
             }
-            if (hit.collider.gameObject.tag == "Player")
+            if (hit.collider.gameObject.tag == "LightOut")
             {
-               
-            }
-
-            if(hit.collider.gameObject.tag == "LightOut")
-            {
-                if (Obj != hit.collider.gameObject)
+                if (Obj == null)
                 {
                     Obj = hit.collider.gameObject.transform.parent.GetComponent<Prism>();
-                    Obj.RazerON = false;
                 }
+                else
+                {
+                    if (Obj.transform.position != hit.collider.gameObject.transform.position)
+                    {
+                        Obj.laser.enabled = false;
+                    }
+                }
+                Obj = null;
+            }
+
+            if (hit.collider.gameObject.tag == "Player")
+            {
+
             }
         }
-
+        else
+        {
+            laser.SetPosition(1, Target.position);
+        }
     }
 }
