@@ -37,9 +37,9 @@ public class Prism : MonoBehaviour
                 }
                 if (hit.collider.gameObject.tag == "LightIn")
                 {
-                    HitPoint = hit.collider.transform;
                     if (Obj==null)
                     {
+                        HitPoint = hit.collider.transform;
                         Obj = hit.collider.gameObject.transform.parent.GetComponent<Prism>();
                         Obj.HitObj = GetComponent<Prism>();
                     }

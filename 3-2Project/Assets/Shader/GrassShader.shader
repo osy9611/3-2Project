@@ -12,20 +12,20 @@
 
 		[Header(VertexAnimation)]
 		[Toggle]_USEVERTEXANIMTION("_UseVertexAnim", float) = 0	//애니메이션을 사용할것이지 물어보는 것
-		_MoveAmount("MoveAmount", float) = 0.2
-		_MoveSpeed("MoveSpeed", float) = 2
-		_MoveTilling("MoveTilling", float) = 2
+		_MoveAmount("MoveAmount", float) = 0.2					//움직임의 양
+		_MoveSpeed("MoveSpeed", float) = 2						//움직이는 속도
+		_MoveTilling("MoveTilling", float) = 2					
 	}
 		SubShader
 		{
 			Tags { "RenderType" = "Opaque" }
 			LOD 100
-			cull off
-			Lighting OFF
+			cull off	//모든 면을 그린다
+			Lighting OFF	//라이트는 끔
 
 			Pass
 			{
-				Lighting OFF
+				Lighting OFF	//라이팅을 끔
 
 				CGPROGRAM
 				#pragma vertex vert

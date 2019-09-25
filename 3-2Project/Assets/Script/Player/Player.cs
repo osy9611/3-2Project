@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
     private int ItemKeyDownCount;
     public bool SetItem;
     public bool PrismRotate;
-    float rotation;
+    public float rotation;
     // Start is called before the first frame update
     void Start()
     {
@@ -159,15 +159,16 @@ public class Player : MonoBehaviour
             {
                 case 0:
                     SetItem = true;
-                    PrismDummy = Instantiate(prism, new Vector2(transform.position.x+3.0f,transform.position.y), Quaternion.identity);
+                    PrismDummy = Instantiate(prism, new Vector2(transform.position.x+3.0f*FacingDirection,transform.position.y), Quaternion.identity);
                     Time.timeScale = 0.5f;
                     ItemKeyDownCount++;
                     break;
                 case 1:
+                    PrismDummy.transform.rotation = Quaternion.Euler(0, 0, rotation);
                     PrismDummy = null;
                     SetItem = false;
                     Time.timeScale = 1.0f;
-                    ItemKeyDownCount =0;
+                    ItemKeyDownCount =0;                    
                     break;
             }
         }
@@ -177,20 +178,16 @@ public class Player : MonoBehaviour
             if(SetItem && PrismDummy !=null)
             {
                 PrismRotate = true;
-                rotation = PrismDummy.transform.eulerAngles.z;
+                rotation += 90;
             }
         }
 
         if(PrismRotate && PrismDummy !=null)
         {
-            if (PrismDummy.transform.rotation.y == rotation + 90)
-            {
-                PrismRotate = false;
-            }
-            else
+            if(PrismDummy.transform.eulerAngles.z <= rotation)
             {
                 PrismDummy.transform.rotation = Quaternion.Slerp(PrismDummy.transform.rotation, Quaternion.Euler(PrismDummy.transform.eulerAngles.x,
-    PrismDummy.transform.eulerAngles.y, rotation + 90), 10.0f * Time.unscaledDeltaTime);
+ PrismDummy.transform.eulerAngles.y, rotation), 5.0f * Time.unscaledDeltaTime);
             }
         }
     }
