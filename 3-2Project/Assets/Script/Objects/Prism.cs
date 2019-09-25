@@ -73,12 +73,19 @@ public class Prism : MonoBehaviour
 
                 if (hit.collider.gameObject.tag == "Player")
                 {
-                    
+                   
                 }
             }
             else
             {
-                laser.SetPosition(1, new Vector2(raserPos.position.x, -raserPos.position.y * 200));
+                if(raserPos.position.y <0)
+                {
+                    laser.SetPosition(1, new Vector2(raserPos.position.x, -raserPos.position.y * 200));
+                }
+                else
+                {
+                    laser.SetPosition(1, new Vector2(raserPos.position.x, raserPos.position.y * 200));
+                }
             }
         }
         else
