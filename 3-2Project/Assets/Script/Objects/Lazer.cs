@@ -29,7 +29,6 @@ public class Lazer : MonoBehaviour
 
         if(hit.collider!=null)
         {
-            Debug.Log(hit.collider.gameObject.name);
             if (hit.collider.gameObject.tag != "Player")
             {
                 laser.SetPosition(1, hit.point);

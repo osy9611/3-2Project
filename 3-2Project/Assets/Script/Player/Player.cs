@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     public Animator Ani;
 
     //키 입력을 받기위한 함수
-    float x,y;
+    public float x,y;
 
     //스프라이트 랜더러
     SpriteRenderer render;
@@ -126,7 +126,11 @@ public class Player : MonoBehaviour
         {
             x = Input.GetAxisRaw("Horizontal");
             y = Input.GetAxisRaw("Vertical");
-        }      
+        }
+        else
+        {
+            x = 0;
+        }
         if(x!=0)
         {
             if (PS != PlayerState.D_Jump && PS != PlayerState.Jump)
@@ -160,14 +164,12 @@ public class Player : MonoBehaviour
                 case 0:
                     SetItem = true;
                     PrismDummy = Instantiate(prism, new Vector2(transform.position.x+3.0f*FacingDirection,transform.position.y), Quaternion.identity);
-                    Time.timeScale = 0.5f;
                     ItemKeyDownCount++;
                     break;
                 case 1:
                     PrismDummy.transform.rotation = Quaternion.Euler(0, 0, rotation);
                     PrismDummy = null;
                     SetItem = false;
-                    Time.timeScale = 1.0f;
                     ItemKeyDownCount =0;                    
                     break;
             }
@@ -257,7 +259,7 @@ public class Player : MonoBehaviour
                 WallSliding = false;
                 if(WallDir ==x)
                 {
-                    StartCoroutine(ClimbWall());
+                    StartCoroutine(JumpOff());
                     Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * x, wallJumpForce * wallJumpDirection.y);
                     rigidbody.velocity = forceToAdd;
                 }
