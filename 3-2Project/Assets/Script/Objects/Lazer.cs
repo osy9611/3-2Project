@@ -13,6 +13,7 @@ public class Lazer : MonoBehaviour
     Prism Obj;
     LineRenderer laser;
     public bool RazerOn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class Lazer : MonoBehaviour
 
         if(hit.collider!=null)
         {
+            Debug.Log(hit.collider.gameObject.name);
             if (hit.collider.gameObject.tag != "Player")
             {
                 laser.SetPosition(1, hit.point);
