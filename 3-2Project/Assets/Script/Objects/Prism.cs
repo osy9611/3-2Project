@@ -15,6 +15,8 @@ public class Prism : MonoBehaviour
 
     public Transform HitPoint;
     public Transform StoreTrans;
+
+    public float Damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +75,7 @@ public class Prism : MonoBehaviour
 
                 if (hit.collider.gameObject.tag == "Player")
                 {
-                   
+                    player.LightCheck(Damage, false);
                 }
             }
             else

@@ -18,7 +18,7 @@ public enum PlayerState
 public class Player : MonoBehaviour
 {
     public PlayerState PS;
-
+    
     //달리는 속도
     public float Speed;
     public float MinSpeed;
@@ -87,6 +87,10 @@ public class Player : MonoBehaviour
     public bool SetItem;
     public bool PrismRotate;
     public float rotation;
+
+    //스폰 포인트
+    public Transform SpawnPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,8 +102,6 @@ public class Player : MonoBehaviour
 
         wallHopeDirection.Normalize();
         wallJumpDirection.Normalize();
-
-        LightCheck();
     }
 
     // Update is called once per frame
@@ -112,6 +114,8 @@ public class Player : MonoBehaviour
             Slide();
             CheckWallSliding();
             SetItems();
+            
+            
         }
     }
 
@@ -320,9 +324,24 @@ public class Player : MonoBehaviour
     }
     
 
-    public void LightCheck()
-    {
-        
+    public void LightCheck(float Damage,bool Prism)
+    {       
+        if(LightCount >0)
+        {
+            LightCount -= Damage;
+        }
+        else if(LightCount<=0)
+        {
+            LightCount = 0;
+            if (Prism == true)
+            {
+              
+            }
+            else
+            {
+                PS = PlayerState.Die;
+            }
+        }
     }
 
     IEnumerator AttackOn()
@@ -358,6 +377,13 @@ public class Player : MonoBehaviour
                 LightCount += 1;
                 ui.Gage.fillAmount = LightCount * 0.1f;
                 collision.gameObject.SetActive(false);
+            }
+        }
+        if(collision.gameObject.tag == "SpawnPoint")
+        {
+            if(SpawnPoint.position != collision.gameObject.transform.position)
+            {
+                SpawnPoint.position = collision.gameObject.transform.position;
             }
         }
     }    

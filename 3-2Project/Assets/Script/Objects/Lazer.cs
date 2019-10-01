@@ -14,6 +14,7 @@ public class Lazer : MonoBehaviour
     LineRenderer laser;
     public bool RazerOn;
 
+    public float Damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +73,7 @@ public class Lazer : MonoBehaviour
 
             if (hit.collider.gameObject.tag == "Player")
             {
-
+                player.LightCheck(Damage,false);
             }
         }
         else
