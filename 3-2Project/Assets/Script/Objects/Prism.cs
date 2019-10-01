@@ -55,6 +55,7 @@ public class Prism : MonoBehaviour
                     if(Obj!=null)
                     {
                         Obj.RazerON = false;
+                        Obj = null;
                     }
                 }
                 if (hit.collider.gameObject.tag == "LightOut")
@@ -73,10 +74,7 @@ public class Prism : MonoBehaviour
                     Obj = null;
                 }
 
-                if (hit.collider.gameObject.tag == "Player")
-                {
-                    player.LightCheck(Damage, false);
-                }
+               
             }
             else
             {
@@ -92,6 +90,11 @@ public class Prism : MonoBehaviour
         }
         else
         {
+            if (Obj != null)
+            {
+                Obj.RazerON = false;
+                Obj = null;
+            }
             laser.enabled = false;
         }
     }

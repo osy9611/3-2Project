@@ -202,10 +202,11 @@ public class Player : MonoBehaviour
     {
         if (Speed != MaxSpeed)
         {
+            float StoreGravityScale = rigidbody.gravityScale;
             rigidbody.gravityScale = 0;
             Speed = MaxSpeed;
             yield return new WaitForSeconds(DashTime);
-            rigidbody.gravityScale = 4;
+            rigidbody.gravityScale = StoreGravityScale;
             Speed = MinSpeed;
         }       
     }
@@ -319,8 +320,8 @@ public class Player : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(GroundCheck.position, GroundCheckRaidius);
-        Gizmos.DrawLine(transform.position, new Vector3(WallCheck.position.x + WallCheckDistance, transform.position.y, transform.position.z));
+        //Gizmos.DrawWireSphere(GroundCheck.position, GroundCheckRaidius);
+        //Gizmos.DrawLine(transform.position, new Vector3(WallCheck.position.x + WallCheckDistance, transform.position.y, transform.position.z));
     }
     
 
@@ -339,6 +340,7 @@ public class Player : MonoBehaviour
             }
             else
             {
+                rigidbody.velocity = new Vector2(0,rigidbody.velocity.y);
                 PS = PlayerState.Die;
             }
         }
@@ -356,6 +358,10 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag=="Step")
         {
             StepCheck = true;
+        }
+        if(collision.gameObject.tag == "Trap")
+        {
+            LightCheck(MaxLightCount, false);
         }
     }
 
