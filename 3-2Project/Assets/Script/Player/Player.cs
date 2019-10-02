@@ -114,8 +114,8 @@ public class Player : MonoBehaviour
             Slide();
             CheckWallSliding();
             SetItems();
-            
-            
+
+            LightCountCheck();
         }
     }
 
@@ -326,24 +326,26 @@ public class Player : MonoBehaviour
     
 
     public void LightCheck(float Damage,bool Prism)
-    {       
-        if(LightCount >0)
+    {
+        if (LightCount > 0)
         {
             LightCount -= Damage;
+            ui.LightNum = (int)LightCount;
         }
-        else if(LightCount<=0)
+        else if (LightCount <= 0)
         {
             LightCount = 0;
-            if (Prism == true)
+            if (!Prism)
             {
-              
-            }
-            else
-            {
-                rigidbody.velocity = new Vector2(0,rigidbody.velocity.y);
+                rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                 PS = PlayerState.Die;
             }
         }
+    }
+
+    public void LightCountCheck()
+    {
+        ui.LightBar.sprite = ui.Light[(int)(LightCount / 10)];
     }
 
     IEnumerator AttackOn()
@@ -381,7 +383,6 @@ public class Player : MonoBehaviour
             if (LightCount < MaxLightCount)
             {
                 LightCount += 1;
-                ui.Gage.fillAmount = LightCount * 0.1f;
                 collision.gameObject.SetActive(false);
             }
         }
