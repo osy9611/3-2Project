@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public enum PlayerState
 {
     Idle,
@@ -137,7 +136,7 @@ public class Player : MonoBehaviour
         }
         if(x!=0)
         {
-            if (PS != PlayerState.D_Jump && PS != PlayerState.Jump)
+            if (PS != PlayerState.Jump)
             {
                 PS = PlayerState.Run;
             }
@@ -156,6 +155,14 @@ public class Player : MonoBehaviour
                 Flip();
             }
         }
+        else if (x==0)
+        {
+            if(PS !=PlayerState.Jump)
+            {
+                PS = PlayerState.Idle;
+            }
+        }
+
     }
 
     public void SetItems()
@@ -264,9 +271,11 @@ public class Player : MonoBehaviour
                 WallSliding = false;
                 if(WallDir ==x)
                 {
-                    StartCoroutine(JumpOff());
+                    //StartCoroutine(JumpOff());
+                    WallOff = true;
                     Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * x, wallJumpForce * wallJumpDirection.y);
                     rigidbody.velocity = forceToAdd;
+                    WallOff = false;
                 }
                 else
                 {
@@ -274,7 +283,6 @@ public class Player : MonoBehaviour
                     rigidbody.velocity = new Vector2(wallLeapForce * wallJumpDirection.x * -x, wallJumpDirection.y * wallJumpForce);
                     StartCoroutine(ClimbWall());
                 }
-                
             }
         }
 
@@ -319,7 +327,7 @@ public class Player : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        //Gizmos.color = Color.yellow;
         //Gizmos.DrawWireSphere(GroundCheck.position, GroundCheckRaidius);
         //Gizmos.DrawLine(transform.position, new Vector3(WallCheck.position.x + WallCheckDistance, transform.position.y, transform.position.z));
     }
@@ -345,7 +353,22 @@ public class Player : MonoBehaviour
 
     public void LightCountCheck()
     {
-        ui.LightBar.sprite = ui.Light[(int)(LightCount / 10)];
+        if(LightCount == 0)
+        {
+            ui.LightBar.sprite = ui.Light[0];
+        }
+        else
+        {
+            if((int)(LightCount / 20) == 0)
+            {
+                ui.LightBar.sprite = ui.Light[1];
+            }
+            else
+            {
+                ui.LightBar.sprite = ui.Light[(int)(LightCount / 20)+1];
+            }
+        }
+       
     }
 
     IEnumerator AttackOn()
