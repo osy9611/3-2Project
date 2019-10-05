@@ -154,15 +154,19 @@ public class Player : MonoBehaviour
             {
                 Flip();
             }
+
+            Ani.SetBool("Idle", false);
+            Ani.SetBool("Run", true);
         }
         else if (x==0)
         {
-            if(PS !=PlayerState.Jump)
+            Ani.SetBool("Idle", true);
+            Ani.SetBool("Run", false);
+            if (PS !=PlayerState.Jump)
             {
                 PS = PlayerState.Idle;
             }
         }
-
     }
 
     public void SetItems()
@@ -233,6 +237,7 @@ public class Player : MonoBehaviour
         if (WallSliding && !IsGround)
         {
             PS = PlayerState.Sliding;
+            Ani.SetBool("Holding", true);
             float direction = x;
             if (direction == x)
             {
@@ -245,6 +250,11 @@ public class Player : MonoBehaviour
         else if(!WallOff && !WallClimb)
         {
             rigidbody.velocity = new Vector2(Speed * x, rigidbody.velocity.y);
+        }
+        
+        if(!WallSliding)
+        {
+            Ani.SetBool("Holding", false);
         }
        
     }
@@ -262,11 +272,15 @@ public class Player : MonoBehaviour
             else if (WallSliding && x == 0)
             {
                 StartCoroutine(JumpOff());
+                Ani.SetBool("Idle", true);
+                Ani.SetBool("Holding", false);
+                Ani.SetTrigger("StopHold");
                 Vector2 forceToAdd = new Vector2(wallHopeForce * wallHopeDirection.x * -FacingDirection, wallHopeForce * wallHopeDirection.y);
                 rigidbody.velocity = forceToAdd;
             }
             else if((WallSliding||Touchingwall) && x != 0)
             {
+                Ani.SetTrigger("Jump");
                 PS = PlayerState.Climb;
                 WallSliding = false;
                 if(WallDir ==x)
@@ -327,9 +341,9 @@ public class Player : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //Gizmos.color = Color.yellow;
-        //Gizmos.DrawWireSphere(GroundCheck.position, GroundCheckRaidius);
-        //Gizmos.DrawLine(transform.position, new Vector3(WallCheck.position.x + WallCheckDistance, transform.position.y, transform.position.z));
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(GroundCheck.position, GroundCheckRaidius);
+        Gizmos.DrawLine(transform.position, new Vector3(WallCheck.position.x + WallCheckDistance, transform.position.y, transform.position.z));
     }
     
 

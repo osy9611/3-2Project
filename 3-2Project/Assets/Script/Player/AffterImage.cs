@@ -33,7 +33,7 @@ public class AffterImage : MonoBehaviour
             Sprite CurrentSprite = GetComponent<SpriteRenderer>().sprite;
             CurrentGhost.transform.localScale = this.transform.localScale;
             CurrentGhost.GetComponent<SpriteRenderer>().sprite = CurrentSprite;
-            CurrentGhost.transform.localScale = transform.parent.gameObject.transform.localScale;
+            CurrentGhost.transform.localScale = player.transform.localScale;
             Destroy(CurrentGhost, 0.5f);
             MakeGhost = false;
         }

@@ -60,7 +60,6 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -137,9 +136,8 @@ MonoBehaviour:
   - {fileID: 3162583456618988667}
   - {fileID: 3162583455641077237}
   m_Bounds:
-    m_Center: {x: 0.77422905, y: -0.23533934, z: 0}
-    m_Extent: {x: 1.4108491, y: 1.3338208, z: 0}
-  m_UseBatching: 1
+    m_Center: {x: 0.32415187, y: -1.4309974, z: 0}
+    m_Extent: {x: 2.7148743, y: 2.5294785, z: 0}
 --- !u!95 &3162583455365321608
 Animator:
   serializedVersion: 3
