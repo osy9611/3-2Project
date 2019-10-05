@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    public void Awake()
+    private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
@@ -17,5 +17,27 @@ public class SceneChange : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Game()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public void Scene()
+    {
+
+    }
+    private void Update()
+    {
+       if(Input.anyKeyDown && SceneManager.GetActiveScene().name == "MainTitle")
+        {
+            MainMenu();
+        }
     }
 }

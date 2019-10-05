@@ -5,18 +5,31 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
-    public Player player;
-
+    public SceneChange Scene;
     public List<Sprite>Light;
     public Image LightBar;
     public int LightNum;
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Player>();
+        Scene = FindObjectOfType<SceneChange>();
         LightBar.sprite = Light[LightNum];
     }
 
+    public void StartGame()
+    {
+        Scene.Game();
+    }
+
+    public void ExitGame()
+    {
+        Scene.Exit();
+    }
+
+    public void MoveScene()
+    {
+        Scene.Scene();
+    }
    
     // Update is called once per frame
     void Update()
