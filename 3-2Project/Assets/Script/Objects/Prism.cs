@@ -78,6 +78,11 @@ public class Prism : MonoBehaviour
             }
             else
             {
+                if(Obj !=null)
+                {
+                    Obj.RazerON = false;
+                    Obj = null;
+                }
                 if(raserPos.position.y <0)
                 {
                     laser.SetPosition(1, new Vector2(raserPos.position.x, -raserPos.position.y * 200));

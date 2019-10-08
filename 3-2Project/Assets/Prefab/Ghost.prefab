@@ -660,8 +660,9 @@ GameObject:
   - component: {fileID: 6355776197166021786}
   - component: {fileID: 6355776197166021785}
   - component: {fileID: 6355776197166021781}
+  - component: {fileID: 3192558474819721248}
   m_Layer: 0
-  m_Name: Ghost1
+  m_Name: Ghost
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,6 +809,46 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3192558474819721248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6355776197166021784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996f24aa393ee42499cfe8533c16d1f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bonse:
+  - {fileID: 6355776197084912204}
+  - {fileID: 6355776196675768354}
+  - {fileID: 6355776195921269852}
+  - {fileID: 6355776196165094742}
+  - {fileID: 6355776195452019678}
+  - {fileID: 6355776195803226519}
+  - {fileID: 6355776197292921342}
+  - {fileID: 6355776196581929298}
+  - {fileID: 6355776197299428389}
+  - {fileID: 6355776196692622566}
+  - {fileID: 6355776197024846033}
+  - {fileID: 6355776197466358668}
+  - {fileID: 6355776197389512038}
+  - {fileID: 6355776195499369746}
+  - {fileID: 6355776196778584392}
+  - {fileID: 6355776196486402519}
+  - {fileID: 6355776197177448968}
+  - {fileID: 6355776197361684163}
+  - {fileID: 6355776195847247170}
+  - {fileID: 6355776196797269568}
+  - {fileID: 6355776196140502389}
+  - {fileID: 6355776196726015876}
+  - {fileID: 6355776195515333848}
+  - {fileID: 6355776196402762873}
+  - {fileID: 6355776197465349946}
+  BonsPos: []
+  BonsRot: []
 --- !u!1 &6355776197177448975
 GameObject:
   m_ObjectHideFlags: 0
