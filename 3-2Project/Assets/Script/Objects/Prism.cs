@@ -22,14 +22,14 @@ public class Prism : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
         if (RazerON)
         {
             laser.enabled = true;
-            hit = Physics2D.Linecast(raserPos.position, raserPos.up * 200);
+            hit = Physics2D.Raycast(raserPos.position, raserPos.up * 200);
             laser.SetPosition(0, raserPos.position);
             if (hit.collider)
             {

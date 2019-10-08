@@ -33,8 +33,8 @@ public class Player : MonoBehaviour
     public Animator Ani;
 
     //키 입력을 받기위한 함수
-    public float x,y;
-
+    float x,y;
+    float ItemX, ItemY;
     //스프라이트 랜더러
     SpriteRenderer render;
 
@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
 
     //아이템을 설치하는 함수
     public GameObject prism;
-    GameObject PrismDummy;
+    public GameObject PrismDummy;
     private int ItemKeyDownCount;
     public bool SetItem;
     public bool PrismRotate;
@@ -133,6 +133,8 @@ public class Player : MonoBehaviour
         else
         {
             x = 0;
+            ItemX = Input.GetAxisRaw("Horizontal");
+            ItemY = Input.GetAxisRaw("Vertical");
         }
         if(x!=0)
         {
@@ -178,7 +180,7 @@ public class Player : MonoBehaviour
             {
                 case 0:
                     SetItem = true;
-                    PrismDummy = Instantiate(prism, new Vector2(transform.position.x+3.0f*FacingDirection,transform.position.y), Quaternion.identity);
+                    PrismDummy = Instantiate(prism, new Vector2(transform.position.x+3.0f*FacingDirection,transform.position.y), Quaternion.identity);                    
                     ItemKeyDownCount++;
                     break;
                 case 1:
@@ -188,6 +190,10 @@ public class Player : MonoBehaviour
                     ItemKeyDownCount =0;                    
                     break;
             }
+        }
+        if(PrismDummy !=null)
+        {
+            PrismDummy.transform.Translate(new Vector2(ItemX, ItemY) * Time.deltaTime * 15, Space.World);
         }
 
         if(Input.GetKeyDown(KeyCode.Q))
