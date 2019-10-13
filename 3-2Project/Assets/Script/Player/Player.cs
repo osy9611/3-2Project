@@ -156,7 +156,6 @@ public class Player : MonoBehaviour
             {
                 Flip();
             }
-
             Ani.SetBool("Idle", false);
             Ani.SetBool("Run", true);
         }
@@ -169,6 +168,10 @@ public class Player : MonoBehaviour
                 PS = PlayerState.Idle;
             }
         }
+
+        Ani.SetBool("IsGround", IsGround);
+        Ani.SetFloat("yVelocity", rigidbody.velocity.y);
+        Ani.SetBool("Holding", WallSliding);
     }
 
     public void SetItems()
@@ -243,7 +246,6 @@ public class Player : MonoBehaviour
         if (WallSliding && !IsGround)
         {
             PS = PlayerState.Sliding;
-            Ani.SetBool("Holding", true);
             float direction = x;
             if (direction == x)
             {
@@ -257,12 +259,6 @@ public class Player : MonoBehaviour
         {
             rigidbody.velocity = new Vector2(Speed * x, rigidbody.velocity.y);
         }
-        
-        if(!WallSliding)
-        {
-            Ani.SetBool("Holding", false);
-        }
-       
     }
 
     public void Jump()
@@ -279,7 +275,6 @@ public class Player : MonoBehaviour
             {
                 StartCoroutine(JumpOff());
                 Ani.SetBool("Idle", true);
-                Ani.SetBool("Holding", false);
                 Ani.SetTrigger("StopHold");
                 Vector2 forceToAdd = new Vector2(wallHopeForce * wallHopeDirection.x * -FacingDirection, wallHopeForce * wallHopeDirection.y);
                 rigidbody.velocity = forceToAdd;
