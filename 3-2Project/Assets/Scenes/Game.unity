@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4388,6 +4388,11 @@ PrefabInstance:
       propertyPath: WallCheckDistance
       value: 0.76
       objectReference: {fileID: 0}
+    - target: {fileID: 1310442115712875512, guid: f72519b478240d44b8db80f6e278526b,
+        type: 3}
+      propertyPath: JumpPower
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5991707059769841454, guid: f72519b478240d44b8db80f6e278526b,
         type: 3}
       propertyPath: m_Enabled
@@ -4538,6 +4543,16 @@ PrefabInstance:
       propertyPath: Bonse.Array.data[24]
       value: 
       objectReference: {fileID: 1198169554}
+    - target: {fileID: 1310442115712875515, guid: f72519b478240d44b8db80f6e278526b,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310442115712875515, guid: f72519b478240d44b8db80f6e278526b,
+        type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f72519b478240d44b8db80f6e278526b, type: 3}
 --- !u!1 &771221071

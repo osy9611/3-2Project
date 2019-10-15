@@ -403,8 +403,15 @@ public class Player : MonoBehaviour
         {
             LightCheck(MaxLightCount, false);
         }
+        if (collision.gameObject.tag == "LightIn" || collision.gameObject.tag == "LightOut")
+        {
+            if(SetItem)
+            {
+                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(),gameObject.GetComponent<Collider2D>());
+            }
+        }
     }
-
+    
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Step")
