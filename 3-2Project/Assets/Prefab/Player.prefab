@@ -542,6 +542,7 @@ GameObject:
   - component: {fileID: 1310442115712875505}
   - component: {fileID: 1310442115712875512}
   - component: {fileID: 1310442116379526396}
+  - component: {fileID: 1346508780}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -668,8 +669,8 @@ MonoBehaviour:
   - {fileID: 5991707058737971150}
   - {fileID: 5991707059806057613}
   m_Bounds:
-    m_Center: {x: 2.5127726, y: 4.32442, z: 0}
-    m_Extent: {x: 5.231785, y: 6.8962708, z: 0}
+    m_Center: {x: 2.5127726, y: 1.0028038, z: 0}
+    m_Extent: {x: 5.231785, y: 3.5746546, z: 0}
   m_UseBatching: 1
 --- !u!95 &5991707059769841442
 Animator:
@@ -702,10 +703,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 60
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 7
   m_Material: {fileID: 6200000, guid: 28cc9bcd1e5db0341af2d532196bc6fe, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -744,14 +745,13 @@ MonoBehaviour:
   MinSpeed: 20
   MaxSpeed: 60
   DashTime: 0.1
-  JumpPower: 20
+  JumpPower: 25
   variableJumpHeightMultiplier: 0.3
   Ani: {fileID: 5991707059769841442}
-  x: 0
-  y: 0
   rigidbody: {fileID: 0}
   LightCount: 0
   MaxLightCount: 100
+  IsGround: 0
   WallCheck: {fileID: 1310442115617574720}
   wallHopeDirection: {x: 1, y: 0.5}
   wallJumpDirection: {x: 1, y: 2}
@@ -759,7 +759,7 @@ MonoBehaviour:
   wallHopeForce: 9
   wallJumpForce: 30
   wallLeapForce: 20
-  WallCheckDistance: 1
+  WallCheckDistance: 0.76
   WallOff: 0
   WallClimb: 0
   WallSlidingSpeed: 2
@@ -771,10 +771,14 @@ MonoBehaviour:
     m_Bits: 256
   Ghost: {fileID: 1310442116379526396}
   prism: {fileID: 217324188175178299, guid: 8b33df67d20b78047a55e3b06215e4df, type: 3}
+  PrismDummy: {fileID: 0}
   SetItem: 0
   PrismRotate: 0
   rotation: 0
   SpawnPoint: {fileID: 0}
+  JumpEffect: {fileID: 0}
+  LandEffect: {fileID: 0}
+  JumpPos: {fileID: 0}
 --- !u!114 &1310442116379526396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,6 +795,48 @@ MonoBehaviour:
   GhostDelay: 0.5
   Ghost: {fileID: 6355776197166021784, guid: 8e4638f9dafabd04185b7e654a4a3017, type: 3}
   MakeGhost: 0
+  Bonse:
+  - {fileID: 5991707059691696635}
+  - {fileID: 5991707060083932053}
+  - {fileID: 5991707059337035755}
+  - {fileID: 5991707058506000097}
+  - {fileID: 5991707059135154281}
+  - {fileID: 5991707059480070688}
+  - {fileID: 5991707059634682441}
+  - {fileID: 5991707060261657317}
+  - {fileID: 5991707059636467602}
+  - {fileID: 5991707060100765521}
+  - {fileID: 5991707060439497574}
+  - {fileID: 5991707059805169723}
+  - {fileID: 5991707059999360721}
+  - {fileID: 5991707059180080805}
+  - {fileID: 5991707060459291391}
+  - {fileID: 5991707058822068832}
+  - {fileID: 5991707059515273663}
+  - {fileID: 5991707059968468340}
+  - {fileID: 5991707059260063477}
+  - {fileID: 5991707060474129911}
+  - {fileID: 5991707058480096962}
+  - {fileID: 5991707060134374451}
+  - {fileID: 5991707059197679471}
+  - {fileID: 5991707058737971150}
+  - {fileID: 5991707059806057613}
+--- !u!70 &1346508780
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5991707059769841455}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0055853524, y: 1.7682556}
+  m_Size: {x: 2.3549523, y: 7.2263865}
+  m_Direction: 0
 --- !u!1 &5991707059805169700
 GameObject:
   m_ObjectHideFlags: 0

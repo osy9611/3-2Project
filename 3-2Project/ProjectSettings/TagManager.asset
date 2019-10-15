@@ -12,6 +12,8 @@ TagManager:
   - LightOut
   - Prism
   - Trap
+  - Door
+  - SavePoint
   layers:
   - Default
   - TransparentFX

@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     public float MaxLightCount = 100f;
 
     //땅을 체크하기 위함
-    private bool IsGround;
+    public bool IsGround;
 
     //벽타기
     public Transform WallCheck;
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
 
     //디딤판 체크를위한 함수
     private bool StepCheck;
-
+    
     public AffterImage Ghost;
 
     //아이템을 설치하는 함수
@@ -88,7 +88,14 @@ public class Player : MonoBehaviour
     public float rotation;
 
     //스폰 포인트
-    public Transform SpawnPoint;
+    public Vector2 SpawnPoint;
+    private bool SetSpawnPointOn;
+
+    //이펙트
+    public GameObject JumpEffect;
+    public GameObject LandEffect;
+    public GameObject DieEffect;
+    public Transform JumpPos;
 
     // Start is called before the first frame update
     void Start()
@@ -101,6 +108,8 @@ public class Player : MonoBehaviour
 
         wallHopeDirection.Normalize();
         wallJumpDirection.Normalize();
+
+        SpawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -113,8 +122,11 @@ public class Player : MonoBehaviour
             Slide();
             CheckWallSliding();
             SetItems();
-
             LightCountCheck();
+        }
+        else if(PS == PlayerState.Die)
+        {
+            ResetPos();
         }
     }
 
@@ -268,8 +280,22 @@ public class Player : MonoBehaviour
             if (!WallSliding&&IsGround)
             {
                 PS = PlayerState.Jump;
+               
+                if (JumpEffect.activeSelf==false)
+                {
+                    JumpEffect.transform.position = JumpPos.position;
+                    JumpEffect.SetActive(true);
+                }
+                else
+                {
+                    JumpEffect.transform.position = JumpPos.position;
+                    JumpEffect.SetActive(false);
+                    JumpEffect.SetActive(true);
+                }
+               
                 Ani.SetTrigger("Jump");
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, JumpPower);               
+                rigidbody.velocity = new Vector2(rigidbody.velocity.x, JumpPower);            
+                
             }
             else if (WallSliding && x == 0)
             {
@@ -336,6 +362,19 @@ public class Player : MonoBehaviour
     void CheckSurroundings()
     {
         IsGround = Physics2D.OverlapCircle(GroundCheck.position, GroundCheckRaidius, WhatIsGround);
+
+        if (IsGround)
+        {
+            if (LandEffect.activeSelf==false)
+            {
+                LandEffect.SetActive(true);
+                LandEffect.transform.position = JumpPos.position;
+            }
+        }
+        else
+        {
+            LandEffect.SetActive(false);
+        }
         Touchingwall = Physics2D.Raycast(WallCheck.position, WallCheck.right,WallCheckDistance, WhatIsGround);
         Debug.DrawRay(WallCheck.position, WallCheck.right, new Color(1, 0, 0), WallCheckDistance);
     }
@@ -346,7 +385,6 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(GroundCheck.position, GroundCheckRaidius);
         Gizmos.DrawLine(transform.position, new Vector3(WallCheck.position.x + WallCheckDistance, transform.position.y, transform.position.z));
     }
-    
 
     public void LightCheck(float Damage,bool Prism)
     {
@@ -362,6 +400,10 @@ public class Player : MonoBehaviour
             {
                 rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                 PS = PlayerState.Die;
+                render.color = new Color(render.color.r, render.color.b, render.color.b, 0);
+                DieEffect.transform.position = transform.position;
+                DieEffect.SetActive(true);
+                rigidbody.simulated = false;
             }
         }
     }
@@ -372,14 +414,15 @@ public class Player : MonoBehaviour
         {
             ui.LightBar.sprite = ui.Light[0];
         }
-        else
+        else 
         {
             if((int)(LightCount / 20) == 0)
             {
                 ui.LightBar.sprite = ui.Light[1];
             }
-            else
+            else if((int)(LightCount / 20) + 1<= ui.Light.Count)
             {
+                Debug.Log(ui.Light.Count);
                 ui.LightBar.sprite = ui.Light[(int)(LightCount / 20)+1];
             }
         }
@@ -392,7 +435,17 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         PS = PlayerState.Run;
     }
-
+    
+    public void ResetPos()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            transform.position = SpawnPoint;
+            render.color = new Color(render.color.r, render.color.b, render.color.b, 1);
+            rigidbody.simulated = true;
+            PS = PlayerState.Idle;
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag=="Step")
@@ -403,13 +456,7 @@ public class Player : MonoBehaviour
         {
             LightCheck(MaxLightCount, false);
         }
-        if (collision.gameObject.tag == "LightIn" || collision.gameObject.tag == "LightOut")
-        {
-            if(SetItem)
-            {
-                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(),gameObject.GetComponent<Collider2D>());
-            }
-        }
+     
     }
     
     private void OnCollisionExit2D(Collision2D collision)
@@ -431,12 +478,40 @@ public class Player : MonoBehaviour
                 collision.gameObject.SetActive(false);
             }
         }
-        if(collision.gameObject.tag == "SpawnPoint")
+        if(collision.gameObject.tag == "Door")
         {
-            if(SpawnPoint.position != collision.gameObject.transform.position)
+            DoorSwitch Door =collision.GetComponent<DoorSwitch>();
+            if(Door.renderer.flipX==false)
             {
-                SpawnPoint.position = collision.gameObject.transform.position;
+                Door.DoorOn();
             }
         }
-    }    
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag=="SavePoint")
+        {
+            if(Input.GetKeyDown(KeyCode.W))
+            { 
+                SpawnPoint = collision.gameObject.transform.position;
+                if( LightCount<=MaxLightCount)
+                {
+                    LightCount += 20;
+                    collision.enabled=false;
+                }
+               
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "SavePoint")
+        {
+            SetSpawnPointOn = false;
+        }
+    }
+
+   
 }

@@ -17,6 +17,7 @@ public class Prism : MonoBehaviour
     public Transform StoreTrans;
 
     public float Damage;
+    public Transform TargetPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class Prism : MonoBehaviour
         if (RazerON)
         {
             laser.enabled = true;
-            hit = Physics2D.Raycast(raserPos.position, raserPos.up * 200);
+            hit = Physics2D.Raycast(raserPos.position, raserPos.up,80);
             laser.SetPosition(0, raserPos.position);
             if (hit.collider)
             {
@@ -85,11 +86,11 @@ public class Prism : MonoBehaviour
                 }
                 if(raserPos.position.y <0)
                 {
-                    laser.SetPosition(1, new Vector2(raserPos.position.x, -raserPos.position.y * 200));
+                    laser.SetPosition(1, TargetPos.position);
                 }
                 else
                 {
-                    laser.SetPosition(1, new Vector2(raserPos.position.x, raserPos.position.y * 200));
+                    laser.SetPosition(1, TargetPos.position);
                 }
             }
         }
