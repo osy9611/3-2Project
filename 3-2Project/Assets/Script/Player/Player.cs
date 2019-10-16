@@ -422,7 +422,6 @@ public class Player : MonoBehaviour
             }
             else if((int)(LightCount / 20) + 1<= ui.Light.Count)
             {
-                Debug.Log(ui.Light.Count);
                 ui.LightBar.sprite = ui.Light[(int)(LightCount / 20)+1];
             }
         }
@@ -443,6 +442,7 @@ public class Player : MonoBehaviour
             transform.position = SpawnPoint;
             render.color = new Color(render.color.r, render.color.b, render.color.b, 1);
             rigidbody.simulated = true;
+            DieEffect.SetActive(false);
             PS = PlayerState.Idle;
         }
     }

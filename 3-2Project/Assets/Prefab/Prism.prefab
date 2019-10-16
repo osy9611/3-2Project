@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 440168773}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TargetPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440168772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 40.4, z: 0}
+  m_LocalPosition: {x: 0, y: 68.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8346260521458787854}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8341336220015793300}
   - component: {fileID: 8341336220015793303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,13 +110,22 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.70666695
+        value: 0.733881
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.7333302
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -124,7 +133,7 @@ LineRenderer:
       serializedVersion: 2
       key0: {r: 0.34509805, g: 0.60784316, b: 1, a: 1}
       key1: {r: 0.34509805, g: 0.60784316, b: 1, a: 1}
-      key2: {r: 1, g: 0, b: 0, a: 0.2745098}
+      key2: {r: 1, g: 0, b: 0, a: 0.41960785}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -139,16 +148,16 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 65535
+      atime1: 58018
+      atime2: 63222
       atime3: 0
       atime4: 0
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 1
+      m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 1
@@ -167,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8341336220080043695}
   - component: {fileID: 8341336220080043692}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightIn (3)
   m_TagString: LightIn
   m_Icon: {fileID: 0}
@@ -205,7 +214,10 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -1.0560632, y: 0.00393942}
-  - {x: 1.3003588, y: 0.011458755}
+  - {x: 1.3129627, y: 0.01871872}
+  - {x: 1.0624558, y: 0.4498937}
+  - {x: -0.86370736, y: 0.42204806}
+  - {x: -1.0427328, y: 0.0124928355}
 --- !u!1 &8341336220354509339
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8341336220354509337}
   - component: {fileID: 8341336220354509336}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Prism
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8341336220504565366}
   - component: {fileID: 8341336220504565367}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightOut
   m_TagString: LightOut
   m_Icon: {fileID: 0}
@@ -333,7 +345,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -1.3771933, y: -0.370955}
+  - {x: 1.4292084, y: -0.4070891}
+  - {x: -1.3890985, y: -0.41644692}
   - {x: -1.1952299, y: -0.009184122}
   - {x: 1.2254642, y: -0.011394143}
   - {x: 1.4039261, y: -0.3899784}
@@ -346,7 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8341336221441083368}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8341336221629585798}
   - component: {fileID: 8341336221629585799}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightIn (2)
   m_TagString: LightIn
   m_Icon: {fileID: 0}
@@ -417,7 +430,9 @@ EdgeCollider2D:
   - {x: -1.3514844, y: 0.00384444}
   - {x: 0.03423989, y: 0.012276262}
   - {x: 0.9879569, y: 0.011667162}
-  - {x: 1.2296741, y: 0.4136432}
+  - {x: 1.2115119, y: 0.40055814}
+  - {x: -1.1429898, y: 0.4063334}
+  - {x: -1.3871891, y: 0.0036670566}
 --- !u!1 &8342051512887495776
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +445,7 @@ GameObject:
   - component: {fileID: 8156512750723142672}
   - component: {fileID: 8256906124417640574}
   - component: {fileID: 8341336220244593020}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Prism
   m_TagString: Untagged
   m_Icon: {fileID: 0}

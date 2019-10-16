@@ -18,10 +18,12 @@ public class Prism : MonoBehaviour
 
     public float Damage;
     public Transform TargetPos;
+    float Range;
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
+        Range = Vector2.Distance(laser.gameObject.transform.position, TargetPos.position);
     }
     
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class Prism : MonoBehaviour
         if (RazerON)
         {
             laser.enabled = true;
-            hit = Physics2D.Raycast(raserPos.position, raserPos.up,80);
+            hit = Physics2D.Raycast(raserPos.position, raserPos.up, Range);
             laser.SetPosition(0, raserPos.position);
             if (hit.collider)
             {
@@ -73,6 +75,10 @@ public class Prism : MonoBehaviour
                         }
                     }
                     Obj = null;
+                }
+                if(hit.collider.gameObject.tag == "Obstacle")
+                {
+                    hit.collider.gameObject.SetActive(false);
                 }
 
                

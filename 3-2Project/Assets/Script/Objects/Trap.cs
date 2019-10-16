@@ -13,31 +13,32 @@ public class Trap : MonoBehaviour
     void Start()
     {
         OriginPos = transform.localPosition;
+        Shaft.z = OriginPos.z;
         Done = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.localPosition, Shaft) >= 0 && Done)
+        if (Vector3.Distance(transform.localPosition, Shaft) >= 0 && Done)
         {
-            if (Vector2.Distance(transform.localPosition, Shaft) == 0)
+            if (Vector3.Distance(transform.localPosition, Shaft) == 0)
             {
                 None = true;
                 Done = false;
 
             }
 
-            transform.localPosition = Vector2.MoveTowards(transform.localPosition, Shaft, Time.deltaTime * Speed);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, Shaft, Time.deltaTime * Speed);
         }
-        else if (Vector2.Distance(transform.localPosition, OriginPos) >= 0 && None)
+        else if (Vector3.Distance(transform.localPosition, OriginPos) >= 0 && None)
         {
-            if (Vector2.Distance(transform.localPosition, OriginPos) == 0)
+            if (Vector3.Distance(transform.localPosition, OriginPos) == 0)
             {
                 None = false;
                 Done = true;
             };
-            transform.localPosition = Vector2.MoveTowards(transform.localPosition, OriginPos, Time.deltaTime * Speed);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, OriginPos, Time.deltaTime * Speed);
         }
     }
 }
