@@ -97,6 +97,8 @@ public class Player : MonoBehaviour
     public GameObject DieEffect;
     public Transform JumpPos;
 
+    //카메라 함수
+    CameraMove camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +112,7 @@ public class Player : MonoBehaviour
         wallJumpDirection.Normalize();
 
         SpawnPoint = transform.position;
+        camera = FindObjectOfType<CameraMove>();
     }
 
     // Update is called once per frame
@@ -484,6 +487,29 @@ public class Player : MonoBehaviour
             if(Door.renderer.flipX==false)
             {
                 Door.DoorOn();
+            }
+        }
+        if(collision.gameObject.tag == "ZoomPointIn")
+        {
+            if(camera.ZoomOn)
+            {
+                camera.ZoomOn = false;
+            }
+            else
+            {
+                camera.ZoomOn = true;
+            }
+        }
+
+        if (collision.gameObject.tag == "ZoomPointOut")
+        {
+            if (camera.ZoomOn)
+            {
+                camera.ZoomOn = false;
+            }
+            else
+            {
+                camera.ZoomOn = true;
             }
         }
     }
