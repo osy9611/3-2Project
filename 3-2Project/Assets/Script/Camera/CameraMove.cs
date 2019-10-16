@@ -10,6 +10,7 @@ public class CameraMove : MonoBehaviour
     public float Height;
     public float MinDistance;
     public float MaxDistance;
+    public float DistanceSpeed;
     Vector3 CameraPos;
     Vector3 PlayerPos;
     
@@ -20,16 +21,33 @@ public class CameraMove : MonoBehaviour
         Distance = MinDistance;
     }
 
+    public void ZoomIn()
+    {
+        if (Distance <= MinDistance)
+        {
+            Distance += DistanceSpeed;
+        }
+    }
+
+    public void ZoomOut()
+    {
+        if (Distance >= MaxDistance)
+        {
+            Distance -= DistanceSpeed;
+        }
+    }
+
     void FixedUpdate()
     {
-        if(ZoomOn)
+        if (ZoomOn)
         {
-            Distance = MaxDistance;
+            Invoke("ZoomOut", 0.1f);
         }
         else
         {
-            Distance = MinDistance;
+            Invoke("ZoomIn", 0.1f);
         }
+
         CameraPos = new Vector3(transform.position.x, player.gameObject.transform.position.y+Height, Distance);
      
         gameObject.transform.position = Vector3.Lerp(CameraPos, player.gameObject.transform.position, Speed * Time.smoothDeltaTime);

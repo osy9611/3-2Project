@@ -78,10 +78,11 @@ public class Prism : MonoBehaviour
                 }
                 if(hit.collider.gameObject.tag == "Obstacle")
                 {
-                    hit.collider.gameObject.SetActive(false);
+                    if(!player.SetItem)
+                    {
+                        hit.collider.gameObject.SetActive(false);
+                    }
                 }
-
-               
             }
             else
             {
