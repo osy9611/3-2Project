@@ -449,26 +449,16 @@ public class Player : MonoBehaviour
             PS = PlayerState.Idle;
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag=="Step")
-        {
-            StepCheck = true;
-        }
-        if(collision.gameObject.tag == "Trap")
+        if (collision.gameObject.tag == "Trap")
         {
             LightCheck(MaxLightCount, false);
         }
      
     }
     
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Step")
-        {
-            StepCheck = false;
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -513,7 +503,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.tag=="SavePoint")
