@@ -73,7 +73,7 @@ public class Lazer : MonoBehaviour
 
             if (hit.collider.gameObject.tag == "Player")
             {
-                player.LightCheck(Damage,false);
+                player.LightCheck(Damage, false);
             }
         }
         else

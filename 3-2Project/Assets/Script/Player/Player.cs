@@ -99,6 +99,12 @@ public class Player : MonoBehaviour
 
     //카메라 함수
     CameraMove camera;
+
+    //벽 각도 체크를 위한 레이케스트
+    RaycastHit2D hit;
+    public float hitRange;
+    public Transform AngleCheck;
+    public bool StopMove;
     // Start is called before the first frame update
     void Start()
     {
@@ -270,7 +276,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        else if(!WallOff && !WallClimb)
+        else if(!WallOff && !WallClimb && !StopMove)
         {
             rigidbody.velocity = new Vector2(Speed * x, rigidbody.velocity.y);
         }
@@ -379,7 +385,30 @@ public class Player : MonoBehaviour
             LandEffect.SetActive(false);
         }
         Touchingwall = Physics2D.Raycast(WallCheck.position, WallCheck.right,WallCheckDistance, WhatIsGround);
-        Debug.DrawRay(WallCheck.position, WallCheck.right, new Color(1, 0, 0), WallCheckDistance);
+        hit = Physics2D.Raycast(AngleCheck.position, AngleCheck.right, hitRange);
+
+        if(hit.collider !=null)
+        {
+            if (hit.collider.gameObject.tag == "Ground")
+            {
+                float Angle = Mathf.Atan2(hit.point.y - transform.position.y, hit.point.x - transform.position.x) * Mathf.Rad2Deg;
+                if(Angle<0)
+                {
+                    Angle += 360;
+                }
+
+                Debug.Log(Angle);
+                if (Angle > 0 && Angle <= 50)
+                {
+                    //StopMove = true;
+                }
+                else
+                {
+                    StopMove = false;
+                }
+            }
+        }
+        
     }
 
     private void OnDrawGizmos()
@@ -399,6 +428,7 @@ public class Player : MonoBehaviour
         else if (LightCount <= 0)
         {
             LightCount = 0;
+            ui.LightBar.sprite = ui.Light[0];
             if (!Prism)
             {
                 rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
@@ -417,7 +447,7 @@ public class Player : MonoBehaviour
         {
             ui.LightBar.sprite = ui.Light[0];
         }
-        else 
+        else if(LightCount >0)
         {
             if((int)(LightCount / 20) == 0)
             {
@@ -425,7 +455,8 @@ public class Player : MonoBehaviour
             }
             else if((int)(LightCount / 20) + 1<= ui.Light.Count)
             {
-                ui.LightBar.sprite = ui.Light[(int)(LightCount / 20)+1];
+                int a = (int)(LightCount / 20) + 1;
+                ui.LightBar.sprite = ui.Light[a];
             }
         }
        
@@ -456,7 +487,6 @@ public class Player : MonoBehaviour
         {
             LightCheck(MaxLightCount, false);
         }
-     
     }
     
 
@@ -501,6 +531,11 @@ public class Player : MonoBehaviour
             {
                 camera.ZoomOn = true;
             }
+        }
+
+        if (collision.gameObject.tag == "Trap")
+        {
+            LightCheck(MaxLightCount, false);
         }
     }
     
