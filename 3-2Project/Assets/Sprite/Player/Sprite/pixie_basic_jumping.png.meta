@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: 20e7c8b351837764fb93e8d2fd5bf205
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2182183242817552333
+    second: pixie_basic_jumping_0
+  - first:
+      213: -2951164246640660271
+    second: pixie_basic_jumping_1
+  - first:
+      213: 6858425443724439470
+    second: pixie_basic_jumping_2
+  - first:
+      213: -7029188039893401053
+    second: pixie_basic_jumping_3
+  - first:
+      213: 4417967618906079191
+    second: pixie_basic_jumping_4
+  - first:
+      213: -8303082181304618143
+    second: pixie_basic_jumping_5
+  - first:
+      213: -5311154450723095165
+    second: pixie_basic_jumping_6
+  - first:
+      213: 6231834112854359553
+    second: pixie_basic_jumping_7
+  - first:
+      213: -6187702966947920741
+    second: pixie_basic_jumping_8
+  - first:
+      213: 1498972292387299525
+    second: pixie_basic_jumping_9
+  - first:
+      213: 3622792362013611752
+    second: pixie_basic_jumping_10
+  - first:
+      213: 8864322617533092853
+    second: pixie_basic_jumping_11
+  - first:
+      213: -1577237438854752391
+    second: pixie_basic_jumping_12
+  - first:
+      213: -705608347484060655
+    second: pixie_basic_jumping_13
+  - first:
+      213: -5405779205469472561
+    second: pixie_basic_jumping_14
+  - first:
+      213: -2780230536113462948
+    second: pixie_basic_jumping_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pixie_basic_jumping_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88d3674533a7e9e4aad3356e73b5fbc4
+      internalID: -2182183242817552333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13102e8e5583d3741868059c4d286df8
+      internalID: -2951164246640660271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f3d96cbd478bdb4ea5110ec26ee1539
+      internalID: 6858425443724439470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9248ec161de6add45a13658ddf0c9ebd
+      internalID: -7029188039893401053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43c7162e50f232b479ddc6e14e03c84e
+      internalID: 4417967618906079191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc7e890d470ec4419e54717cea4335d
+      internalID: -8303082181304618143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_6
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce7cbf87bff78bb44bd6d3419f406073
+      internalID: -5311154450723095165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_7
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dafd341ae2283f4ab364b4434fec65b
+      internalID: 6231834112854359553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f44a9111e00730541a866444290153f4
+      internalID: -6187702966947920741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_9
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed8c1f8f6f477a43b6814973221db9d
+      internalID: 1498972292387299525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_10
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5ca5ca40aa81c498860d6b0af92ec1
+      internalID: 3622792362013611752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_11
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8713512fa47014c8b00a22234c8f69
+      internalID: 8864322617533092853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ae44341bfc9d44083c9e0372494abe
+      internalID: -1577237438854752391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_13
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c143e37c3565934fb618d360576d898
+      internalID: -705608347484060655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_14
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68cbd4bc820777a46910e4ac975af513
+      internalID: -5405779205469472561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixie_basic_jumping_15
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ed53d15067b154eb7829f87c1fef03
+      internalID: -2780230536113462948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2a89dc07ae8fe944589e23071198e3fc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

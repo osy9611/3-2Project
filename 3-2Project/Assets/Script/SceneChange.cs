@@ -5,18 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    public GameObject MenuButtons;
+    public GameObject KeyUI;
     public void MainTitle()
     {
         SceneManager.LoadScene("MainTitle");
-    }
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 
     public void Game()
@@ -33,11 +26,13 @@ public class SceneChange : MonoBehaviour
     {
 
     }
+
     private void Update()
     {
        if(Input.anyKeyDown && SceneManager.GetActiveScene().name == "MainTitle")
         {
-            MainMenu();
+            KeyUI.SetActive(false);
+            MenuButtons.SetActive(true);
         }
     }
 }

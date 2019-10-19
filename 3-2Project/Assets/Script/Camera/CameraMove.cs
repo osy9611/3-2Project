@@ -13,7 +13,10 @@ public class CameraMove : MonoBehaviour
     public float DistanceSpeed;
     Vector3 CameraPos;
     Vector3 PlayerPos;
-    
+
+    public float Amount;
+    public float Duration;
+    Vector3 Pos;
     public bool ZoomOn;
     void Start()
     {
@@ -37,6 +40,25 @@ public class CameraMove : MonoBehaviour
         }
     }
 
+    public void CameraShake()
+    {
+        StartCoroutine(Shake());
+    }
+
+    IEnumerator Shake()
+    {
+        yield return new WaitForSeconds(0.1f);
+        float timer = 0;
+        while (timer <= Duration)
+        {
+            transform.localPosition = (Vector3)Random.insideUnitCircle * Amount + Pos;
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        transform.localPosition = Pos;
+    }
+
     void FixedUpdate()
     {
         if (ZoomOn)
@@ -49,7 +71,7 @@ public class CameraMove : MonoBehaviour
         }
 
         CameraPos = new Vector3(transform.position.x, player.gameObject.transform.position.y+Height, Distance);
-     
+        Pos = new Vector3(player.transform.position.x, player.gameObject.transform.position.y + Height, Distance);
         gameObject.transform.position = Vector3.Lerp(CameraPos, player.gameObject.transform.position, Speed * Time.smoothDeltaTime);
     }
 }

@@ -7,10 +7,12 @@ public class DoorSwitch : MonoBehaviour
 {
     public SpriteRenderer renderer;
     public Door[] Doors;
+    public CameraMove cameraMove;
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
+        cameraMove = FindObjectOfType<CameraMove>();
     }
 
     public void DoorOn()
@@ -20,5 +22,7 @@ public class DoorSwitch : MonoBehaviour
         {
             Doors[i].On = true;
         }
+        cameraMove.CameraShake();
+
     }
 }
