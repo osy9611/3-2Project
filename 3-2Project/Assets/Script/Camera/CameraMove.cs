@@ -70,7 +70,7 @@ public class CameraMove : MonoBehaviour
             Invoke("ZoomIn", 0.1f);
         }
 
-        CameraPos = new Vector3(transform.position.x, player.gameObject.transform.position.y+Height, Distance);
+        CameraPos = new Vector3(transform.position.x, player.gameObject.transform.position.y + Height, Distance);
         Pos = new Vector3(player.transform.position.x, player.gameObject.transform.position.y + Height, Distance);
         gameObject.transform.position = Vector3.Lerp(CameraPos, player.gameObject.transform.position, Speed * Time.smoothDeltaTime);
     }

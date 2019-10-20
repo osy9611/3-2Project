@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
 
     //벽 슬라이딩 
     private bool WallSliding;
+    public bool StopSliding;
     public float WallSlidingSpeed;
     private int FacingDirection = 1;
     //UI
@@ -193,6 +194,7 @@ public class Player : MonoBehaviour
         Ani.SetBool("IsGround", IsGround);
         Ani.SetFloat("yVelocity", rigidbody.velocity.y);
         Ani.SetBool("Holding", WallSliding);
+        Ani.SetBool("StopHolding", StopSliding);
     }
 
     public void SetItems()
@@ -264,7 +266,7 @@ public class Player : MonoBehaviour
 
     void Slide()
     {
-        if (WallSliding && !IsGround)
+        if (WallSliding && !IsGround&&!StopSliding)
         {
             PS = PlayerState.Sliding;
             float direction = x;
@@ -385,28 +387,13 @@ public class Player : MonoBehaviour
             LandEffect.SetActive(false);
         }
         Touchingwall = Physics2D.Raycast(WallCheck.position, WallCheck.right,WallCheckDistance, WhatIsGround);
-        hit = Physics2D.Raycast(AngleCheck.position, AngleCheck.right, hitRange);
-
-        if(hit.collider !=null)
+        if(!transform.parent)
         {
-            if (hit.collider.gameObject.tag == "Ground")
-            {
-                float Angle = Mathf.Atan2(hit.point.y - transform.position.y, hit.point.x - transform.position.x) * Mathf.Rad2Deg;
-                if(Angle<0)
-                {
-                    Angle += 360;
-                }
-
-                Debug.Log(Angle);
-                if (Angle > 0 && Angle <= 50)
-                {
-                    //StopMove = true;
-                }
-                else
-                {
-                    StopMove = false;
-                }
-            }
+            StopSliding = false;
+        }
+        else
+        {
+            StopSliding = true;
         }
         
     }
