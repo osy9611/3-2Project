@@ -213,7 +213,8 @@ public class Player : MonoBehaviour
                     PrismDummy.transform.rotation = Quaternion.Euler(0, 0, rotation);
                     PrismDummy = null;
                     SetItem = false;
-                    ItemKeyDownCount =0;                    
+                    ItemKeyDownCount =0;
+                    rotation = 0;
                     break;
             }
         }
@@ -312,7 +313,6 @@ public class Player : MonoBehaviour
             {
                 StartCoroutine(JumpOff());
                 Ani.SetBool("Idle", true);
-                Ani.SetTrigger("StopHold");
                 Vector2 forceToAdd = new Vector2(wallHopeForce * wallHopeDirection.x * -FacingDirection, wallHopeForce * wallHopeDirection.y);
                 rigidbody.velocity = forceToAdd;
             }
@@ -412,7 +412,7 @@ public class Player : MonoBehaviour
             LightCount -= Damage;
             ui.LightNum = (int)LightCount;
         }
-        else if (LightCount <= 0)
+        else if (LightCount == 0)
         {
             LightCount = 0;
             ui.LightBar.sprite = ui.Light[0];
@@ -446,7 +446,18 @@ public class Player : MonoBehaviour
                 ui.LightBar.sprite = ui.Light[a];
             }
         }
-       
+        else if (LightCount < 0)
+        {
+            LightCount = 0;
+            ui.LightBar.sprite = ui.Light[0];
+            rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+            PS = PlayerState.Die;
+            render.color = new Color(render.color.r, render.color.b, render.color.b, 0);
+            DieEffect.transform.position = transform.position;
+            DieEffect.SetActive(true);
+            rigidbody.simulated = false;
+        }
+
     }
 
     IEnumerator AttackOn()
@@ -461,6 +472,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R))
         {
             transform.position = SpawnPoint;
+            camera.SaveZoomSet();
             render.color = new Color(render.color.r, render.color.b, render.color.b, 1);
             rigidbody.simulated = true;
             DieEffect.SetActive(false);
@@ -532,10 +544,11 @@ public class Player : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.W))
             { 
-                SpawnPoint = collision.gameObject.transform.position;
+                SpawnPoint = collision.GetComponent<Trap>().SavePointPos;
                 if( LightCount<=MaxLightCount)
                 {
                     LightCount += 20;
+                    camera.StoreDistance = camera.Distance;
                     collision.enabled=false;
                 }
                

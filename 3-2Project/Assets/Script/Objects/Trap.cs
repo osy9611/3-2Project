@@ -7,12 +7,14 @@ public class Trap : MonoBehaviour
     public Vector3 Shaft;
     public float Speed;
     public Vector3 OriginPos;
+    public Vector3 SavePointPos;
     Vector3 MovePos;
     public bool Done, None;
     // Start is called before the first frame update
     void Start()
     {
         OriginPos = transform.localPosition;
+        SavePointPos = transform.position;
         Shaft.z = OriginPos.z;
         Done = true;
     }
