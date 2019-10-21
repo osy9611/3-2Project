@@ -7,6 +7,21 @@ public class SceneChange : MonoBehaviour
 {
     public GameObject MenuButtons;
     public GameObject KeyUI;
+
+    private void Start()
+    {
+        //Invoke("KeyOn", 6.0f);
+    }
+
+    private void OnEnable()
+    {
+        KeyOn();
+    }
+
+    public void KeyOn()
+    {
+        KeyUI.SetActive(true);
+    }
     public void MainTitle()
     {
         SceneManager.LoadScene("MainTitle");
