@@ -486,6 +486,14 @@ public class Player : MonoBehaviour
         {
             LightCheck(MaxLightCount, false);
         }
+        if(collision.gameObject.tag == "LightIn"&& SetItem)
+        {
+            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
+        }
+        if (collision.gameObject.tag == "LightOut" && SetItem)
+        {
+            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
+        }
     }
     
 
@@ -535,6 +543,12 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Trap")
         {
             LightCheck(MaxLightCount, false);
+        }
+
+        if(collision.gameObject.tag == "Item")
+        {
+            collision.gameObject.SetActive(false);
+            collision.enabled = false;
         }
     }
     

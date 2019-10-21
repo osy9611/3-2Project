@@ -47,10 +47,13 @@ public class Prism : MonoBehaviour
                         HitPoint = hit.collider.transform;
                         Obj = hit.collider.gameObject.transform.parent.GetComponent<Prism>();
                         Obj.HitObj = GetComponent<Prism>();
-                    }
-                    else
-                    {
                         Obj.RazerON = true;
+                    }
+                    else if (HitPoint.position != hit.collider.transform.position)
+                    {
+                        HitPoint = null;
+                        Obj.RazerON = false;
+                        Obj = null;
                     }
                 }
                 else

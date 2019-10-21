@@ -17,6 +17,9 @@ TagManager:
   - Obstacle
   - ZoomPointIn
   - ZoomPointOut
+  - Metaball_liquid
+  - HiddenSection
+  - Item
   layers:
   - Default
   - TransparentFX
