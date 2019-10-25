@@ -13,23 +13,22 @@ public class AffterImage : MonoBehaviour
     public bool MakeGhost;
 
     public Transform[] Bonse;
+
+    public List<GameObject> Ghosts;
     // Start is called before the first frame update
     void Start()
     {
         GhostDelaySeconds = GhostDelay;
+
+        for(int i=0;i<Ghosts.Count;i++)
+        {
+
+        }
         
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if(MakeGhost)
-        {
-            StartCoroutine(GhostOn());
-        }
-    }
-
-    IEnumerator GhostOn()
     {
         if(MakeGhost)
         {
@@ -40,9 +39,13 @@ public class AffterImage : MonoBehaviour
             CurrentGhost.transform.localScale = player.transform.localScale;
             Destroy(CurrentGhost, 0.5f);
             MakeGhost = false;
+            Invoke("GhostOn", GhostDelaySeconds);
         }
-      
-        yield return new WaitForSeconds(GhostDelaySeconds);
+    }
+
+    public void GhostOn()
+    {
         MakeGhost = false;
     }
+
 }

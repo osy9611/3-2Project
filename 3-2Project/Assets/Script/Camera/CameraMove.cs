@@ -8,9 +8,8 @@ public class CameraMove : MonoBehaviour
     public float Speed;
     public float Distance;
     public float StoreDistance;
+    public float ColDistance;
     public float Height;
-    public float MinDistance;
-    public float MaxDistance;
     public float DistanceSpeed;
     Vector3 CameraPos;
     Vector3 PlayerPos;
@@ -22,12 +21,26 @@ public class CameraMove : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
-        Distance = MinDistance;
+        ColDistance = Distance;
+    }
+
+    public void CheckDistance(float distance)
+    {
+        if (Distance >= distance)
+        {
+            ColDistance = distance;
+            ZoomOn = true;
+        }
+        else
+        {
+            ColDistance = distance;
+            ZoomOn = false;              
+        }
     }
 
     public void ZoomIn()
     {
-        if (Distance <= MinDistance)
+        if (Distance <= ColDistance)
         {
             Distance += DistanceSpeed;
         }
@@ -35,7 +48,7 @@ public class CameraMove : MonoBehaviour
 
     public void ZoomOut()
     {
-        if (Distance >= MaxDistance)
+        if (Distance >= ColDistance)
         {
             Distance -= DistanceSpeed;
         }
@@ -45,10 +58,12 @@ public class CameraMove : MonoBehaviour
     {
         if(StoreDistance > Distance)
         {
+            ColDistance = StoreDistance;
             ZoomOn = false;
         }
         else if(StoreDistance < Distance)
         {
+            ColDistance = StoreDistance;
             ZoomOn = true;
         }
     }
@@ -73,8 +88,8 @@ public class CameraMove : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        if (ZoomOn)
+    {  
+        if(ZoomOn)
         {
             Invoke("ZoomOut", 0.1f);
         }
@@ -82,7 +97,6 @@ public class CameraMove : MonoBehaviour
         {
             Invoke("ZoomIn", 0.1f);
         }
-
         CameraPos = new Vector3(transform.position.x, player.gameObject.transform.position.y + Height, Distance);
         gameObject.transform.position = Vector3.Lerp(CameraPos, player.gameObject.transform.position, Speed * Time.smoothDeltaTime);
     }

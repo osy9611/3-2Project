@@ -33,10 +33,10 @@ public class Player : MonoBehaviour
     public Animator Ani;
 
     //키 입력을 받기위한 함수
-    float x,y;
+    public float x;
     float ItemX, ItemY;
     //스프라이트 랜더러
-    SpriteRenderer render;
+    public SpriteRenderer render;
 
     //리지드 바디
     public Rigidbody2D rigidbody;
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
     //벽타기
     public Transform WallCheck;
-    private bool Touchingwall;
+    public bool Touchingwall;
     public Vector2 wallHopeDirection;
     public Vector2 wallJumpDirection;
     public Vector2 wallLeapDirection;
@@ -150,7 +150,6 @@ public class Player : MonoBehaviour
         if(!SetItem)
         {
             x = Input.GetAxisRaw("Horizontal");
-            y = Input.GetAxisRaw("Vertical");
         }
         else
         {
@@ -514,29 +513,6 @@ public class Player : MonoBehaviour
             if(Door.renderer.flipX==false)
             {
                 Door.DoorOn();
-            }
-        }
-        if(collision.gameObject.tag == "ZoomPointIn")
-        {
-            if(camera.ZoomOn)
-            {
-                camera.ZoomOn = false;
-            }
-            else
-            {
-                camera.ZoomOn = true;
-            }
-        }
-
-        if (collision.gameObject.tag == "ZoomPointOut")
-        {
-            if (camera.ZoomOn)
-            {
-                camera.ZoomOn = false;
-            }
-            else
-            {
-                camera.ZoomOn = true;
             }
         }
 
