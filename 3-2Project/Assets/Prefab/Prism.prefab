@@ -228,6 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8341336220354509337}
   - component: {fileID: 8341336220354509336}
+  - component: {fileID: 6880030329968857541}
   m_Layer: 8
   m_Name: Prism
   m_TagString: Untagged
@@ -298,6 +299,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &6880030329968857541
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341336220354509339}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.055998564, y: 0.15999568}
+  serializedVersion: 2
+  m_Radius: 0.8290186
 --- !u!1 &8341336220504565321
 GameObject:
   m_ObjectHideFlags: 0

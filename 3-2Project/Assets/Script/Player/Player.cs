@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     public float MinSpeed;
     public float MaxSpeed;
     public float DashTime;
+    public int DashCount;
+    public int PrevDashCount;
+    public int MaxDashCount;
     //방향
     bool FacingRight = true;
     //점프
@@ -82,7 +85,6 @@ public class Player : MonoBehaviour
 
     //아이템을 설치하는 함수
     public GameObject prism;
-    public GameObject PrismDummy;
     private int ItemKeyDownCount;
     public bool SetItem;
     public bool PrismRotate;
@@ -106,6 +108,12 @@ public class Player : MonoBehaviour
     public float hitRange;
     public Transform AngleCheck;
     public bool StopMove;
+
+    //프리즘
+    public List<GameObject> Prisms;
+    public int PrismCount;
+    int NowPrism;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -120,6 +128,13 @@ public class Player : MonoBehaviour
 
         SpawnPoint = transform.position;
         camera = FindObjectOfType<CameraMove>();
+
+        for(int i=0;i< PrismCount; i++)
+        {
+            GameObject PrismDummy = Instantiate(prism, new Vector2(0, 0), Quaternion.identity);
+            Prisms.Add(PrismDummy);
+            Prisms[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -166,8 +181,12 @@ public class Player : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                Ghost.MakeGhost = true;
-                StartCoroutine(ChangeSpeed());
+                if(DashCount != MaxDashCount)
+                {
+                    DashCount++;
+                    StartCoroutine(ChangeSpeed());
+                    Ghost.MakeGhost = true;
+                }                
             }
             if (FacingRight && x < 0)
             {
@@ -204,41 +223,58 @@ public class Player : MonoBehaviour
             switch (ItemKeyDownCount)
             {
                 case 0:
-                    SetItem = true;
-                    PrismDummy = Instantiate(prism, new Vector2(transform.position.x+3.0f*FacingDirection,transform.position.y), Quaternion.identity);                    
+                    SetItem = true;                   
+                    Prisms[NowPrism].SetActive(false);
+                    Prisms[NowPrism].transform.position = new Vector2(transform.position.x + 3.0f * FacingDirection, transform.position.y);
+                    Prisms[NowPrism].transform.rotation = Quaternion.Euler(0, 0, 0);
+                    Prisms[NowPrism].SetActive(true);
                     ItemKeyDownCount++;
                     break;
                 case 1:
-                    PrismDummy.transform.rotation = Quaternion.Euler(0, 0, rotation);
-                    PrismDummy = null;
                     SetItem = false;
-                    ItemKeyDownCount =0;
+                    Prisms[NowPrism].transform.rotation = Quaternion.Euler(0, 0, rotation);
+                    if(NowPrism!=PrismCount-1)
+                    {
+                        NowPrism++;
+                    }
+                    else
+                    {
+                        NowPrism = 0;
+                    }                    
+                    ItemKeyDownCount = 0;
                     rotation = 0;
                     break;
             }
         }
-        if(PrismDummy !=null)
-        {
-            PrismDummy.transform.Translate(new Vector2(ItemX, ItemY) * Time.deltaTime * 15, Space.World);
-        }
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(SetItem)
         {
-            if(SetItem && PrismDummy !=null)
+            Prisms[NowPrism].transform.Translate(new Vector2(ItemX, ItemY) * Time.deltaTime * 15, Space.World);
+        }
+       
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if(SetItem && Prisms[NowPrism] != null)
             {
                 PrismRotate = true;
                 rotation += 90;
             }
         }
 
-        if(PrismRotate && PrismDummy !=null)
+        if(PrismRotate && Prisms[NowPrism] != null)
         {
-            if(PrismDummy.transform.eulerAngles.z <= rotation)
+            if(Prisms[NowPrism].transform.eulerAngles.z <= rotation)
             {
-                PrismDummy.transform.rotation = Quaternion.Slerp(PrismDummy.transform.rotation, Quaternion.Euler(PrismDummy.transform.eulerAngles.x,
- PrismDummy.transform.eulerAngles.y, rotation), 5.0f * Time.unscaledDeltaTime);
+                Prisms[NowPrism].transform.rotation = Quaternion.Slerp(Prisms[NowPrism].transform.rotation, Quaternion.Euler(Prisms[NowPrism].transform.eulerAngles.x,
+ Prisms[NowPrism].transform.eulerAngles.y, rotation), 5.0f * Time.unscaledDeltaTime);
             }
         }
+    }
+
+    void ResetCount()
+    {
+        Prisms[NowPrism].SetActive(true);
     }
 
     IEnumerator ChangeSpeed()
@@ -249,8 +285,25 @@ public class Player : MonoBehaviour
             rigidbody.gravityScale = 0;
             Speed = MaxSpeed;
             yield return new WaitForSeconds(DashTime);
+          
             rigidbody.gravityScale = StoreGravityScale;
             Speed = MinSpeed;
+            if (DashCount == MaxDashCount)
+            {
+                yield return new WaitForSeconds(1.0f);
+                DashCount = 0;
+            }
+            else
+            {
+                PrevDashCount = DashCount;
+                yield return new WaitForSeconds(0.4f); 
+                if(PrevDashCount == DashCount)
+                {
+                    DashCount = 0;
+                    PrevDashCount = 0;
+                }
+
+            }
         }       
     }
 
@@ -286,61 +339,65 @@ public class Player : MonoBehaviour
 
     public void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(!SetItem)
         {
-            if (!WallSliding&&IsGround)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                PS = PlayerState.Jump;
-               
-                if (JumpEffect.activeSelf==false)
+                if (!WallSliding && IsGround)
                 {
-                    JumpEffect.transform.position = JumpPos.position;
-                    JumpEffect.SetActive(true);
-                }
-                else
-                {
-                    JumpEffect.transform.position = JumpPos.position;
-                    JumpEffect.SetActive(false);
-                    JumpEffect.SetActive(true);
-                }
-               
-                Ani.SetTrigger("Jump");
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, JumpPower);            
-                
-            }
-            else if (WallSliding && x == 0)
-            {
-                StartCoroutine(JumpOff());
-                Ani.SetBool("Idle", true);
-                Vector2 forceToAdd = new Vector2(wallHopeForce * wallHopeDirection.x * -FacingDirection, wallHopeForce * wallHopeDirection.y);
-                rigidbody.velocity = forceToAdd;
-            }
-            else if((WallSliding||Touchingwall) && x != 0)
-            {
-                Ani.SetTrigger("Jump");
-                PS = PlayerState.Climb;
-                WallSliding = false;
-                if(WallDir ==x)
-                {
-                    //StartCoroutine(JumpOff());
-                    WallOff = true;
-                    Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * x, wallJumpForce * wallJumpDirection.y);
-                    rigidbody.velocity = forceToAdd;
-                    WallOff = false;
-                }
-                else
-                {
-                    WallClimb = true;
-                    rigidbody.velocity = new Vector2(wallLeapForce * wallJumpDirection.x * -x, wallJumpDirection.y * wallJumpForce);
-                    StartCoroutine(ClimbWall());
-                }
-            }
-        }
+                    PS = PlayerState.Jump;
 
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, rigidbody.velocity.y * variableJumpHeightMultiplier);
+                    if (JumpEffect.activeSelf == false)
+                    {
+                        JumpEffect.transform.position = JumpPos.position;
+                        JumpEffect.SetActive(true);
+                    }
+                    else
+                    {
+                        JumpEffect.transform.position = JumpPos.position;
+                        JumpEffect.SetActive(false);
+                        JumpEffect.SetActive(true);
+                    }
+
+                    Ani.SetTrigger("Jump");
+                    rigidbody.velocity = new Vector2(rigidbody.velocity.x, JumpPower);
+
+                }
+                else if (WallSliding && x == 0)
+                {
+                    StartCoroutine(JumpOff());
+                    Ani.SetBool("Idle", true);
+                    Vector2 forceToAdd = new Vector2(wallHopeForce * wallHopeDirection.x * -FacingDirection, wallHopeForce * wallHopeDirection.y);
+                    rigidbody.velocity = forceToAdd;
+                }
+                else if ((WallSliding || Touchingwall) && x != 0)
+                {
+                    Ani.SetTrigger("Jump");
+                    PS = PlayerState.Climb;
+                    WallSliding = false;
+                    if (WallDir == x)
+                    {
+                        //StartCoroutine(JumpOff());
+                        WallOff = true;
+                        Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * x, wallJumpForce * wallJumpDirection.y);
+                        rigidbody.velocity = forceToAdd;
+                        WallOff = false;
+                    }
+                    else
+                    {
+                        WallClimb = true;
+                        rigidbody.velocity = new Vector2(wallLeapForce * wallJumpDirection.x * -x, wallJumpDirection.y * wallJumpForce);
+                        StartCoroutine(ClimbWall());
+                    }
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                rigidbody.velocity = new Vector2(rigidbody.velocity.x, rigidbody.velocity.y * variableJumpHeightMultiplier);
+            }
         }
+      
     }
 
     IEnumerator JumpOff()
