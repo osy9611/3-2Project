@@ -14,7 +14,8 @@ public class StepFloor : MonoBehaviour
     public float Speed;
     public bool Starting;
     public bool Done;
-
+    public bool Stop;
+    public bool WallTouch;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,15 +30,30 @@ public class StepFloor : MonoBehaviour
         player = FindObjectOfType<Player>();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log(transform.position.y);
+            Debug.Log(player.gameObject.transform.position.y);
+            if (Mathf.Abs(transform.position.y) > Mathf.Abs(player.gameObject.transform.position.y))
+            {
+                Stop = true;
+            }
+        }
+    }
+
     public void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (!Starting && !player.Touchingwall)
+            if (!Starting && !Stop)
             {
                 Starting = true;
+                col.enabled = false;
                 StartCoroutine(Falling());
             }
+            Stop = false;
         }
     }
 
@@ -50,8 +66,7 @@ public class StepFloor : MonoBehaviour
             rb[i].gravityScale = Speed;
         }
         yield return new WaitForSeconds(1.0f);
-        Done = true;
-        col.enabled = false;
-        gameObject.SetActive(true);
+        Done = true;       
+        gameObject.SetActive(false);
     }
 }

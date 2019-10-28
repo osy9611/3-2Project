@@ -13,6 +13,7 @@ public class ZoomPos : MonoBehaviour
     public int direction;
     public int Origindir;
     public float Speed;
+    public bool NoDir;
     private void Start()
     {
         camera = FindObjectOfType<CameraMove>();
@@ -28,23 +29,45 @@ public class ZoomPos : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if(Origindir==0)
+            if (!NoDir)
             {
-                //처음 들어온 방향
-                Origindir = (int)player.x;
+                if (Origindir == 0)
+                {
+                    //처음 들어온 방향
+                    Origindir = (int)player.x;
+                }
+                //만약 들어오는 방향이 다르다면 이전에 사용했던 카메라로 변경한다
+                if (Origindir != (int)player.x)
+                {
+                    camera.CheckDistance(PrevDistance);
+                }
+                else if (Origindir == (int)player.x)
+                {
+                    PrevDistance = camera.Distance;
+                    camera.CheckDistance(Distance);
+                }
             }
-
-            //만약 들어오는 방향이 다르다면 이전에 사용했던 카메라로 변경한다
-            if (Origindir != (int)player.x)
+            else
             {
-                camera.CheckDistance(PrevDistance);
-            }
-            else if(Origindir== (int)player.x)
-            {
-                PrevDistance = camera.Distance;
-                camera.CheckDistance(Distance);
+                if (Origindir == 0)
+                {
+                    //처음 들어온 방향
+                    Origindir = (int)player.transform.position.y;
+                }
+                //만약 들어오는 방향이 다르다면 이전에 사용했던 카메라로 변경한다
+                if (Origindir != (int)player.transform.position.y)
+                {
+                    camera.CheckDistance(PrevDistance);
+                }
+                else if (Origindir == (int)player.transform.position.y)
+                {
+                    PrevDistance = camera.Distance;
+                    camera.CheckDistance(Distance);
+                }
             }
             
+            
+
         }
     }
 }

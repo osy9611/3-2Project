@@ -223,10 +223,12 @@ public class Player : MonoBehaviour
             switch (ItemKeyDownCount)
             {
                 case 0:
-                    SetItem = true;                   
+                    SetItem = true;
+                    Prisms[NowPrism].GetComponent<Prism>().RazerON = false;
                     Prisms[NowPrism].SetActive(false);
                     Prisms[NowPrism].transform.position = new Vector2(transform.position.x + 3.0f * FacingDirection, transform.position.y);
                     Prisms[NowPrism].transform.rotation = Quaternion.Euler(0, 0, 0);
+                   
                     Prisms[NowPrism].SetActive(true);
                     ItemKeyDownCount++;
                     break;
