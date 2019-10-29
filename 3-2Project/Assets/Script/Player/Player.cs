@@ -107,7 +107,6 @@ public class Player : MonoBehaviour
     RaycastHit2D hit;
     public float hitRange;
     public Transform AngleCheck;
-    public bool StopMove;
 
     //프리즘
     public List<GameObject> Prisms;
@@ -321,7 +320,7 @@ public class Player : MonoBehaviour
 
     void Slide()
     {
-        if (WallSliding && !IsGround&&!StopSliding)
+        if (WallSliding && !IsGround)
         {
             PS = PlayerState.Sliding;
             float direction = x;
@@ -333,7 +332,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        else if(!WallOff && !WallClimb && !StopMove)
+        else if(!WallOff && !WallClimb)
         {
             rigidbody.velocity = new Vector2(Speed * x, rigidbody.velocity.y);
         }

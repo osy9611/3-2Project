@@ -15,17 +15,19 @@ public class Lazer : MonoBehaviour
     public bool RazerOn;
 
     public float Damage;
+    float Range;
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
         laser = GetComponent<LineRenderer>();
         Target = OriginPos;
+        Range = Vector2.Distance(transform.position, Target.position);
     }
     // Update is called once per frame
     void Update()
     {
-        hit = Physics2D.Linecast(transform.position, Target.position);
+        hit = Physics2D.Raycast(transform.position, transform.up,Range);
         laser.SetPosition(0, transform.position);
 
         if(hit.collider!=null)

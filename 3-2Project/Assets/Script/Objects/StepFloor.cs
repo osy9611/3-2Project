@@ -32,11 +32,10 @@ public class StepFloor : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+       
         if(collision.gameObject.tag == "Player")
         {
-            Debug.Log(transform.position.y);
-            Debug.Log(player.gameObject.transform.position.y);
-            if (Mathf.Abs(transform.position.y) > Mathf.Abs(player.gameObject.transform.position.y))
+            if (Mathf.Abs(transform.position.y) > Mathf.Abs(collision.contacts[0].point.y))
             {
                 Stop = true;
             }
