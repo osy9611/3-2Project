@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     public bool WallClimb;
 
     //벽 슬라이딩 
-    private bool WallSliding;
+    public bool WallSliding;
     public bool StopSliding;
     public float WallSlidingSpeed;
     private int FacingDirection = 1;
@@ -113,6 +113,9 @@ public class Player : MonoBehaviour
     public int PrismCount;
     int NowPrism;
 
+    //비디오를 실행하는 함수
+    public CutSceneManager CutManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -128,7 +131,8 @@ public class Player : MonoBehaviour
         SpawnPoint = transform.position;
         camera = FindObjectOfType<CameraMove>();
 
-        for(int i=0;i< PrismCount; i++)
+        CutManager = FindObjectOfType<CutSceneManager>();
+        for (int i=0;i< PrismCount; i++)
         {
             GameObject PrismDummy = Instantiate(prism, new Vector2(0, 0), Quaternion.identity);
             Prisms.Add(PrismDummy);
@@ -150,7 +154,7 @@ public class Player : MonoBehaviour
         }
         else if(PS == PlayerState.Die)
         {
-            ResetPos();
+            Invoke("ResetPos", 3.0f);
         }
     }
 
@@ -375,7 +379,6 @@ public class Player : MonoBehaviour
                 {
                     Ani.SetTrigger("Jump");
                     PS = PlayerState.Climb;
-                    WallSliding = false;
                     if (WallDir == x)
                     {
                         //StartCoroutine(JumpOff());
@@ -526,7 +529,7 @@ public class Player : MonoBehaviour
     
     public void ResetPos()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if(PS==PlayerState.Die)
         {
             transform.position = SpawnPoint;
             camera.SaveZoomSet();
@@ -535,6 +538,7 @@ public class Player : MonoBehaviour
             DieEffect.SetActive(false);
             PS = PlayerState.Idle;
         }
+      
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -583,6 +587,7 @@ public class Player : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             collision.enabled = false;
+            CutManager.GameSet();
         }
     }
     

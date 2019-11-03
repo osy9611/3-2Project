@@ -11,12 +11,20 @@ public class SceneChange : MonoBehaviour
 
     private void OnEnable()
     {
-        KeyUI.SetActive(true);
+        if(KeyUI!=null)
+        {
+            KeyUI.SetActive(true);
+        }     
     }
 
     public void MainTitle()
     {
         SceneManager.LoadScene("MainTitle");
+    }
+
+    public void DelayMainTitle(float Time)
+    {
+        Invoke("MainTitle", Time);
     }
 
     public void Game()
@@ -36,10 +44,14 @@ public class SceneChange : MonoBehaviour
 
     private void Update()
     {
-       if(Input.anyKeyDown && SceneManager.GetActiveScene().name == "MainTitle")
-        {
-            KeyUI.SetActive(false);
-            MenuButtons.SetActive(true);
+       if(KeyUI!=null)
+       {
+            if (Input.anyKeyDown && SceneManager.GetActiveScene().name == "MainTitle")
+            {
+                KeyUI.SetActive(false);
+                MenuButtons.SetActive(true);
+            }
         }
+       
     }
 }
