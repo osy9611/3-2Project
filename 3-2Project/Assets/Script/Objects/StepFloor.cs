@@ -35,7 +35,7 @@ public class StepFloor : MonoBehaviour
        
         if(collision.gameObject.tag == "Player")
         {
-            if (Mathf.Abs(transform.position.y) > Mathf.Abs(collision.contacts[0].point.y))
+            if (transform.position.y > collision.contacts[0].point.y)
             {
                 Stop = true;
             }
