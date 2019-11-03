@@ -214,7 +214,8 @@ public class Player : MonoBehaviour
 
         Ani.SetBool("IsGround", IsGround);
         Ani.SetFloat("yVelocity", rigidbody.velocity.y);
-        Ani.SetBool("Holding", WallSliding);
+        Ani.SetBool("Holding", Touchingwall);
+        Ani.SetBool("Sliding", WallSliding);
         Ani.SetBool("StopHolding", StopSliding);
     }
 
@@ -555,6 +556,18 @@ public class Player : MonoBehaviour
         {
             Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
         }
+        if (collision.gameObject.tag == "Door")
+        {
+            if((int)collision.contacts[0].point.y == (int)GroundCheck.transform.transform.position.y)
+            {
+                DoorSwitch Door = collision.gameObject.GetComponent<DoorSwitch>();
+                if (Door.Off == false)
+                {
+                    Door.DoorOn();
+                }
+            }
+           
+        }
     }
     
 
@@ -569,14 +582,7 @@ public class Player : MonoBehaviour
                 collision.gameObject.SetActive(false);
             }
         }
-        if(collision.gameObject.tag == "Door")
-        {
-            DoorSwitch Door =collision.GetComponent<DoorSwitch>();
-            if(Door.renderer.flipX==false)
-            {
-                Door.DoorOn();
-            }
-        }
+       
 
         if (collision.gameObject.tag == "Trap")
         {
