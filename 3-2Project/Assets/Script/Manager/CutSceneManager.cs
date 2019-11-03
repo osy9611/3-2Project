@@ -69,10 +69,10 @@ public class CutSceneManager : MonoBehaviour
             if(Bgm.source.volume>0)
             {
                 Bgm.FadeOn();
+                FadeAni.SetBool("FadeOn", true);
             }
             else
-            {
-                FadeAni.SetBool("FadeOn", true);
+            {                
                 Scene.DelayMainTitle(1.5f);
                 BgmFadeOn = false;                
             }           
