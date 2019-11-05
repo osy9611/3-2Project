@@ -6,6 +6,10 @@ public class ZoomPos : MonoBehaviour
 {
     public float Distance;
     public float PrevDistance;
+
+    public float Height;
+    public float PrevHeight;
+
     //public float 
     public CameraMove camera;
     public Player player;
@@ -21,8 +25,9 @@ public class ZoomPos : MonoBehaviour
         PrevDistance = camera.Distance;
         if (Distance == 0)
         {
-            Distance = camera.Distance;            
-        }       
+            Distance = camera.Distance;
+            Height = camera.Height;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,11 +45,14 @@ public class ZoomPos : MonoBehaviour
                 if (Origindir != (int)player.x)
                 {
                     camera.CheckDistance(PrevDistance);
+                    camera.CheckHeight(PrevHeight);
                 }
                 else if (Origindir == (int)player.x)
                 {
                     PrevDistance = camera.Distance;
+                    PrevHeight = camera.Height;
                     camera.CheckDistance(Distance);
+                    camera.CheckHeight(Height);
                 }
             }
             else
@@ -58,15 +66,18 @@ public class ZoomPos : MonoBehaviour
                 if (Origindir != (int)player.transform.position.y)
                 {
                     camera.CheckDistance(PrevDistance);
+                    camera.CheckHeight(PrevHeight);
                 }
                 else if (Origindir == (int)player.transform.position.y)
                 {
                     PrevDistance = camera.Distance;
+                    PrevHeight = camera.Height;
                     camera.CheckDistance(Distance);
+                    camera.CheckHeight(Height);
                 }
             }
-            
-            
+
+
 
         }
     }

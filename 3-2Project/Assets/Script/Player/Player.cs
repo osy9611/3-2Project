@@ -609,6 +609,7 @@ public class Player : MonoBehaviour
                 {
                     LightCount += 20;
                     camera.StoreDistance = camera.Distance;
+                    camera.StoreHeight = camera.Height;
                     collision.enabled=false;
                 }
                

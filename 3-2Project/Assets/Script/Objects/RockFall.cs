@@ -40,7 +40,6 @@ public class RockFall : MonoBehaviour
     {
         for (int i = 0; i < Data.Count; i++)
         {
-            Debug.Log("들어옴");
             yield return new WaitForSeconds(Delay);
             Data[i].rb.bodyType = RigidbodyType2D.Dynamic;
             Data[i].rb.gravityScale = Speed;

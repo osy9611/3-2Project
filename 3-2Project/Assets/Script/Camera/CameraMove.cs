@@ -9,8 +9,12 @@ public class CameraMove : MonoBehaviour
     public float Distance;
     public float StoreDistance;
     public float ColDistance;
-    public float Height;
     public float DistanceSpeed;
+    public float Height;
+    public float StoreHeight;
+    public float ColHeight;
+    public float HeightSpeed;
+
     Vector3 CameraPos;
     Vector3 PlayerPos;
 
@@ -18,10 +22,12 @@ public class CameraMove : MonoBehaviour
     public float Duration;
     Vector3 Pos;
     public bool ZoomOn;
+    public bool HeightChangeOn;
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
         ColDistance = Distance;
+        ColHeight = Height;
     }
 
     public void CheckDistance(float distance)
@@ -34,7 +40,21 @@ public class CameraMove : MonoBehaviour
         else
         {
             ColDistance = distance;
-            ZoomOn = false;              
+            ZoomOn = false;
+        }
+    }
+
+    public void CheckHeight(float height)
+    {
+        if(Height >= height)
+        {
+            ColHeight = height;
+            HeightChangeOn = true;
+        }
+        else
+        {
+            ColHeight = height;
+            HeightChangeOn = false;
         }
     }
 
@@ -54,17 +74,46 @@ public class CameraMove : MonoBehaviour
         }
     }
 
+    public void HeightUp()
+    {
+        if (Height <= ColHeight)
+        {
+            Height += HeightSpeed;
+        }
+    }
+    public void HeightDown()
+    {
+        if (Height >= ColHeight)
+        {
+            Height -= HeightSpeed;
+        }
+    }
+
     public void SaveZoomSet()
     {
-        if(StoreDistance > Distance)
+        if (StoreDistance > Distance)
         {
             ColDistance = StoreDistance;
             ZoomOn = false;
         }
-        else if(StoreDistance < Distance)
+        else if (StoreDistance < Distance)
         {
             ColDistance = StoreDistance;
             ZoomOn = true;
+        }
+    }
+
+    public void SaveHeightSet()
+    {
+        if (StoreHeight > Height)
+        {
+            ColHeight = StoreHeight;
+            HeightChangeOn = false;
+        }
+        else if (StoreHeight < Height)
+        {
+            ColHeight = StoreHeight;
+            HeightChangeOn = true;
         }
     }
 
@@ -88,14 +137,23 @@ public class CameraMove : MonoBehaviour
     }
 
     void FixedUpdate()
-    {  
-        if(ZoomOn)
+    {
+        if (ZoomOn)
         {
             Invoke("ZoomOut", 0.1f);
         }
         else
         {
             Invoke("ZoomIn", 0.1f);
+        }
+
+        if(HeightChangeOn)
+        {
+            Invoke("HeightDown", 0.1f);
+        }
+        else
+        {
+            Invoke("HeightUp", 0.1f);
         }
         CameraPos = new Vector3(transform.position.x, player.gameObject.transform.position.y + Height, Distance);
         gameObject.transform.position = Vector3.Lerp(CameraPos, player.gameObject.transform.position, Speed * Time.smoothDeltaTime);
