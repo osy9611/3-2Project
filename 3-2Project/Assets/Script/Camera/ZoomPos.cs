@@ -26,6 +26,9 @@ public class ZoomPos : MonoBehaviour
         if (Distance == 0)
         {
             Distance = camera.Distance;
+        }
+        if(Height==0)
+        {
             Height = camera.Height;
         }
     }
