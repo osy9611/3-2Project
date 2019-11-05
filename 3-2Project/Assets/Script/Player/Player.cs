@@ -533,6 +533,7 @@ public class Player : MonoBehaviour
         if(PS==PlayerState.Die)
         {
             transform.position = SpawnPoint;
+            //transform.rotation = Quaternion.Euler(0, 0, 0);
             camera.SaveZoomSet();
             render.color = new Color(render.color.r, render.color.b, render.color.b, 1);
             rigidbody.simulated = true;

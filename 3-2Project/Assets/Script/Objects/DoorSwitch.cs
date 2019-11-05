@@ -7,6 +7,7 @@ public class DoorSwitch : MonoBehaviour
 {
     public SpriteRenderer renderer;
     public Door[] Doors;
+    public RockFall Rock;
     public CameraMove cameraMove;
 
     public Player player;    
@@ -15,6 +16,7 @@ public class DoorSwitch : MonoBehaviour
 
     public float Speed;
     public Vector3 Shaft;
+    public bool Fall;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,17 +24,26 @@ public class DoorSwitch : MonoBehaviour
         cameraMove = FindObjectOfType<CameraMove>();
         player = FindObjectOfType<Player>();
         trap = GetComponent<Trap>();
+        Rock = GetComponent<RockFall>();
     }
 
     public void DoorOn()
     {
         Off = true;
         renderer.flipX = true;
-        trap.enabled = false;       
-        for (int i=0;i<Doors.Length;i++)
+        trap.enabled = false; 
+        if (!Fall)
         {
-            Doors[i].On = true;
+            for (int i = 0; i < Doors.Length; i++)
+            {
+                Doors[i].On = true;
+            }
         }
+        else
+        {
+            Rock.FallingOn();
+        }
+       
         cameraMove.CameraShake();
     }
 

@@ -16,6 +16,7 @@ public class StepFloor : MonoBehaviour
     public bool Done;
     public bool Stop;
     public bool WallTouch;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +33,9 @@ public class StepFloor : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
         if(collision.gameObject.tag == "Player")
         {
-            if (transform.position.y > collision.contacts[0].point.y)
+            if ((int)player.GroundCheck.transform.transform.position.y == collision.contacts[0].point.y)
             {
                 Stop = true;
             }
