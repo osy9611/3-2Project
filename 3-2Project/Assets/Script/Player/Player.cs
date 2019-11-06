@@ -116,6 +116,7 @@ public class Player : MonoBehaviour
     //비디오를 실행하는 함수
     public CutSceneManager CutManager;
 
+    public ResetManager reset;
     // Start is called before the first frame update
     void Start()
     {
@@ -132,11 +133,14 @@ public class Player : MonoBehaviour
         camera = FindObjectOfType<CameraMove>();
 
         CutManager = FindObjectOfType<CutSceneManager>();
+
+        reset = FindObjectOfType<ResetManager>();
         for (int i=0;i< PrismCount; i++)
         {
             GameObject PrismDummy = Instantiate(prism, new Vector2(0, 0), Quaternion.identity);
             Prisms.Add(PrismDummy);
             Prisms[i].SetActive(false);
+            reset.prism.Add(PrismDummy.GetComponent<Prism>());
         }
     }
 
@@ -471,16 +475,16 @@ public class Player : MonoBehaviour
         if (LightCount > 0)
         {
             LightCount -= Damage;
-            ui.LightNum = (int)LightCount;
         }
         else if (LightCount == 0)
         {
             LightCount = 0;
-            ui.LightBar.sprite = ui.Light[0];
             if (!Prism)
             {
                 rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                 PS = PlayerState.Die;
+                ui.FadeIn();
+                SetItem = false;
                 render.color = new Color(render.color.r, render.color.b, render.color.b, 0);
                 DieEffect.transform.position = transform.position;
                 DieEffect.SetActive(true);
@@ -491,28 +495,13 @@ public class Player : MonoBehaviour
 
     public void LightCountCheck()
     {
-        if(LightCount == 0)
-        {
-            ui.LightBar.sprite = ui.Light[0];
-        }
-        else if(LightCount >0)
-        {
-            if((int)(LightCount / 20) == 0)
-            {
-                ui.LightBar.sprite = ui.Light[1];
-            }
-            else if((int)(LightCount / 20) + 1<= ui.Light.Count)
-            {
-                int a = (int)(LightCount / 20) + 1;
-                ui.LightBar.sprite = ui.Light[a];
-            }
-        }
-        else if (LightCount < 0)
+        if (LightCount < 0)
         {
             LightCount = 0;
-            ui.LightBar.sprite = ui.Light[0];
             rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
             PS = PlayerState.Die;
+            ui.FadeIn();
+            SetItem = false;
             render.color = new Color(render.color.r, render.color.b, render.color.b, 0);
             DieEffect.transform.position = transform.position;
             DieEffect.SetActive(true);
@@ -532,6 +521,7 @@ public class Player : MonoBehaviour
     {
         if(PS==PlayerState.Die)
         {
+            reset.ResetObjects();
             transform.position = SpawnPoint;
             //transform.rotation = Quaternion.Euler(0, 0, 0);
             camera.SaveZoomSet();
@@ -539,6 +529,8 @@ public class Player : MonoBehaviour
             rigidbody.simulated = true;
             DieEffect.SetActive(false);
             PS = PlayerState.Idle;
+            reset.SetObjects();
+            ui.FadeOut();
         }
       
     }
@@ -567,7 +559,10 @@ public class Player : MonoBehaviour
                     Door.DoorOn();
                 }
             }
-           
+        }
+        if(collision.gameObject.tag=="Prism" && SetItem)
+        {
+            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
         }
     }
     

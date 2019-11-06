@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct StepData
+{
+    public Rigidbody2D rb;
+    public SpriteRenderer render;
+    public Collider2D col;
+    public Vector3 OriginPos;
+}
 public class StepFloor : MonoBehaviour
 {
     public List<GameObject> Floors;
     Collider2D col;
-    public List<Rigidbody2D> rb;
-    public List<SpriteRenderer> render;
-    public List<Collider2D> cols;
+
+    [SerializeField]
+    public List<StepData> Data;
     public Player player;
     public float Delay;
     public float Speed;
@@ -22,9 +30,12 @@ public class StepFloor : MonoBehaviour
     {
         for(int i=0;i<Floors.Count;i++)
         {
-            rb.Add(Floors[i].GetComponent<Rigidbody2D>());
-            render.Add(Floors[i].GetComponent<SpriteRenderer>());
-            cols.Add(Floors[i].GetComponent<Collider2D>());
+            StepData dummy;
+            dummy.rb=Floors[i].GetComponent<Rigidbody2D>();
+            dummy.render =Floors[i].GetComponent<SpriteRenderer>();
+            dummy.col=Floors[i].GetComponent<Collider2D>();
+            dummy.OriginPos = Floors[i].transform.position;
+            Data.Add(dummy);
         }
 
         col = GetComponent<Collider2D>();
@@ -61,11 +72,23 @@ public class StepFloor : MonoBehaviour
         for (int i = 0; i < Floors.Count; i++)
         {
             yield return new WaitForSeconds(Delay);
-            rb[i].bodyType = RigidbodyType2D.Dynamic;
-            rb[i].gravityScale = Speed;
+            Data[i].rb.bodyType = RigidbodyType2D.Dynamic;
+            Data[i].rb.gravityScale = Speed;
         }
         yield return new WaitForSeconds(1.0f);
         Done = true;       
         gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        Done = false;
+        Starting = false;
+        col.enabled = true;
+        for (int i=0;i< Data.Count;i++)
+        {
+            Floors[i].transform.position = Data[i].OriginPos;
+            Data[i].rb.bodyType = RigidbodyType2D.Static;
+        }
     }
 }

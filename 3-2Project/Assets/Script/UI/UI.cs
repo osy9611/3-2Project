@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     public SceneChange Scene;
-    public List<Sprite>Light;
-    public Image LightBar;
-    public int LightNum;
+
+    public GameObject Fade;
+    public Animator FadeAni;
+
     // Start is called before the first frame update
     void Start()
     {
         Scene = FindObjectOfType<SceneChange>();
-        LightBar.sprite = Light[LightNum];
     }
 
     public void StartGame()
@@ -30,10 +30,30 @@ public class UI : MonoBehaviour
     {
         Scene.Scene();
     }
-   
-    // Update is called once per frame
-    void Update()
+
+    public void FadeOut()
     {
-        
+        if(FadeAni !=null && Fade.activeSelf==true)
+        {
+            FadeAni.SetBool("FadeOn", false);
+        }
+    }
+
+    public void DelayFadeOut(float time)
+    {
+        Invoke("FadeOut", time);
+    }
+
+    public void FadeIn()
+    {
+        if (FadeAni != null && Fade.activeSelf == true)
+        {
+            FadeAni.SetBool("FadeOn", true);
+        }
+    }
+
+    public void DelayFadeIn(float time)
+    {
+        Invoke("FadeIn", time);
     }
 }

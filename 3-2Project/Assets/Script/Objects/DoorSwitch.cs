@@ -54,4 +54,14 @@ public class DoorSwitch : MonoBehaviour
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, Shaft, Time.deltaTime * Speed);
         }
     }
+
+    private void OnDisable()
+    {
+        if(trap!=null)
+        {
+            transform.localPosition = trap.OriginPos;
+            trap.enabled = true;
+        }        
+        Off = false;
+    }
 }
