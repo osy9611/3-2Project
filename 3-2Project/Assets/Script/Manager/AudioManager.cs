@@ -56,7 +56,7 @@ public class Sound
 
 public class AudioManager : MonoBehaviour
 {
-    static public AudioManager instance;
+    //static public AudioManager instance;
     [SerializeField]
     public List<Sound> sounds;
 
@@ -148,16 +148,15 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Awake()
+    public void OnePlay(int num)
     {
-        if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-            instance = this;
-        }
+         sounds[num].OnePlay();
     }
+
+    public void Play(int num)
+    {
+        sounds[num].Play();
+    }
+
+   
 }

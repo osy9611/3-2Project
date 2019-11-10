@@ -1,0 +1,233 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8441859394267771937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8441859394267771951}
+  - component: {fileID: 8441859394267771936}
+  - component: {fileID: 8441859394267771950}
+  - component: {fileID: 8441859394267771949}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8441859394267771951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441859394267771937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 812.1993, y: -94.407455, z: -37.27738}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &8441859394267771936
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441859394267771937}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 293015f41bec5ec4299c0bb7944d285c, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8441859394267771950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441859394267771937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245461a5294b3d449efcb75d038838c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgms:
+  - Name: WindSection
+    Clip: {fileID: 8300000, guid: 293015f41bec5ec4299c0bb7944d285c, type: 3}
+  - Name: MoonSection
+    Clip: {fileID: 8300000, guid: bda311940bd59f941a8b46525bd09a23, type: 3}
+  - Name: CaveSection
+    Clip: {fileID: 8300000, guid: 180f58ec8e7d370419c35c3caf2477f5, type: 3}
+  source: {fileID: 8441859394267771936}
+  Count: 0
+  DisCountVolume: 0.08
+  BgmFadeOn: 0
+  SceneChange: 0
+  bgmName: 
+--- !u!114 &8441859394267771949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441859394267771937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e25649cd51c18b48806e3a2861bbc1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - Name: GrassMove
+    Clip: {fileID: 8300000, guid: 18b4d9492ac17a442ab64a026a0c875c, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: Grass Landig
+    Clip: {fileID: 8300000, guid: 92b3f8c405b5e40469f0b8c611191f1b, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: WoodMove
+    Clip: {fileID: 8300000, guid: 873a12a0f83ad3f42891bffdd3e6673b, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: WoodLanding
+    Clip: {fileID: 8300000, guid: c8e252f0e3f069c489b61bd3f67902d0, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: RockMove
+    Clip: {fileID: 8300000, guid: e7845251ff767494696ff00d0f74fb65, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: RockLanding
+    Clip: {fileID: 8300000, guid: e7b384d6e83ad774dae2e004fd945bb0, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: RockLanding
+    Clip: {fileID: 8300000, guid: 5d65dd37ed57a5d43a752116c7e4d8a0, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: RockLever
+    Clip: {fileID: 8300000, guid: 45b1b6f267ac9b044802a9440f7b7632, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: PrismOn
+    Clip: {fileID: 8300000, guid: b71d962e4b5c9774da35ff195ea70c68, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: SaveOn
+    Clip: {fileID: 8300000, guid: 0b1a9c33215c0a042817deea2ccb1e82, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: PrismBreak
+    Clip: {fileID: 8300000, guid: 1d0cc1fcab49bd34d9d95810302cc709, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: BreakRock
+    Clip: {fileID: 8300000, guid: c320a8c19eb38aa4181a8999cff0ccda, type: 3}
+    Volum: 0.7
+    Loop: 0
+  - Name: BreakWood
+    Clip: {fileID: 8300000, guid: ed4c9f92a915c7340ba1f6a83cba1988, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: BushLever
+    Clip: {fileID: 8300000, guid: 8ed5876daa6a54946af45667472b3590, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: WoodLever
+    Clip: {fileID: 8300000, guid: f20fc0fd0cc0c8b4f86ceffcb160c890, type: 3}
+    Volum: 1
+    Loop: 0
+  - Name: BreakMirror
+    Clip: {fileID: 8300000, guid: 0d7dc8f3f9c1e964b922d88a8d9924f9, type: 3}
+    Volum: 1
+    Loop: 0

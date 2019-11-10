@@ -13,8 +13,7 @@ public class Lazer : MonoBehaviour
     Prism Obj;
     LineRenderer laser;
     public bool RazerOn;
-
-    public float Damage;
+    
     float Range;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +27,7 @@ public class Lazer : MonoBehaviour
     void Update()
     {
         hit = Physics2D.Raycast(transform.position, transform.up,Range);
+     
         laser.SetPosition(0, transform.position);
 
         if(hit.collider!=null)
@@ -75,7 +75,7 @@ public class Lazer : MonoBehaviour
 
             if (hit.collider.gameObject.tag == "Player")
             {
-                player.LightCheck(Damage, false);
+                player.LightCheck(player.MaxLightCount, false);
             }
         }
         else

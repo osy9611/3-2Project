@@ -19,6 +19,13 @@ public class Prism : MonoBehaviour
     public float Damage;
     public Transform TargetPos;
     float Range;
+
+    public AudioManager Audio;
+
+    private void Awake()
+    {
+        Audio = FindObjectOfType<AudioManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -83,7 +90,20 @@ public class Prism : MonoBehaviour
                 {
                     if(!player.SetItem)
                     {
-                        hit.collider.gameObject.SetActive(false);
+                        Obstacle obj = hit.collider.gameObject.GetComponent<Obstacle>();
+                        if(!obj.DestroyOn)
+                        {
+                            if(obj.OT ==ObstacleType.Rock)
+                            {
+                                Audio.Play(11);
+                            }
+                            else if (obj.OT == ObstacleType.Wood)
+                            {
+                                Audio.Play(12);
+                            }
+                            obj.DestroyOn = true;
+                        }
+                       
                     }
                 }
             }

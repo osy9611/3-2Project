@@ -20,6 +20,9 @@ TagManager:
   - Metaball_liquid
   - HiddenSection
   - Item
+  - Rock
+  - Wood
+  - ChangeBGM
   layers:
   - Default
   - TransparentFX

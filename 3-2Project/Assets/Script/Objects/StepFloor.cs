@@ -24,11 +24,14 @@ public class StepFloor : MonoBehaviour
     public bool Done;
     public bool Stop;
     public bool WallTouch;
-    
+
+    AudioManager Audio;
+
     // Start is called before the first frame update
     void Start()
     {
-        for(int i=0;i<Floors.Count;i++)
+        Audio = FindObjectOfType<AudioManager>();
+        for (int i=0;i<Floors.Count;i++)
         {
             StepData dummy;
             dummy.rb=Floors[i].GetComponent<Rigidbody2D>();
@@ -72,6 +75,7 @@ public class StepFloor : MonoBehaviour
         for (int i = 0; i < Floors.Count; i++)
         {
             yield return new WaitForSeconds(Delay);
+            Audio.Play(15);
             Data[i].rb.bodyType = RigidbodyType2D.Dynamic;
             Data[i].rb.gravityScale = Speed;
         }

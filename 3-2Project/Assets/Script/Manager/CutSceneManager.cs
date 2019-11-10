@@ -25,7 +25,6 @@ public class CutSceneManager : MonoBehaviour
 
     public GameObject Fade;
     public Animator FadeAni;
-    bool BgmFadeOn;
 
     void Awake()
     {
@@ -37,8 +36,6 @@ public class CutSceneManager : MonoBehaviour
 
     public void Play()
     {
-        Bgm.Count++;
-        Bgm.gameObject.SetActive(false);
         rawImage.enabled = true;
         video.clip = data[VideoCnt].Clip;
         video.Play();
@@ -48,7 +45,8 @@ public class CutSceneManager : MonoBehaviour
 
     public void GameSet()
     {
-        BgmFadeOn= true;
+        Bgm.BgmFadeOn = true;
+        Bgm.SceneChange = true;
     }
     
     void Update()
@@ -61,20 +59,21 @@ public class CutSceneManager : MonoBehaviour
             rawImage.enabled=false;
             Fade.SetActive(false);
             Fade.SetActive(true);
-            Bgm.gameObject.SetActive(true);
+            Bgm.source.clip= Bgm.bgms[0].Clip;
+            Bgm.source.Play();
         }
 
-        if(BgmFadeOn)
+        if (Bgm.BgmFadeOn && Bgm.SceneChange)
         {
             if(Bgm.source.volume>0)
             {
                 Bgm.FadeOn();
-                FadeAni.SetBool("FadeOn", true);
+                FadeAni.SetBool("End", true);
             }
             else
             {                
                 Scene.DelayMainTitle(1.5f);
-                BgmFadeOn = false;                
+                Bgm.BgmFadeOn = false;                
             }           
         }
     }

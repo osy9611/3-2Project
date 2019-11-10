@@ -23,8 +23,10 @@ public class RockFall : MonoBehaviour
 
     public Player player;
 
+    AudioManager Audio;
     void Start()
     {
+        Audio = FindObjectOfType<AudioManager>();
         for(int i=0;i<Rocks.Count;i++)
         {
             RockData dummy;
@@ -45,6 +47,7 @@ public class RockFall : MonoBehaviour
         for (int i = 0; i < Data.Count; i++)
         {
             yield return new WaitForSeconds(Delay);
+            Audio.Play(15);
             Data[i].rb.bodyType = RigidbodyType2D.Dynamic;
             Data[i].rb.gravityScale = Speed;
         }

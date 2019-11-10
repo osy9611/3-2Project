@@ -10,6 +10,7 @@ public class UI : MonoBehaviour
     public GameObject Fade;
     public Animator FadeAni;
 
+    public GameObject Setting;
     // Start is called before the first frame update
     void Start()
     {

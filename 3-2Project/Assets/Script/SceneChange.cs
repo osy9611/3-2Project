@@ -8,6 +8,7 @@ public class SceneChange : MonoBehaviour
     public GameObject MenuButtons;
     public GameObject KeyUI;
 
+    public AudioManager Audio;
 
     private void OnEnable()
     {
@@ -29,11 +30,19 @@ public class SceneChange : MonoBehaviour
 
     public void Game()
     {
+        if (Audio != null)
+        {
+            Audio.Play("Start");
+        }
         SceneManager.LoadScene("Game");
     }
 
     public void Exit()
     {
+        if (Audio != null)
+        {
+            Audio.Play("Exit");
+        }
         Application.Quit();
     }
 

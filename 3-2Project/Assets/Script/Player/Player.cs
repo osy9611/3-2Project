@@ -110,13 +110,24 @@ public class Player : MonoBehaviour
 
     //프리즘
     public List<GameObject> Prisms;
+    public List<GameObject> DestroyPrims;
     public int PrismCount;
     int NowPrism;
 
     //비디오를 실행하는 함수
     public CutSceneManager CutManager;
 
+    //오브젝트들을 초기화하는 함수들
     public ResetManager reset;
+
+    //사운드 매니져
+    public AudioManager Audio;
+    public BGMManager BGM;
+
+    public bool Land;
+    public bool Rock;
+    public bool Wood;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -158,7 +169,7 @@ public class Player : MonoBehaviour
         }
         else if(PS == PlayerState.Die)
         {
-            Invoke("ResetPos", 3.0f);
+            Invoke("ResetPos", 3.0f);            
         }
     }
 
@@ -205,6 +216,22 @@ public class Player : MonoBehaviour
             }
             Ani.SetBool("Idle", false);
             Ani.SetBool("Run", true);
+
+            if(IsGround)
+            {
+                if (Rock)
+                {
+                    Audio.OnePlay(4);
+                }
+                if (Wood)
+                {
+                    Audio.OnePlay(2);
+                }
+                if (Land)
+                {
+                    Audio.OnePlay(0);
+                }
+            }
         }
         else if (x==0)
         {
@@ -233,10 +260,18 @@ public class Player : MonoBehaviour
                 case 0:
                     SetItem = true;
                     Prisms[NowPrism].GetComponent<Prism>().RazerON = false;
+                    if(Prisms[NowPrism].activeSelf)
+                    {
+                        DestroyPrims[NowPrism].SetActive(false);
+                        DestroyPrims[NowPrism].transform.position = Prisms[NowPrism].transform.position;
+                        Audio.Play(10);
+                        DestroyPrims[NowPrism].SetActive(true);
+                    }
                     Prisms[NowPrism].SetActive(false);
+                   
                     Prisms[NowPrism].transform.position = new Vector2(transform.position.x + 3.0f * FacingDirection, transform.position.y);
                     Prisms[NowPrism].transform.rotation = Quaternion.Euler(0, 0, 0);
-                   
+                    Audio.Play(8);
                     Prisms[NowPrism].SetActive(true);
                     ItemKeyDownCount++;
                     break;
@@ -293,6 +328,7 @@ public class Player : MonoBehaviour
         {
             float StoreGravityScale = rigidbody.gravityScale;
             rigidbody.gravityScale = 0;
+            Audio.Play(6);
             Speed = MaxSpeed;
             yield return new WaitForSeconds(DashTime);
           
@@ -361,6 +397,7 @@ public class Player : MonoBehaviour
                     {
                         JumpEffect.transform.position = JumpPos.position;
                         JumpEffect.SetActive(true);
+                       
                     }
                     else
                     {
@@ -424,7 +461,7 @@ public class Player : MonoBehaviour
 
     void CheckWallSliding()
     {
-        if(Touchingwall && !IsGround && rigidbody.velocity.y < 0)
+        if(Touchingwall && !IsGround&&transform.parent==null)
         {
             WallSliding = true;
             WallDir = FacingRight ? -1 : 1;
@@ -443,13 +480,16 @@ public class Player : MonoBehaviour
         {
             if (LandEffect.activeSelf==false)
             {
-                LandEffect.SetActive(true);
+                LandEffect.SetActive(true);              
                 LandEffect.transform.position = JumpPos.position;
             }
         }
         else
         {
             LandEffect.SetActive(false);
+            Land = false;
+            Wood = false;
+            Rock = false;
         }
         Touchingwall = Physics2D.Raycast(WallCheck.position, WallCheck.right,WallCheckDistance, WhatIsGround);
         if(!transform.parent)
@@ -501,7 +541,6 @@ public class Player : MonoBehaviour
             rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
             PS = PlayerState.Die;
             ui.FadeIn();
-            SetItem = false;
             render.color = new Color(render.color.r, render.color.b, render.color.b, 0);
             DieEffect.transform.position = transform.position;
             DieEffect.SetActive(true);
@@ -531,6 +570,7 @@ public class Player : MonoBehaviour
             PS = PlayerState.Idle;
             reset.SetObjects();
             ui.FadeOut();
+            CancelInvoke("ResetPos");
         }
       
     }
@@ -556,7 +596,7 @@ public class Player : MonoBehaviour
                 DoorSwitch Door = collision.gameObject.GetComponent<DoorSwitch>();
                 if (Door.Off == false)
                 {
-                    Door.DoorOn();
+                    Door.DoorOn();                    
                 }
             }
         }
@@ -564,6 +604,55 @@ public class Player : MonoBehaviour
         {
             Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
         }
+
+        if (collision.gameObject.tag == "Ground")
+        {
+            if(!Land && IsGround && !WallSliding && transform.parent == null)
+            {
+                Audio.OnePlay(1);
+            }
+        }
+        
+        if(collision.gameObject.tag == "Rock")
+        {
+            if (!Rock && IsGround && !WallSliding)
+            {
+                Audio.OnePlay(5);
+            }
+        }
+
+        if(collision.gameObject.tag == "Wood")
+        {
+            if (!Land && IsGround && !WallSliding)
+            {
+                Audio.OnePlay(3);
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            Land = true;
+            Wood = false;
+            Rock = false;
+        }
+
+        if (collision.gameObject.tag == "Rock")
+        {
+            Land = false;
+            Wood = false;
+            Rock = true;
+        }
+
+        if (collision.gameObject.tag == "Wood")
+        {
+            Land = false;
+            Wood = true;
+            Rock = false;
+        }
+
     }
     
 
@@ -591,6 +680,17 @@ public class Player : MonoBehaviour
             collision.enabled = false;
             CutManager.GameSet();
         }
+
+        if(collision.gameObject.tag == "ChangeBGM")
+        {
+            if(BGM.bgmName != collision.gameObject.name)
+            {
+                BGM.BgmFadeOn = true;
+                BGM.SceneChange = false;
+                BGM.bgmName = collision.gameObject.name;
+                BGM.Play(BGM.bgmName);
+            }          
+        }
     }
     
     private void OnTriggerStay2D(Collider2D collision)
@@ -602,7 +702,8 @@ public class Player : MonoBehaviour
                 SpawnPoint = collision.GetComponent<Trap>().SavePointPos;
                 if( LightCount<=MaxLightCount)
                 {
-                    LightCount += 20;
+                    Audio.OnePlay(9);
+                    collision.GetComponent<SavePoint>().CheckAni();
                     camera.StoreDistance = camera.Distance;
                     camera.StoreHeight = camera.Height;
                     collision.enabled=false;
