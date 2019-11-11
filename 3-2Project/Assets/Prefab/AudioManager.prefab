@@ -43,7 +43,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 293015f41bec5ec4299c0bb7944d285c, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -54,7 +54,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1925.895
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -144,13 +144,16 @@ MonoBehaviour:
   bgms:
   - Name: WindSection
     Clip: {fileID: 8300000, guid: 293015f41bec5ec4299c0bb7944d285c, type: 3}
+    Volume: 1
   - Name: MoonSection
     Clip: {fileID: 8300000, guid: bda311940bd59f941a8b46525bd09a23, type: 3}
+    Volume: 0.5
   - Name: CaveSection
     Clip: {fileID: 8300000, guid: 180f58ec8e7d370419c35c3caf2477f5, type: 3}
+    Volume: 1
   source: {fileID: 8441859394267771936}
   Count: 0
-  DisCountVolume: 0.08
+  DisCountVolume: 0.01
   BgmFadeOn: 0
   SceneChange: 0
   bgmName: 
@@ -169,31 +172,31 @@ MonoBehaviour:
   sounds:
   - Name: GrassMove
     Clip: {fileID: 8300000, guid: 18b4d9492ac17a442ab64a026a0c875c, type: 3}
-    Volum: 1
+    Volum: 0.6
     Loop: 0
   - Name: Grass Landig
     Clip: {fileID: 8300000, guid: 92b3f8c405b5e40469f0b8c611191f1b, type: 3}
-    Volum: 1
+    Volum: 0.6
     Loop: 0
   - Name: WoodMove
     Clip: {fileID: 8300000, guid: 873a12a0f83ad3f42891bffdd3e6673b, type: 3}
-    Volum: 1
+    Volum: 0.6
     Loop: 0
   - Name: WoodLanding
     Clip: {fileID: 8300000, guid: c8e252f0e3f069c489b61bd3f67902d0, type: 3}
-    Volum: 1
+    Volum: 0.6
     Loop: 0
   - Name: RockMove
     Clip: {fileID: 8300000, guid: e7845251ff767494696ff00d0f74fb65, type: 3}
-    Volum: 1
+    Volum: 0.6
     Loop: 0
   - Name: RockLanding
     Clip: {fileID: 8300000, guid: e7b384d6e83ad774dae2e004fd945bb0, type: 3}
-    Volum: 1
+    Volum: 0.6
     Loop: 0
   - Name: RockLanding
     Clip: {fileID: 8300000, guid: 5d65dd37ed57a5d43a752116c7e4d8a0, type: 3}
-    Volum: 1
+    Volum: 0.6
     Loop: 0
   - Name: RockLever
     Clip: {fileID: 8300000, guid: 45b1b6f267ac9b044802a9440f7b7632, type: 3}

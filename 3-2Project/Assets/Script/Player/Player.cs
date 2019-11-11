@@ -605,7 +605,7 @@ public class Player : MonoBehaviour
         {
             if(!Land && IsGround && !WallSliding && transform.parent == null)
             {
-                Audio.OnePlay(1);
+                Audio.Play(1);
             }
         }
         
@@ -613,7 +613,7 @@ public class Player : MonoBehaviour
         {
             if (!Rock && IsGround && !WallSliding)
             {
-                Audio.OnePlay(5);
+                Audio.Play(5);
             }
         }
 
@@ -621,7 +621,7 @@ public class Player : MonoBehaviour
         {
             if (!Land && IsGround && !WallSliding)
             {
-                Audio.OnePlay(3);
+                Audio.Play(3);
             }
         }
     }
