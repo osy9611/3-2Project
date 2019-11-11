@@ -11,6 +11,7 @@ public class UI : MonoBehaviour
     public Animator FadeAni;
 
     public GameObject Setting;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,5 +57,11 @@ public class UI : MonoBehaviour
     public void DelayFadeIn(float time)
     {
         Invoke("FadeIn", time);
+    }
+
+    public void ESCOff()
+    {
+        Time.timeScale = 1;
+        Setting.SetActive(false);
     }
 }

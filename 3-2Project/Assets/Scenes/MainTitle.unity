@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 815962085}
   - component: {fileID: 815962084}
   - component: {fileID: 815962083}
+  - component: {fileID: 815962086}
   m_Layer: 5
   m_Name: LoadGame
   m_TagString: Untagged
@@ -745,6 +746,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815962081}
   m_CullTransparentMesh: 0
+--- !u!95 &815962086
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815962081}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d02484a44395b44b9e832f67342e9ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &849766663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,6 +1422,7 @@ GameObject:
   - component: {fileID: 1578623312}
   - component: {fileID: 1578623311}
   - component: {fileID: 1578623310}
+  - component: {fileID: 1578623313}
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -1520,6 +1541,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578623308}
   m_CullTransparentMesh: 0
+--- !u!95 &1578623313
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578623308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9251dd7245c67e449c4d10129c21f41, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1698769557
 GameObject:
   m_ObjectHideFlags: 0

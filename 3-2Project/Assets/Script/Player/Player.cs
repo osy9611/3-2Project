@@ -167,6 +167,7 @@ public class Player : MonoBehaviour
             CheckWallSliding();
             SetItems();
             LightCountCheck();
+            UISet();
         }
         else if(PS == PlayerState.Die)
         {
@@ -579,6 +580,23 @@ public class Player : MonoBehaviour
             CancelInvoke("ResetPos");
         }
       
+    }
+
+    public void UISet()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!ui.Setting.activeSelf)
+            {
+                ui.Setting.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                ui.Setting.SetActive(false);
+                Time.timeScale = 1;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -20,6 +20,7 @@ public class SceneChange : MonoBehaviour
 
     public void MainTitle()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainTitle");
     }
 
