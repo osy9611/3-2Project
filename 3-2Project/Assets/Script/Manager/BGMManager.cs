@@ -20,7 +20,7 @@ public class BGMManager : MonoBehaviour
     public bool BgmFadeOn;
 
     public bool SceneChange;
-
+    
     public string bgmName;
 
     public void FadeOn()
@@ -52,7 +52,6 @@ public class BGMManager : MonoBehaviour
             if(bgms[i].Name==name)
             {
                 BgmFadeOn = false;
-                Debug.Log("들어옴");
                 source.clip = bgms[i].Clip;
                 source.volume =bgms[i].Volume;
                 source.Play();               

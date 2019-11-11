@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
 
     //스폰 포인트
     public Vector2 SpawnPoint;
+    public string SpawnBGM;
     private bool SetSpawnPointOn;
 
     //이펙트
@@ -149,7 +150,7 @@ public class Player : MonoBehaviour
         for (int i=0;i< PrismCount; i++)
         {
             GameObject PrismDummy = Instantiate(prism, new Vector2(0, 0), Quaternion.identity);
-            Prisms.Add(PrismDummy);
+            Prisms.Add(PrismDummy);            
             Prisms[i].SetActive(false);
             reset.prism.Add(PrismDummy.GetComponent<Prism>());
         }
@@ -273,12 +274,14 @@ public class Player : MonoBehaviour
                     Prisms[NowPrism].transform.rotation = Quaternion.Euler(0, 0, 0);
                     Audio.Play(8);
                     Prisms[NowPrism].SetActive(true);
+                    reset.prism[NowPrism].TriggerOn();
                     ItemKeyDownCount++;
                     break;
                 case 1:
                     SetItem = false;
                     Prisms[NowPrism].transform.rotation = Quaternion.Euler(0, 0, rotation);
-                    if(NowPrism!=PrismCount-1)
+                    reset.prism[NowPrism].TriggerOff();
+                    if (NowPrism!=PrismCount-1)
                     {
                         NowPrism++;
                     }
@@ -562,7 +565,10 @@ public class Player : MonoBehaviour
         {
             reset.ResetObjects();
             transform.position = SpawnPoint;
-            //transform.rotation = Quaternion.Euler(0, 0, 0);
+            if(BGM.bgmName!=SpawnBGM)
+            {
+                BGM.Play(SpawnBGM);
+            }
             camera.SaveZoomSet();
             render.color = new Color(render.color.r, render.color.b, render.color.b, 1);
             rigidbody.simulated = true;
@@ -581,14 +587,7 @@ public class Player : MonoBehaviour
         {
             LightCheck(MaxLightCount, false);
         }
-        if(collision.gameObject.tag == "LightIn"&& SetItem)
-        {
-            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
-        }
-        if (collision.gameObject.tag == "LightOut" && SetItem)
-        {
-            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
-        }
+        
         if (collision.gameObject.tag == "Door")
         {
             if((int)collision.contacts[0].point.y == (int)GroundCheck.transform.transform.position.y)
@@ -600,10 +599,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        if(collision.gameObject.tag=="Prism" && SetItem)
-        {
-            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
-        }
+        
 
         if (collision.gameObject.tag == "Ground")
         {
@@ -688,7 +684,7 @@ public class Player : MonoBehaviour
                 BGM.BgmFadeOn = true;
                 BGM.SceneChange = false;
                 BGM.bgmName = collision.gameObject.name;
-                BGM.Play(BGM.bgmName);
+                //BGM.Play(BGM.bgmName);
             }          
         }
     }
@@ -700,7 +696,8 @@ public class Player : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.W))
             { 
                 SpawnPoint = collision.GetComponent<Trap>().SavePointPos;
-                if( LightCount<=MaxLightCount)
+                SpawnBGM = BGM.bgmName;
+                if ( LightCount<=MaxLightCount)
                 {
                     Audio.OnePlay(9);
                     collision.GetComponent<SavePoint>().CheckAni();

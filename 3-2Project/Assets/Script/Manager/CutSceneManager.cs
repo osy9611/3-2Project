@@ -60,6 +60,7 @@ public class CutSceneManager : MonoBehaviour
             Fade.SetActive(false);
             Fade.SetActive(true);
             Bgm.source.clip= Bgm.bgms[0].Clip;
+            Bgm.bgmName = Bgm.bgms[0].Name;
             Bgm.source.Play();
         }
 

@@ -23,6 +23,7 @@ public class Trap : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if((int)collision.contacts[0].point.y > transform.position.y)
             collision.transform.SetParent(this.transform);
         }
     }

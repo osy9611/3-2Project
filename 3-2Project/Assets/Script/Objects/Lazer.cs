@@ -15,6 +15,7 @@ public class Lazer : MonoBehaviour
     public bool RazerOn;
     
     float Range;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,9 @@ public class Lazer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hit = Physics2D.Raycast(transform.position, transform.up,Range);
+        int Mask = 1 << 11;
+        Mask = ~Mask;
+        hit = Physics2D.Raycast(transform.position, transform.up,Range, Mask);
      
         laser.SetPosition(0, transform.position);
 

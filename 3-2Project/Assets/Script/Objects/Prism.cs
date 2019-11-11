@@ -22,6 +22,8 @@ public class Prism : MonoBehaviour
 
     public AudioManager Audio;
 
+    public Collider2D[] col;
+
     private void Awake()
     {
         Audio = FindObjectOfType<AudioManager>();
@@ -32,14 +34,33 @@ public class Prism : MonoBehaviour
         player = FindObjectOfType<Player>();
         Range = Vector2.Distance(laser.gameObject.transform.position, TargetPos.position);
     }
+
+    public void TriggerOn()
+    {
+        for(int i=0;i<col.Length;i++)
+        {
+            col[i].isTrigger = true;
+        }
+    }
+
+    public void TriggerOff()
+    {
+        for (int i = 0; i < col.Length; i++)
+        {
+            col[i].isTrigger = false;
+        }
+    }
     
     // Update is called once per frame
     void Update()
     {
+        int Mask = 1 << 11;
+        Mask = ~Mask;
         if (RazerON)
-        {
+        {       
+
             laser.enabled = true;
-            hit = Physics2D.Raycast(raserPos.position, raserPos.up, Range);
+            hit = Physics2D.Raycast(raserPos.position, raserPos.up, Range, Mask);
             laser.SetPosition(0, raserPos.position);
             if (hit.collider)
             {
