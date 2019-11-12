@@ -577,6 +577,7 @@ public class Player : MonoBehaviour
             PS = PlayerState.Idle;
             reset.SetObjects();
             ui.FadeOut();
+            ItemKeyDownCount = 0;
             CancelInvoke("ResetPos");
         }
       
@@ -584,7 +585,7 @@ public class Player : MonoBehaviour
 
     public void UISet()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && CutManager.PlayGame)
         {
             if(!ui.Setting.activeSelf)
             {

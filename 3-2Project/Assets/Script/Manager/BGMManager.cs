@@ -52,9 +52,11 @@ public class BGMManager : MonoBehaviour
             if(bgms[i].Name==name)
             {
                 BgmFadeOn = false;
-                source.clip = bgms[i].Clip;
+                source.clip = bgms[i].Clip;                
                 source.volume =bgms[i].Volume;
-                source.Play();               
+                Debug.Log(bgms[i].Volume);
+                Debug.Log(source.volume);
+                source.Play();                
             }
         }
     }
@@ -67,8 +69,11 @@ public class BGMManager : MonoBehaviour
             {
                 FadeOn();
             }
-            else
+            else if(source.volume<=0)
             {
+                CancelInvoke("VolumeFade");
+                SceneChange = false;
+                BgmFadeOn = false;
                 Play(bgmName);
             }
            

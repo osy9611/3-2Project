@@ -58,7 +58,7 @@ public class ZoomPos : MonoBehaviour
                     camera.CheckHeight(Height);
                 }
             }
-            else
+            else if(NoDir)
             {
                 if (Origindir == 0)
                 {

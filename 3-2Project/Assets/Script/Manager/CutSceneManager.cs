@@ -26,6 +26,8 @@ public class CutSceneManager : MonoBehaviour
     public GameObject Fade;
     public Animator FadeAni;
 
+    public bool PlayGame;
+
     void Awake()
     {
         video = GetComponent<VideoPlayer>();
@@ -40,6 +42,7 @@ public class CutSceneManager : MonoBehaviour
         video.clip = data[VideoCnt].Clip;
         video.Play();
         VideoCnt++;
+        PlayGame = false;
         Time.timeScale = 0;      
     }
 
@@ -62,6 +65,7 @@ public class CutSceneManager : MonoBehaviour
             Bgm.source.clip= Bgm.bgms[0].Clip;
             Bgm.bgmName = Bgm.bgms[0].Name;
             Bgm.source.Play();
+            PlayGame = true;
         }
 
         if (Bgm.BgmFadeOn && Bgm.SceneChange)
