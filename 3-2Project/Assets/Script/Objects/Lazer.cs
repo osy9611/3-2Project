@@ -10,7 +10,7 @@ public class Lazer : MonoBehaviour
     public Transform LayHit;
     public Transform OriginPos;
     public Transform Target;
-    Prism Obj;
+    public Prism Obj;
     LineRenderer laser;
     public bool RazerOn;
     
@@ -41,15 +41,18 @@ public class Lazer : MonoBehaviour
             }
             if (hit.collider.gameObject.tag == "LightIn")
             {
-                HitPoint = hit.collider.transform;
                 if (Obj == null)
                 {
+                    HitPoint = hit.collider.transform;
                     Obj = hit.collider.gameObject.transform.parent.GetComponent<Prism>();
                     Obj.HitObj = GetComponent<Prism>();
-                }
-                else
-                {
                     Obj.RazerON = true;
+                }
+                else if (HitPoint.position != hit.collider.transform.position)
+                {
+                    HitPoint = null;
+                    Obj.RazerON = false;
+                    Obj = null;
                 }
             }
             else

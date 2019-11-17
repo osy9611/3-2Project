@@ -50,7 +50,12 @@ public class Prism : MonoBehaviour
             col[i].isTrigger = false;
         }
     }
-    
+
+    private void OnDisable()
+    {
+        RazerON = false;
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -19,6 +19,8 @@ public class CutSceneManager : MonoBehaviour
     public RawImage rawImage;   
     public int VideoCnt = 0;
 
+    public Player player;
+
     public AudioManager Audio;
     public BGMManager Bgm;
     public SceneChange Scene;

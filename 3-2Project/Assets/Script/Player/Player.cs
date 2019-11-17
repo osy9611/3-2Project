@@ -255,13 +255,12 @@ public class Player : MonoBehaviour
     public void SetItems()
     {
         
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && CutManager.PlayGame)
         {
             switch (ItemKeyDownCount)
             {
                 case 0:
                     SetItem = true;
-                    Prisms[NowPrism].GetComponent<Prism>().RazerON = false;
                     if(Prisms[NowPrism].activeSelf)
                     {
                         DestroyPrims[NowPrism].SetActive(false);

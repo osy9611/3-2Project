@@ -5,6 +5,7 @@ using UnityEngine;
 public class ResetManager : MonoBehaviour
 {
     public List<Prism> prism;
+    public List<Prism> SetPrism;
     public RockFall[] rockFall;
     public StepFloor[] stepFloor;
     public Player player;
@@ -31,7 +32,8 @@ public class ResetManager : MonoBehaviour
     }
     
     public void SetObjects()
-    { for (int i = 0; i < prism.Count; i++)
+    {
+        for (int i = 0; i < prism.Count; i++)
         {
             prism[i].gameObject.SetActive(false);
         }
