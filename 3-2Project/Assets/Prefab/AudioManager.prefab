@@ -153,7 +153,7 @@ MonoBehaviour:
     Volume: 1
   source: {fileID: 8441859394267771936}
   Count: 0
-  DisCountVolume: 0.01
+  DisCountVolume: 0.03
   BgmFadeOn: 0
   SceneChange: 0
   bgmName: 
@@ -208,7 +208,7 @@ MonoBehaviour:
     Loop: 0
   - Name: SaveOn
     Clip: {fileID: 8300000, guid: 0b1a9c33215c0a042817deea2ccb1e82, type: 3}
-    Volum: 1
+    Volum: 0.7
     Loop: 0
   - Name: PrismBreak
     Clip: {fileID: 8300000, guid: 1d0cc1fcab49bd34d9d95810302cc709, type: 3}

@@ -23,6 +23,7 @@ TagManager:
   - Rock
   - Wood
   - ChangeBGM
+  - Boss
   layers:
   - Default
   - TransparentFX

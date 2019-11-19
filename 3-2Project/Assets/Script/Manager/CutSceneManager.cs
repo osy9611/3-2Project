@@ -33,6 +33,7 @@ public class CutSceneManager : MonoBehaviour
     void Awake()
     {
         video = GetComponent<VideoPlayer>();
+        player = FindObjectOfType<Player>();
         Time.timeScale = 0;
         video.clip = data[VideoCnt].Clip;
         VideoCnt++;
@@ -67,6 +68,7 @@ public class CutSceneManager : MonoBehaviour
             Bgm.source.clip= Bgm.bgms[0].Clip;
             Bgm.bgmName = Bgm.bgms[0].Name;
             Bgm.source.Play();
+            player.PlayOn = true;
             PlayGame = true;
         }
 

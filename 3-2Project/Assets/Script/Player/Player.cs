@@ -16,6 +16,7 @@ public enum PlayerState
 }
 public class Player : MonoBehaviour
 {
+    public bool PlayOn;
     public PlayerState PS;
     
     //달리는 속도
@@ -254,8 +255,7 @@ public class Player : MonoBehaviour
 
     public void SetItems()
     {
-        
-        if (Input.GetKeyDown(KeyCode.E) && CutManager.PlayGame)
+        if (Input.GetKeyDown(KeyCode.E) && PlayOn)
         {
             switch (ItemKeyDownCount)
             {
@@ -584,7 +584,7 @@ public class Player : MonoBehaviour
 
     public void UISet()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && CutManager.PlayGame)
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(!ui.Setting.activeSelf)
             {
