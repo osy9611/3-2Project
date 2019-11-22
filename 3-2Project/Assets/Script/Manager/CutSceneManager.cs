@@ -30,6 +30,7 @@ public class CutSceneManager : MonoBehaviour
 
     public bool PlayGame;
 
+    public Boss boss;
     void Awake()
     {
         video = GetComponent<VideoPlayer>();
@@ -70,6 +71,11 @@ public class CutSceneManager : MonoBehaviour
             Bgm.source.Play();
             player.PlayOn = true;
             PlayGame = true;
+
+            if(boss !=null)
+            {
+                boss.Complete();
+            }
         }
 
         if (Bgm.BgmFadeOn && Bgm.SceneChange)

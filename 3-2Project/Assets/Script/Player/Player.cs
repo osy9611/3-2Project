@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public enum PlayerState
 {
     Idle,
@@ -14,6 +15,7 @@ public enum PlayerState
     Climb,
     Die,
 }
+
 public class Player : MonoBehaviour
 {
     public bool PlayOn;

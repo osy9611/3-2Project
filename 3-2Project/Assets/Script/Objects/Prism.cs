@@ -24,6 +24,8 @@ public class Prism : MonoBehaviour
 
     public Collider2D[] col;
 
+    public bool AttackOn;
+
     private void Awake()
     {
         Audio = FindObjectOfType<AudioManager>();
@@ -54,6 +56,7 @@ public class Prism : MonoBehaviour
     private void OnDisable()
     {
         RazerON = false;
+        AttackOn = false;
     }
 
     // Update is called once per frame
@@ -131,6 +134,16 @@ public class Prism : MonoBehaviour
                         }
                        
                     }
+                }
+                if(hit.collider.gameObject.tag == "Boss")
+                {
+                    if(!AttackOn && !player.SetItem)
+                    {
+                        Boss boss = hit.collider.gameObject.GetComponent<Boss>();
+                        boss.HitCount--;
+                        AttackOn = true;
+                    }
+                   
                 }
             }
             else

@@ -24,6 +24,15 @@ public class Lazer : MonoBehaviour
         Target = OriginPos;
         Range = Vector2.Distance(transform.position, Target.position);
     }
+
+    private void OnDisable()
+    {
+        if(Obj!=null)
+        {
+            Obj.RazerON = false;
+            Obj = null;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
