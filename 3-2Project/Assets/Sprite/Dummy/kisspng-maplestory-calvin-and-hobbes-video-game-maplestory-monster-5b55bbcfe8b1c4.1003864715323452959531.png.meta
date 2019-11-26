@@ -1,0 +1,1915 @@
+fileFormatVersion: 2
+guid: 6ca78104634a0c1459826e73524fc19d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4010793984903926213
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_0
+  - first:
+      213: 8089491424175167388
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_1
+  - first:
+      213: 5027597617426340539
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_2
+  - first:
+      213: 4937778641344474117
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_3
+  - first:
+      213: -2204127880562755699
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_4
+  - first:
+      213: -5211618824844150806
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_5
+  - first:
+      213: -6145456756443281074
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_6
+  - first:
+      213: 2170987211997655238
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_7
+  - first:
+      213: -2036510369929201639
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_8
+  - first:
+      213: 2580378703459555930
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_9
+  - first:
+      213: -208330326360269267
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_10
+  - first:
+      213: 4246442632455992521
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_11
+  - first:
+      213: 5210942655100281477
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_12
+  - first:
+      213: -695661950782397564
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_19
+  - first:
+      213: -6667932181379513082
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_20
+  - first:
+      213: -5718219686778595295
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_21
+  - first:
+      213: 6116302045362821794
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_22
+  - first:
+      213: 4541100715251547674
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_23
+  - first:
+      213: -1894625808801760998
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_24
+  - first:
+      213: 7278906584576693143
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_25
+  - first:
+      213: -653215798135903781
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_26
+  - first:
+      213: -3625246607274307211
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_27
+  - first:
+      213: 6144842123442585195
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_28
+  - first:
+      213: 67345909558250937
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_29
+  - first:
+      213: -6628966615978825580
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_30
+  - first:
+      213: -8844856654501250364
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_31
+  - first:
+      213: 702733941203721387
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_32
+  - first:
+      213: -3845807835364838733
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_33
+  - first:
+      213: 1050964050923673926
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_34
+  - first:
+      213: -5625916156737507905
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_35
+  - first:
+      213: -7578955680405947141
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_36
+  - first:
+      213: -7903298500497820803
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_37
+  - first:
+      213: -533337881370496956
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_38
+  - first:
+      213: 4213215109045316340
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_39
+  - first:
+      213: 4349858282040962932
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_40
+  - first:
+      213: -8076728297738678534
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_41
+  - first:
+      213: 4962595123469147563
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_42
+  - first:
+      213: 96348413812055031
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_43
+  - first:
+      213: -7226699801278002524
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_44
+  - first:
+      213: -276849698783872995
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_45
+  - first:
+      213: 5488831559548679347
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_46
+  - first:
+      213: -8822775768100917840
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_47
+  - first:
+      213: -8523238843042815413
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_48
+  - first:
+      213: -3221180679648515860
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_49
+  - first:
+      213: 3035454766896928010
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_50
+  - first:
+      213: -104387314207904388
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_51
+  - first:
+      213: 5083650088903039451
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_52
+  - first:
+      213: -43903598495538486
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_53
+  - first:
+      213: 1744844360082786098
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_54
+  - first:
+      213: -6068813088919859745
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_55
+  - first:
+      213: 5738601756934228191
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_56
+  - first:
+      213: 4295989109252119752
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_57
+  - first:
+      213: -7665235522117910220
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_58
+  - first:
+      213: 3649248072515810228
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_59
+  - first:
+      213: 7935840630378030121
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_60
+  - first:
+      213: -7674195837418791349
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_61
+  - first:
+      213: -1573472011640797401
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_62
+  - first:
+      213: -1845524611375142744
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_63
+  - first:
+      213: 826701493364109265
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_64
+  - first:
+      213: -4964996177033905398
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_65
+  - first:
+      213: 3318840382040211936
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_66
+  - first:
+      213: 3550320269769957535
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_67
+  - first:
+      213: -6080180109767327616
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_68
+  - first:
+      213: 278601492514680199
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_69
+  - first:
+      213: 5813931469401441340
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_70
+  - first:
+      213: 5531952776054443424
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_71
+  - first:
+      213: -5397103347318780100
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_72
+  - first:
+      213: 4495064564187237847
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_73
+  - first:
+      213: -5020735048236077435
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_74
+  - first:
+      213: 6383112464378913283
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_75
+  - first:
+      213: 7700128224768702682
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_76
+  - first:
+      213: 8736945177655863702
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_77
+  - first:
+      213: -6915544050681283511
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_78
+  - first:
+      213: 7249167182704314357
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_79
+  - first:
+      213: 4878458742598959364
+    second: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_80
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1630
+        width: 164
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9fc711f09efc5242b9262e157655912
+      internalID: -4010793984903926213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 1628
+        width: 175
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84bcdc12ceed9bc47bfdd06dccc33098
+      internalID: 8089491424175167388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_2
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 1628
+        width: 143
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de15ddb69bafbd47bd2e087688d4c33
+      internalID: 5027597617426340539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_3
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 1628
+        width: 153
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d0b76b82de95d43af78eb47a6c3123
+      internalID: 4937778641344474117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_4
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 1628
+        width: 168
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a895ab79eff2b24e861c2c5b4d4955b
+      internalID: -2204127880562755699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_5
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 1628
+        width: 171
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deca8a5a94994f042a87d39e1e193b47
+      internalID: -5211618824844150806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1447
+        width: 164
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ad3daa6ac0c28345bd7adeb7faf9bde
+      internalID: -6145456756443281074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_7
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1447
+        width: 175
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce334127c028c724c81342b259a1c883
+      internalID: 2170987211997655238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_8
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1447
+        width: 144
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616d6f1233d4b27469a2e47864d45294
+      internalID: -2036510369929201639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_9
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 1447
+        width: 146
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a77c07c1a1dffaf449a6a0b242f891b4
+      internalID: 2580378703459555930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_10
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 1447
+        width: 162
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f234ee6ba264d044f861dc88a7437e58
+      internalID: -208330326360269267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_11
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 1447
+        width: 171
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef79251664638e847bc0f68dcdecf190
+      internalID: 4246442632455992521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1261
+        width: 176
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06a43d53f887184a8b53c9a5d009936
+      internalID: 5210942655100281477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_19
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1085
+        width: 164
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e10f2383c6ab2e4bacad3c82d26a912
+      internalID: -695661950782397564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_20
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1086
+        width: 203
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537014a7e3bb8744ca140cc902780b5d
+      internalID: -6667932181379513082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_21
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1086
+        width: 216
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ee01b918eae364b926d6a202c1249b
+      internalID: -5718219686778595295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_22
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 1086
+        width: 227
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1f3fa2903937644b75d51f185fa4a7
+      internalID: 6116302045362821794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_23
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1086
+        width: 251
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: add4df84b72123c49b483a655ed3035b
+      internalID: 4541100715251547674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_24
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 1086
+        width: 246
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c6f488e6232dd4cbed2661aa8c443a
+      internalID: -1894625808801760998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_25
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 1086
+        width: 258
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ace197ab9801f49829dea23fb37281
+      internalID: 7278906584576693143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_26
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 1086
+        width: 235
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3bce5ba7f1b5c447af05edef5f48004
+      internalID: -653215798135903781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_27
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 1208
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8033e8196b72754e9b2fc1229db227d
+      internalID: -3625246607274307211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_28
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 1211
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0edaf6643727397429d73bdf00548ef6
+      internalID: 6144842123442585195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_29
+      rect:
+        serializedVersion: 2
+        x: 2604
+        y: 1085
+        width: 238
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9554a93fea9b88f47b81b1c85dc3fac2
+      internalID: 67345909558250937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_30
+      rect:
+        serializedVersion: 2
+        x: 2146
+        y: 1191
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9511065fa3aea44b034476158e498c
+      internalID: -6628966615978825580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_31
+      rect:
+        serializedVersion: 2
+        x: 2147
+        y: 1086
+        width: 213
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dfdf58a4f6eb2c4bb5b1178f7f53a04
+      internalID: -8844856654501250364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_32
+      rect:
+        serializedVersion: 2
+        x: 2374
+        y: 1086
+        width: 220
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd6173af2970c6243988f0025c36442d
+      internalID: 702733941203721387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_33
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1085
+        width: 205
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6779867ecdea893409e371de9cd7a825
+      internalID: -3845807835364838733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_34
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 1161
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a412159bdbde0fd4194de33be01bf5e9
+      internalID: 1050964050923673926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_35
+      rect:
+        serializedVersion: 2
+        x: 1806
+        y: 1052
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a74167d05c8c14fbd65d597069315a
+      internalID: -5625916156737507905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_36
+      rect:
+        serializedVersion: 2
+        x: 2039
+        y: 1042
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbcef01f1230164a8a79239d10b8e64
+      internalID: -7578955680405947141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_37
+      rect:
+        serializedVersion: 2
+        x: 2213
+        y: 1039
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6af1322079a0a0743b58b8b9ce2ef25f
+      internalID: -7903298500497820803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_38
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1028
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec8e32f0c3c36c468fbbc414414a5e0
+      internalID: -533337881370496956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_39
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 752
+        width: 53
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b33f9096ec963554b9ca4c34e05e8eb7
+      internalID: 4213215109045316340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_40
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 749
+        width: 54
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38085fe54af0dfd4fa39978f9901b88c
+      internalID: 4349858282040962932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_41
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 751
+        width: 55
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60722587e9485264a89cf202fedc8463
+      internalID: -8076728297738678534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_42
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 749
+        width: 54
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9fb47bef16f8e4a82bffcb2b46d18e
+      internalID: 4962595123469147563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_43
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 749
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c95d5067efaa04ca5c8b6f6f59be9d
+      internalID: 96348413812055031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_44
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 751
+        width: 54
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a54c0a4839cc040ba60711a2349d72
+      internalID: -7226699801278002524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_45
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 751
+        width: 55
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2daef1cedc1d2d54e8cde54539554781
+      internalID: -276849698783872995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_46
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 752
+        width: 54
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4900ae0fc04d47941bbde80f36a6196c
+      internalID: 5488831559548679347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_47
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 751
+        width: 54
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2496a29be1ac24c808b34987a434a0
+      internalID: -8822775768100917840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_48
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 752
+        width: 52
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619ffc28bc901a6458706348397de50b
+      internalID: -8523238843042815413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_49
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 755
+        width: 49
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1f15a0319247a4892163384bb01fb6
+      internalID: -3221180679648515860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_50
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 755
+        width: 37
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a52d20b17ec4b44c947c5d295ce0b59
+      internalID: 3035454766896928010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_51
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 753
+        width: 47
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a0319e9c1856ae489eb98bce910d7e8
+      internalID: -104387314207904388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_52
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 756
+        width: 74
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62f4328751dd539468b3a5bbfc49a45d
+      internalID: 5083650088903039451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_53
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 756
+        width: 78
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420dad52b83d2684a8700578b22f77eb
+      internalID: -43903598495538486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_54
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 755
+        width: 165
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84da75940c1d75c459d7df0ed83c97ab
+      internalID: 1744844360082786098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_55
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 755
+        width: 172
+        height: 269
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2284dbf3ce362554a8d01f0371ea9f86
+      internalID: -6068813088919859745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_56
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 755
+        width: 222
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dedd36c6e6e1d6442913484d64439de1
+      internalID: 5738601756934228191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_57
+      rect:
+        serializedVersion: 2
+        x: 1697
+        y: 755
+        width: 218
+        height: 269
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae11fad5c25731f4faffb7024025d4a3
+      internalID: 4295989109252119752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_58
+      rect:
+        serializedVersion: 2
+        x: 1937
+        y: 755
+        width: 206
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32eaf77ba8deec4ca85a0b4c2f870aa
+      internalID: -7665235522117910220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_59
+      rect:
+        serializedVersion: 2
+        x: 2177
+        y: 756
+        width: 72
+        height: 269
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d109ca35059e654428fb4331d8c52d4d
+      internalID: 3649248072515810228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_60
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 756
+        width: 66
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd7cb7ad48917547a983c079e05e8fc
+      internalID: 7935840630378030121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_61
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 564
+        width: 102
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ff3b6d20fac0a4bbb65a80f1efbd63
+      internalID: -7674195837418791349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_62
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 564
+        width: 83
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1690faea19b7a344a5b5f851abb38d0
+      internalID: -1573472011640797401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_63
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 371
+        width: 165
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8fc46a93b4975c479523ce8d475ac61
+      internalID: -1845524611375142744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_64
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 371
+        width: 210
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 457c4cda4f75af7428d94b9f08f2bc21
+      internalID: 826701493364109265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_65
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 371
+        width: 210
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86aabb61bb17d4f48a03885b6f751c1e
+      internalID: -4964996177033905398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_66
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 371
+        width: 209
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f1d103810811a41a21bec8b8a478a0
+      internalID: 3318840382040211936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_67
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 371
+        width: 204
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6366d732deaeae047a44ff91dbf1c256
+      internalID: 3550320269769957535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_68
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 470
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061dc7dcd26b1e24294d39fad2b04448
+      internalID: -6080180109767327616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_69
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 371
+        width: 219
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c945161df600dbc4682da85f08b376d8
+      internalID: 278601492514680199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_70
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 404
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 986308e0d64b1eb4eb90eace682436fb
+      internalID: 5813931469401441340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_71
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 410
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67af57e92edfd07439b1c455ab2f2351
+      internalID: 5531952776054443424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_72
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 238
+        width: 80
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c5c91164e44d34b828edf7abbd5426
+      internalID: -5397103347318780100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_73
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 238
+        width: 88
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd4d65df7629d04fb8689285ce67481
+      internalID: 4495064564187237847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_74
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 238
+        width: 86
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db2ad5996156f443b49094419569acb
+      internalID: -5020735048236077435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_75
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 238
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f95d797edba8ce46bc409dbaef20cfc
+      internalID: 6383112464378913283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_76
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 20
+        width: 165
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a56ba0a8e44264cafb4dfb2885d47f
+      internalID: 7700128224768702682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_77
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 20
+        width: 175
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03118db6e914ec14cb5bb3a0f1f2bb58
+      internalID: 8736945177655863702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_78
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 20
+        width: 144
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18aa090a6e6ba44438736a46470c9488
+      internalID: -6915544050681283511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_79
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 20
+        width: 153
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7aff4561973b9f4d86e45eb28bc2d63
+      internalID: 7249167182704314357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-maplestory-calvin-and-hobbes-video-game-maplestory-monster-5b55bbcfe8b1c4.1003864715323452959531_80
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 20
+        width: 153
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 576f78dde4a8089499e6d7cee8d4c9a5
+      internalID: 4878458742598959364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

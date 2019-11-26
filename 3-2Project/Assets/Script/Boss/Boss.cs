@@ -31,6 +31,9 @@ public class Boss : MonoBehaviour
 {
     public BossState BS;
 
+    //애니메이션 관련
+    public Animator Ani;
+
     //보스 공격 카운트
     [Header("보스 피통입니다")]
     public int HitCount;
@@ -45,7 +48,6 @@ public class Boss : MonoBehaviour
 
     [Header("더미 레이저 입니다")]
     public GameObject[] DummyLazers;
-    public List<DummyLazer> dummyLazers;
 
     //벽 범위를 지정해주는 함수
     [SerializeField]
@@ -67,11 +69,7 @@ public class Boss : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
 
-        for(int i=0;i<DummyLazers.Length;i++)
-        {
-            DummyLazer dummylazer = DummyLazers[i].GetComponent<DummyLazer>();
-            dummyLazers.Add(dummylazer);
-        }
+        Ani = GetComponent<Animator>();
     }
 
     //페이즈를 렌덤으로 돌릴 수 있도록 하는 것
@@ -89,6 +87,7 @@ public class Boss : MonoBehaviour
         {
             case 1:
                 BS = BossState.Attack;
+                Ani.SetTrigger("Attack");
                 LazerCount = 0;
                 LazerSetOn = true;
                 break;
@@ -108,8 +107,7 @@ public class Boss : MonoBehaviour
         {
             Lazers[i].SetActive(true);
         }
-
-        BS = BossState.Idle;
+      
         Invoke("Complete", Time.Phase1);
     }
 
@@ -120,6 +118,7 @@ public class Boss : MonoBehaviour
         LazerCount++;
         for (int i = 0; i < DummyLazers.Length; i++)
         {
+            DummyLazers[i].SetActive(false);
             int WallPos = Random.Range(1, 4);
             switch (WallPos)
             {
@@ -212,13 +211,7 @@ public class Boss : MonoBehaviour
         }
     }
     
-    void AnimationManager()
-    {
-        if(BS == BossState.Idle)
-        {
-
-        }
-    }
+   
 
     // Update is called once per frame
     void Update()
@@ -226,7 +219,6 @@ public class Boss : MonoBehaviour
         if(BS!=BossState.Die)
         {
             CountCheck();
-            AnimationManager();
             if (CompeltePhase)
             {
                 SetPhase();
