@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public enum BossState
 {
     Idle,
     Attack,
     Die,
 }
+
+public enum BossBuff
+{
+    Infinity,
+    Normal
+}
+
 
 [System.Serializable]
 public struct WallDistance
@@ -29,19 +36,23 @@ public struct PhaseTime
 
 public class Boss : MonoBehaviour
 {
+    public Text BoostText;
+    
     public BossState BS;
-
+    public BossBuff BB;
     //애니메이션 관련
     public Animator Ani;
 
     //보스 공격 카운트
     [Header("보스 피통입니다")]
     public int HitCount;
-
+    
     Player player;
 
     public bool CompeltePhase;
     public int Phase;
+    public int SubPhase;
+    int PrevPhase;
 
     [Header("레이저들을 여기에 넣어주세요")]
     public GameObject[] Lazers;
@@ -65,20 +76,71 @@ public class Boss : MonoBehaviour
     public int SetLazerCount;
     public int LazerCount;
 
+    public int MaxPhase;
+    CameraMove camera;
+
+    //가시를 만들기 위한 것
+    //오브젝트 풀링 매니저를 만들어서 사용하는게 좋지만 일단은 생략
+    [Header("가시 오브젝트를 넣어주세요")]
+    public GameObject Thorn;
+    public List<GameObject> Thorns;
+    float ThornDistance;
+    [Header("가시 오브젝트를 몇개 셋팅할지 넣어주세요 자동으로 만들어집니다")]
+    public float SetThornCount;   
+    public int ThornCount;
+    public bool ThornSetOn;
+
     void Start()
     {
         player = FindObjectOfType<Player>();
-
+        camera = FindObjectOfType<CameraMove>();
         Ani = GetComponent<Animator>();
+
+        //가시 생성하기 위한 풀링
+        ThornDistance = (Vector2.Distance(Walls.BottomWall[0], Walls.BottomWall[1])) / SetThornCount;
+        Thorns.Add(Thorn);
+        Thorn.SetActive(false);
+        for (int i=1;i< SetThornCount; i++)
+        {
+            GameObject ThornDummy = Instantiate(Thorn, new Vector2(0, 0), Quaternion.identity);
+            ThornDummy.transform.position = new Vector2(Thorn.transform.position.x + (ThornDistance * (i)), Thorn.transform.position.y);
+            ThornDummy.SetActive(false);
+            ThornDummy.transform.SetParent(this.transform);
+            ThornDummy.GetComponent<Thorn>().Shaft.x = ThornDummy.transform.position.x;
+            Thorns.Add(ThornDummy);    
+        }
     }
 
     //페이즈를 렌덤으로 돌릴 수 있도록 하는 것
     void SetPhase()
     {
         CompeltePhase = false;
-        Phase = Random.Range(1, 3);
-        //Phase = 1;
-        CheckPhase(Phase);      
+        PrevPhase = Phase;
+        while(true)
+        {
+            if(Phase==0)
+            {
+                
+                Phase = Random.Range(1, MaxPhase);               
+                SubPhase = 0;
+                CheckPhase(Phase);
+                break;
+            }
+            else
+            {
+                Phase = Random.Range(1, MaxPhase);
+                if (PrevPhase != Phase)
+                {
+                    SubPhase = 0;
+                    CheckPhase(Phase);
+                    break;
+                }
+            }
+            
+        }
+      
+       
+       
     }
 
     void CheckPhase(int Phase)
@@ -92,10 +154,14 @@ public class Boss : MonoBehaviour
                 LazerSetOn = true;
                 break;
             case 2:
-                Phase02();
+                BS = BossState.Attack;
+                Ani.SetTrigger("Attack");               
+                camera.CameraShake();
+                ThornCount = 0;
+                ThornSetOn = true;
                 break;
             case 3:
-                Phase03();
+                Invoke("Phase03", 0.5f);
                 break;
         }
     }
@@ -103,12 +169,21 @@ public class Boss : MonoBehaviour
 
     void Phase01()
     {
+        OffDummyLazer();
+        camera.CameraShake();      
         for (int i=0;i< Lazers.Length;i++)
         {
             Lazers[i].SetActive(true);
         }
       
-        Invoke("Complete", Time.Phase1);
+        if(SubPhase==0)
+        {
+            Invoke("Complete", Time.Phase1);
+        }
+        else
+        {
+            Invoke("SubComplete", Time.Phase1);
+        }
     }
 
     void SetLazer()
@@ -166,7 +241,7 @@ public class Boss : MonoBehaviour
 
     void OffDummyLazer()
     {
-        for(int i=0;i<DummyLazers.Length;i++)
+        for (int i=0;i<DummyLazers.Length;i++)
         {
             DummyLazers[i].SetActive(false);
             Lazers[i].transform.position = DummyLazers[i].transform.position;
@@ -178,12 +253,48 @@ public class Boss : MonoBehaviour
 
     void Phase02()
     {
-        Invoke("Complete", Time.Phase2);
+        if (Thorns.Count-1 != ThornCount )
+        {
+            
+            Invoke("SetThorn", 0.3f);
+        }
+        else 
+        {
+            ThornSetOn = false;
+            if(SubPhase==0)
+            {
+                Invoke("Complete", Time.Phase2);
+            }
+            else
+            {
+                Invoke("SubComplete", Time.Phase1);
+            }
+            
+        }
+       
     }
+
+    void SetThorn()
+    {
+        ThornSetOn = false;
+        CancelInvoke("SetThorn");
+        ThornCount++;
+        Thorns[ThornCount].SetActive(true);
+        ThornSetOn = true;
+    }
+
 
     void Phase03()
     {
+        BB = BossBuff.Infinity;
+        if(SubPhase == 0)
+        {
+            SubPhase = Random.Range(1, 3);
+            CheckPhase(SubPhase);
+        }
+       
         Invoke("Complete", Time.Phase3);
+        Invoke("ChangeBossBuff", 3.0f);
     }
 
     void LastPhase()
@@ -194,17 +305,37 @@ public class Boss : MonoBehaviour
     public void Complete()
     {
         CompeltePhase = true;
-        if(Phase == 1)
+
+        if (Phase == 1)
         {
-            for(int i=0;i<Lazers.Length;i++)
+            for (int i = 0; i < Lazers.Length; i++)
             {
                 Lazers[i].SetActive(false);
             }
+        }              
+    }
+    
+    public void SubComplete()
+    {
+        SubPhase = 0;
+
+        for (int i = 0; i < Lazers.Length; i++)
+        {
+            Lazers[i].SetActive(false);
         }
     }
-
-    void CountCheck()
+    
+    void ChangeBossBuff()
     {
+        BB = BossBuff.Normal;
+    }
+
+    public void CountCheck()
+    {
+        if(HitCount == 3)
+        {
+            MaxPhase++;
+        }
         if(HitCount==0)
         {
             BS = BossState.Die;
@@ -218,7 +349,7 @@ public class Boss : MonoBehaviour
     {
         if(BS!=BossState.Die)
         {
-            CountCheck();
+            BoostText.text = BB.ToString();
             if (CompeltePhase)
             {
                 SetPhase();
@@ -233,9 +364,12 @@ public class Boss : MonoBehaviour
                 else
                 {
                     LazerSetOn = false;
-                    Invoke("OffDummyLazer", 1.0f);
-                    Invoke("Phase01", 1.5f);
+                    Invoke("Phase01", 1.5f);                       
                 }
+            }
+            if(ThornSetOn)
+            {
+                Phase02();            
             }
         }
     }

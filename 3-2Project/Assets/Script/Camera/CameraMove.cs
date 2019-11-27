@@ -121,14 +121,14 @@ public class CameraMove : MonoBehaviour
     {
         StartCoroutine(Shake());
     }
-
+    
     IEnumerator Shake()
     {
         yield return new WaitForSeconds(0.1f);
         float timer = 0;
         while (timer <= Duration)
         {
-            transform.localPosition = (Vector3)Random.insideUnitCircle * Amount + transform.position;
+            transform.localPosition = Random.insideUnitSphere * Amount + transform.position;
 
             timer += Time.deltaTime;
             yield return null;

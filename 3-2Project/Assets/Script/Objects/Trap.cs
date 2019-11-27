@@ -45,7 +45,6 @@ public class Trap : MonoBehaviour
             {
                 None = true;
                 Done = false;
-
             }
 
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, Shaft, Time.deltaTime * Speed);

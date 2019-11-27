@@ -140,7 +140,11 @@ public class Prism : MonoBehaviour
                     if(!AttackOn && !player.SetItem)
                     {
                         Boss boss = hit.collider.gameObject.GetComponent<Boss>();
-                        boss.HitCount--;
+                        if(boss.BB != BossBuff.Infinity)
+                        {
+                            boss.HitCount--;
+                            boss.CountCheck();
+                        }                      
                         AttackOn = true;
                     }
                    
