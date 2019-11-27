@@ -167,6 +167,7 @@ public class Boss : MonoBehaviour
     }
 
 
+    //페이즈 1
     void Phase01()
     {
         OffDummyLazer();
@@ -251,12 +252,13 @@ public class Boss : MonoBehaviour
         }
     }
 
+    //페이즈2
     void Phase02()
     {
         if (Thorns.Count-1 != ThornCount )
         {
             
-            Invoke("SetThorn", 0.3f);
+            Invoke("SetThorn", 0.2f);
         }
         else 
         {
@@ -278,24 +280,24 @@ public class Boss : MonoBehaviour
         ThornSetOn = true;
     }
 
-
+    //페이즈3
     void Phase03()
     {
         BB = BossBuff.Infinity;
-        if(SubPhase == 0)
-        {
-            CheckPhase(1);
-        }
-       
+        SubPhase = 1;
+        CheckPhase(1);
+
         Invoke("Complete", Time.Phase3);
         Invoke("ChangeBossBuff", 3.0f);
     }
 
+    //마지막 페이즈
     void LastPhase()
     {
 
     }
 
+    //페이즈가 완료될 때 실행됨
     public void Complete()
     {
         CompeltePhase = true;
@@ -309,6 +311,7 @@ public class Boss : MonoBehaviour
         }              
     }
     
+    //3페이즈 서브 페이즈가 완료될때 실행됨
     public void SubComplete()
     {
         SubPhase = 0;
@@ -319,11 +322,13 @@ public class Boss : MonoBehaviour
         }
     }
     
+    //보스 상태를 Normal로 바꿈
     void ChangeBossBuff()
     {
         BB = BossBuff.Normal;
     }
 
+    //포스 체력관련
     public void CountCheck()
     {
         if(HitCount == 3)
