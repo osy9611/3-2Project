@@ -265,11 +265,6 @@ public class Boss : MonoBehaviour
             {
                 Invoke("Complete", Time.Phase2);
             }
-            else
-            {
-                Invoke("SubComplete", Time.Phase1);
-            }
-            
         }
        
     }
@@ -289,8 +284,7 @@ public class Boss : MonoBehaviour
         BB = BossBuff.Infinity;
         if(SubPhase == 0)
         {
-            SubPhase = Random.Range(1, 3);
-            CheckPhase(SubPhase);
+            CheckPhase(1);
         }
        
         Invoke("Complete", Time.Phase3);
