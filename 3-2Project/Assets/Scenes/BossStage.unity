@@ -4990,6 +4990,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9175495714419121927, guid: ca9f9a9e31d6f9b4786fc0d60675161d,
         type: 3}
+      propertyPath: data.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175495714419121927, guid: ca9f9a9e31d6f9b4786fc0d60675161d,
+        type: 3}
       propertyPath: Audio
       value: 
       objectReference: {fileID: 1529335792}
@@ -5013,8 +5018,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 2cfc9fad5f763e340833ebc309aae200,
-        type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca9f9a9e31d6f9b4786fc0d60675161d, type: 3}
 --- !u!1001 &769781236459107930

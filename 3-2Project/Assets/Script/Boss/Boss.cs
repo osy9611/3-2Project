@@ -94,6 +94,7 @@ public class Boss : MonoBehaviour
 
     //페이즈 4 메테오 관련
     public MeteorManager meteor;
+
     void Start()
     {
         player = FindObjectOfType<Player>();
@@ -113,6 +114,8 @@ public class Boss : MonoBehaviour
             ThornDummy.GetComponent<Thorn>().Shaft.x = ThornDummy.transform.position.x;
             Thorns.Add(ThornDummy);    
         }
+
+        Invoke("Complete", 2.0f);
     }
 
     //페이즈를 렌덤으로 돌릴 수 있도록 하는 것

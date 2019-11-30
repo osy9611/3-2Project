@@ -36,20 +36,29 @@ public class CutSceneManager : MonoBehaviour
         video = GetComponent<VideoPlayer>();
         player = FindObjectOfType<Player>();
         Time.timeScale = 0;
-        video.clip = data[VideoCnt].Clip;
+        if(data.Count>=1)
+        {
+            video.clip = data[VideoCnt].Clip;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            FadeAni.SetBool("FadeOn", false);
+            video.clip = null;
+            rawImage.enabled = false;
+            Fade.SetActive(false);
+            Fade.SetActive(true);
+            Bgm.source.clip = Bgm.bgms[0].Clip;
+            Bgm.bgmName = Bgm.bgms[0].Name;
+            Bgm.source.Play();
+            player.PlayOn = true;
+            PlayGame = true;
+        }
+       
         VideoCnt++;
     }
 
-    public void Play()
-    {
-        rawImage.enabled = true;
-        video.clip = data[VideoCnt].Clip;
-        video.Play();
-        VideoCnt++;
-        PlayGame = false;
-        Time.timeScale = 0;      
-    }
-
+  
     public void GameSet()
     {
         Bgm.BgmFadeOn = true;
@@ -77,6 +86,7 @@ public class CutSceneManager : MonoBehaviour
                 boss.Complete();
             }
         }
+      
 
         if (Bgm.BgmFadeOn && Bgm.SceneChange)
         {
