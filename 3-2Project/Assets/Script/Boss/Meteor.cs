@@ -9,14 +9,6 @@ public class Meteor : MonoBehaviour
 
     public Vector2 EndPos;
 
-
-//    private void OnTriggerEnter2D(Collider2D collision)
-//    {
-//        if(collision.gameObject.name == "Ground")
-//        { 
-//}
-//    }
-
     // Update is called once per frame
     void Update()
     {

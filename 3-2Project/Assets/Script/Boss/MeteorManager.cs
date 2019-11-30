@@ -17,13 +17,13 @@ public class MeteorManager : MonoBehaviour
     //메테오 갯수
     [Header("메테오 갯수를 지정해주세요")]
     public int MeteorCount;
+    public int CheckMeteorCount;
 
     public List<Meteor> meteors;
 
     public Boss boss;
 
     public GameObject MeteorParent;
-
     // Start is called before the first frame update
     void Start()
     {

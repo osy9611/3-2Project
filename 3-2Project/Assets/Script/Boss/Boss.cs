@@ -304,6 +304,7 @@ public class Boss : MonoBehaviour
     {
         Ani.SetTrigger("Attack");
         meteor.MeteorOn();
+        Invoke("Complete", Time.Phase4);
     }
 
     //마지막 페이즈

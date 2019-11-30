@@ -1688,7 +1688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681641296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 54.1, z: 0}
+  m_LocalPosition: {x: 0, y: 72.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 950774787}
@@ -2639,7 +2639,7 @@ MonoBehaviour:
     Phase1: 4
     Phase2: 4
     Phase3: 10
-    Phase4: 0
+    Phase4: 9
   LazerSetOn: 0
   SetLazerCount: 6
   LazerCount: 0
@@ -2691,9 +2691,10 @@ MonoBehaviour:
   MaxHeight: {fileID: 681641296}
   MinHeight: {fileID: 1038000642}
   meteor: {fileID: 4007862163942395449, guid: b12f76a235c30694ea520372d4fc8d9a, type: 3}
-  MaxSpeed: 30
-  MinSpeed: 80
-  MeteorCount: 15
+  MaxSpeed: 45
+  MinSpeed: 30
+  MeteorCount: 30
+  CheckMeteorCount: 0
   meteors: []
   boss: {fileID: 0}
   MeteorParent: {fileID: 925213303}
