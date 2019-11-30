@@ -1428,7 +1428,7 @@ GameObject:
   - component: {fileID: 576204308}
   - component: {fileID: 576204307}
   m_Layer: 8
-  m_Name: Wall (2)
+  m_Name: Ground
   m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1663,6 +1663,36 @@ Transform:
   - {fileID: 1598493280}
   m_Father: {fileID: 86183064}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &681641296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 681641297}
+  m_Layer: 0
+  m_Name: MaxHeight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &681641297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681641296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 54.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 950774787}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &739243140
 PrefabInstance:
@@ -2415,6 +2445,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83d586151c447844c892d4afa0c46593, type: 3}
+--- !u!1 &925213303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 925213304}
+  m_Layer: 0
+  m_Name: Meteors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &925213304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925213303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 950774787}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &950774784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,6 +2487,7 @@ GameObject:
   - component: {fileID: 950774786}
   - component: {fileID: 950774785}
   - component: {fileID: 950774788}
+  - component: {fileID: 950774790}
   - component: {fileID: 950774789}
   m_Layer: 0
   m_Name: Boss
@@ -2516,6 +2577,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 783376395}
+  - {fileID: 925213304}
+  - {fileID: 681641297}
+  - {fileID: 1038000643}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2571,9 +2635,11 @@ MonoBehaviour:
     - {x: -31.5, y: -15.7}
     - {x: 31.8, y: -15.7}
   Time:
+    Infinity: 5
     Phase1: 4
-    Phase2: 1
+    Phase2: 4
     Phase3: 10
+    Phase4: 0
   LazerSetOn: 0
   SetLazerCount: 6
   LazerCount: 0
@@ -2583,6 +2649,7 @@ MonoBehaviour:
   SetThornCount: 15
   ThornCount: 0
   ThornSetOn: 0
+  meteor: {fileID: 0}
 --- !u!61 &950774789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2609,6 +2676,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.4, y: 16.105137}
   m_EdgeRadius: 0
+--- !u!114 &950774790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950774784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146ac5a05785ade4e98afd6a94083ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHeight: {fileID: 681641296}
+  MinHeight: {fileID: 1038000642}
+  meteor: {fileID: 4007862163942395449, guid: b12f76a235c30694ea520372d4fc8d9a, type: 3}
+  MaxSpeed: 30
+  MinSpeed: 80
+  MeteorCount: 15
+  meteors: []
+  boss: {fileID: 0}
+  MeteorParent: {fileID: 925213303}
 --- !u!1 &954556333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2621,7 +2709,7 @@ GameObject:
   - component: {fileID: 954556336}
   - component: {fileID: 954556335}
   m_Layer: 8
-  m_Name: Wall (1)
+  m_Name: Ground
   m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2728,6 +2816,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 185366971}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1038000642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038000643}
+  m_Layer: 0
+  m_Name: MinHeight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1038000643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038000642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 25.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 950774787}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1097228155
 PrefabInstance:
   m_ObjectHideFlags: 0

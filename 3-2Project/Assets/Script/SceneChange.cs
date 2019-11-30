@@ -29,6 +29,16 @@ public class SceneChange : MonoBehaviour
         Invoke("MainTitle", Time);
     }
 
+    public void BossStage()
+    {
+        SceneManager.LoadScene("BossStage");
+    }
+
+    public void BossStageDelay(float Time)
+    {
+        Invoke("BossStage", Time);
+    }
+
     public void Game()
     {
         if (Audio != null)

@@ -87,7 +87,7 @@ public class CutSceneManager : MonoBehaviour
             }
             else
             {                
-                Scene.DelayMainTitle(1.5f);
+                Scene.BossStageDelay(1.5f);
                 Bgm.BgmFadeOn = false;                
             }           
         }

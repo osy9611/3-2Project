@@ -26,11 +26,13 @@ public struct WallDistance
 }
 
 [System.Serializable]
-public struct PhaseTime
+public struct BossTime
 {
+    public float Infinity;
     public float Phase1;
     public float Phase2;
     public float Phase3;
+    public float Phase4;
 }
 
 
@@ -67,7 +69,7 @@ public class Boss : MonoBehaviour
 
     [SerializeField]
     [Header("페이즈 지속 시간을 설정해주세요")]
-    public PhaseTime Time;
+    public BossTime Time;
 
     //레이저를 셋팅하기 위한 값
     public bool LazerSetOn;
@@ -90,12 +92,14 @@ public class Boss : MonoBehaviour
     public int ThornCount;
     public bool ThornSetOn;
 
+    //페이즈 4 메테오 관련
+    public MeteorManager meteor;
     void Start()
     {
         player = FindObjectOfType<Player>();
         camera = FindObjectOfType<CameraMove>();
         Ani = GetComponent<Animator>();
-
+        meteor = GetComponent<MeteorManager>();
         //가시 생성하기 위한 풀링
         ThornDistance = (Vector2.Distance(Walls.BottomWall[0], Walls.BottomWall[1])) / SetThornCount;
         Thorns.Add(Thorn);
@@ -162,6 +166,10 @@ public class Boss : MonoBehaviour
                 break;
             case 3:
                 Invoke("Phase03", 0.5f);
+                break;
+            case 4:
+                meteor.SetMeteor();
+                Invoke("Phase04", 0.5f);
                 break;
         }
     }
@@ -288,7 +296,14 @@ public class Boss : MonoBehaviour
         CheckPhase(1);
 
         Invoke("Complete", Time.Phase3);
-        Invoke("ChangeBossBuff", 3.0f);
+        Invoke("ChangeBossBuff", Time.Infinity);
+    }
+
+    //페이즈4
+    void Phase04()
+    {
+        Ani.SetTrigger("Attack");
+        meteor.MeteorOn();
     }
 
     //마지막 페이즈
