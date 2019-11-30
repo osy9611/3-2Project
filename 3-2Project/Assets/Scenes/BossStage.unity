@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1951,11 +1951,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783376394}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -28.49, y: -24.87, z: 0}
   m_LocalScale: {x: 11.0853, y: 11.5, z: 10}
   m_Children: []
-  m_Father: {fileID: 950774787}
+  m_Father: {fileID: 1212567753}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &783376396
@@ -2473,7 +2473,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 950774787}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &950774784
 GameObject:
@@ -2577,8 +2577,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 783376395}
   - {fileID: 925213304}
+  - {fileID: 1212567753}
   - {fileID: 681641297}
   - {fileID: 1038000643}
   m_Father: {fileID: 0}
@@ -2645,11 +2645,7 @@ MonoBehaviour:
   SetLazerCount: 6
   LazerCount: 0
   MaxPhase: 4
-  Thorn: {fileID: 783376394}
-  Thorns: []
-  SetThornCount: 15
-  ThornCount: 0
-  ThornSetOn: 0
+  thorn: {fileID: 0}
   meteor: {fileID: 0}
 --- !u!61 &950774789
 BoxCollider2D:
@@ -2711,6 +2707,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27591530dcd1c842bb4ebfaa9b55bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Thorn: {fileID: 783376394}
+  Thorns: []
+  SetThornCount: 15
+  ThornCount: 0
+  ThornSetOn: 0
+  ThornParent: {fileID: 1212567752}
 --- !u!1 &954556333
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,6 +3096,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1212567752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1212567753}
+  m_Layer: 0
+  m_Name: Thorns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1212567753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212567752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 783376395}
+  m_Father: {fileID: 950774787}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251479486
 GameObject:

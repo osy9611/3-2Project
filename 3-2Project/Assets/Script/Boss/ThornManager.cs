@@ -16,6 +16,7 @@ public class ThornManager : MonoBehaviour
     public int ThornCount;
     public bool ThornSetOn;
 
+    public GameObject ThornParent;
     Boss boss;
 
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class ThornManager : MonoBehaviour
             GameObject ThornDummy = Instantiate(Thorn, new Vector2(0, 0), Quaternion.identity);
             ThornDummy.transform.position = new Vector2(Thorn.transform.position.x + (ThornDistance * (i)), Thorn.transform.position.y);
             ThornDummy.SetActive(false);
-            ThornDummy.transform.SetParent(this.transform);
+            ThornDummy.transform.SetParent(ThornParent.transform);
             ThornDummy.GetComponent<Thorn>().Shaft.x = ThornDummy.transform.position.x;
             Thorns.Add(ThornDummy);
         }
