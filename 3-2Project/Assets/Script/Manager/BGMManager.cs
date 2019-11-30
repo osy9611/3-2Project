@@ -54,8 +54,6 @@ public class BGMManager : MonoBehaviour
                 BgmFadeOn = false;
                 source.clip = bgms[i].Clip;                
                 source.volume =bgms[i].Volume;
-                Debug.Log(bgms[i].Volume);
-                Debug.Log(source.volume);
                 source.Play();                
             }
         }

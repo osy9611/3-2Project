@@ -80,17 +80,9 @@ public class Boss : MonoBehaviour
 
     public int MaxPhase;
     CameraMove camera;
-
-    //가시를 만들기 위한 것
-    //오브젝트 풀링 매니저를 만들어서 사용하는게 좋지만 일단은 생략
-    [Header("가시 오브젝트를 넣어주세요")]
-    public GameObject Thorn;
-    public List<GameObject> Thorns;
-    float ThornDistance;
-    [Header("가시 오브젝트를 몇개 셋팅할지 넣어주세요 자동으로 만들어집니다")]
-    public float SetThornCount;   
-    public int ThornCount;
-    public bool ThornSetOn;
+    
+    //페이즈 2 가시 관련
+    public ThornManager thorn;
 
     //페이즈 4 메테오 관련
     public MeteorManager meteor;
@@ -101,19 +93,7 @@ public class Boss : MonoBehaviour
         camera = FindObjectOfType<CameraMove>();
         Ani = GetComponent<Animator>();
         meteor = GetComponent<MeteorManager>();
-        //가시 생성하기 위한 풀링
-        ThornDistance = (Vector2.Distance(Walls.BottomWall[0], Walls.BottomWall[1])) / SetThornCount;
-        Thorns.Add(Thorn);
-        Thorn.SetActive(false);
-        for (int i=1;i< SetThornCount; i++)
-        {
-            GameObject ThornDummy = Instantiate(Thorn, new Vector2(0, 0), Quaternion.identity);
-            ThornDummy.transform.position = new Vector2(Thorn.transform.position.x + (ThornDistance * (i)), Thorn.transform.position.y);
-            ThornDummy.SetActive(false);
-            ThornDummy.transform.SetParent(this.transform);
-            ThornDummy.GetComponent<Thorn>().Shaft.x = ThornDummy.transform.position.x;
-            Thorns.Add(ThornDummy);    
-        }
+        thorn = GetComponent<ThornManager>();             
 
         Invoke("Complete", 2.0f);
     }
@@ -164,8 +144,8 @@ public class Boss : MonoBehaviour
                 BS = BossState.Attack;
                 Ani.SetTrigger("Attack");               
                 camera.CameraShake();
-                ThornCount = 0;
-                ThornSetOn = true;
+                thorn.ThornCount = 0;
+                thorn.ThornSetOn = true;
                 break;
             case 3:
                 Invoke("Phase03", 0.5f);
@@ -266,29 +246,20 @@ public class Boss : MonoBehaviour
     //페이즈2
     void Phase02()
     {
-        if (Thorns.Count-1 != ThornCount )
+        if (thorn.Thorns.Count-1 != thorn.ThornCount )
         {
-            
-            Invoke("SetThorn", 0.2f);
+
+            thorn.DelaySetThorn(0.2f);
         }
         else 
         {
-            ThornSetOn = false;
+            thorn.ThornSetOn = false;
             if(SubPhase==0)
             {
                 Invoke("Complete", Time.Phase2);
             }
         }
        
-    }
-
-    void SetThorn()
-    {
-        ThornSetOn = false;
-        CancelInvoke("SetThorn");
-        ThornCount++;
-        Thorns[ThornCount].SetActive(true);
-        ThornSetOn = true;
     }
 
     //페이즈3
@@ -347,7 +318,7 @@ public class Boss : MonoBehaviour
         BB = BossBuff.Normal;
     }
 
-    //포스 체력관련
+    //보스 체력관련
     public void CountCheck()
     {
         if(HitCount == 3)
@@ -385,7 +356,7 @@ public class Boss : MonoBehaviour
                     Invoke("Phase01", 1.5f);                       
                 }
             }
-            if(ThornSetOn)
+            if(thorn.ThornSetOn)
             {
                 Phase02();            
             }
