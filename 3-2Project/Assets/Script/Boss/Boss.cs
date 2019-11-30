@@ -41,7 +41,10 @@ public class Boss : MonoBehaviour
     public Text BoostText;
     
     public BossState BS;
+    
+    //보스의 버프상태
     public BossBuff BB;
+
     //애니메이션 관련
     public Animator Ani;
 
@@ -84,9 +87,14 @@ public class Boss : MonoBehaviour
     //페이즈 2 가시 관련
     public ThornManager thorn;
 
+    //페이즈 3 관련
+    bool EclipsOn;
+    //public GameObject Ecilps;
+    public Animator EclipsAni;
+
     //페이즈 4 메테오 관련
     public MeteorManager meteor;
-
+     
     void Start()
     {
         player = FindObjectOfType<Player>();
@@ -148,7 +156,10 @@ public class Boss : MonoBehaviour
                 thorn.ThornSetOn = true;
                 break;
             case 3:
-                Invoke("Phase03", 0.5f);
+                EclipsOn = true;
+                //Ecilps.SetActive(true);
+                EclipsAni.SetBool("EclipsOn", true);
+                BB = BossBuff.Infinity;
                 break;
             case 4:
                 meteor.SetMeteor();
@@ -265,12 +276,11 @@ public class Boss : MonoBehaviour
     //페이즈3
     void Phase03()
     {
-        BB = BossBuff.Infinity;
+        BB = BossBuff.Normal;
         SubPhase = 1;
         CheckPhase(1);
 
         Invoke("Complete", Time.Phase3);
-        Invoke("ChangeBossBuff", Time.Infinity);
     }
 
     //페이즈4
@@ -290,6 +300,11 @@ public class Boss : MonoBehaviour
     //페이즈가 완료될 때 실행됨
     public void Complete()
     {
+        if (Phase == 3)
+        {
+            //Ecilps.SetActive(false);
+            EclipsAni.SetBool("EclipsOn", false);
+        }
         CompeltePhase = true;
 
         if (Phase == 1)
@@ -298,7 +313,10 @@ public class Boss : MonoBehaviour
             {
                 Lazers[i].SetActive(false);
             }
-        }              
+        }
+
+        
+      
     }
     
     //3페이즈 서브 페이즈가 완료될때 실행됨
@@ -312,11 +330,7 @@ public class Boss : MonoBehaviour
         }
     }
     
-    //보스 상태를 Normal로 바꿈
-    void ChangeBossBuff()
-    {
-        BB = BossBuff.Normal;
-    }
+   
 
     //보스 체력관련
     public void CountCheck()
@@ -359,6 +373,15 @@ public class Boss : MonoBehaviour
             if(thorn.ThornSetOn)
             {
                 Phase02();            
+            }
+
+            if(EclipsOn)
+            {
+                if(EclipsAni.GetCurrentAnimatorStateInfo(0).IsName("EclipsOn") && EclipsAni.GetCurrentAnimatorStateInfo(0).normalizedTime>=1f)
+                {
+                    EclipsOn = false;
+                    Invoke("Phase03", 0.5f);
+                }
             }
         }
     }
