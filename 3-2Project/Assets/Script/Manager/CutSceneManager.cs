@@ -42,14 +42,15 @@ public class CutSceneManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("등장");
             Time.timeScale = 1;
             FadeAni.SetBool("FadeOn", false);
             video.clip = null;
             rawImage.enabled = false;
             Fade.SetActive(false);
             Fade.SetActive(true);
-            Bgm.source.clip = Bgm.bgms[0].Clip;
-            Bgm.bgmName = Bgm.bgms[0].Name;
+            Bgm.source.clip = Bgm.bgms[3].Clip;
+            Bgm.bgmName = Bgm.bgms[3].Name;
             Bgm.source.Play();
             player.PlayOn = true;
             PlayGame = true;

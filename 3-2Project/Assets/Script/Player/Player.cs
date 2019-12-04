@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public enum PlayerState
 {
     Idle,
@@ -534,6 +534,11 @@ public class Player : MonoBehaviour
                 DieEffect.transform.position = transform.position;
                 DieEffect.SetActive(true);
                 rigidbody.simulated = false;
+
+                if(SceneManager.GetActiveScene().name == "BossStage")
+                {
+                    camera.CameraShake();
+                }
             }
         }
     }

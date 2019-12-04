@@ -60,7 +60,7 @@ public class MeteorManager : MonoBehaviour
 
     public void MeteorOn()
     {
-        for(int i=0;i<MeteorCount;i++)
+        for (int i=0;i<MeteorCount;i++)
         {
             meteors[i].gameObject.SetActive(true);
         }

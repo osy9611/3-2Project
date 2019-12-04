@@ -26,10 +26,13 @@ public class Prism : MonoBehaviour
 
     public bool AttackOn;
 
+    public Boss boss;
     private void Awake()
     {
         Audio = FindObjectOfType<AudioManager>();
+        boss = FindObjectOfType<Boss>();
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -139,7 +142,6 @@ public class Prism : MonoBehaviour
                 {
                     if(!AttackOn && !player.SetItem)
                     {
-                        Boss boss = hit.collider.gameObject.GetComponent<Boss>();
                         if(boss.BB != BossBuff.Infinity)
                         {
                             boss.HitCount--;
@@ -174,7 +176,7 @@ public class Prism : MonoBehaviour
                 Obj.RazerON = false;
                 Obj = null;
             }
-            laser.enabled = false;
+            laser.enabled = false;           
         }
     }
 }

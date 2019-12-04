@@ -16,7 +16,7 @@ public class Meteor : MonoBehaviour
         {
             transform.localPosition = Vector2.MoveTowards(transform.localPosition, EndPos, Time.deltaTime * Speed);
         }
-        else if (Vector2.Distance(transform.position, EndPos) == 0)
+        else if (transform.localPosition.y == EndPos.y)
         {
             this.gameObject.SetActive(false);
         }

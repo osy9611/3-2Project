@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 public enum BossState
 {
     Idle,
@@ -38,16 +38,14 @@ public struct BossTime
 
 public class Boss : MonoBehaviour
 {
-    public Text BoostText;
-    
     public BossState BS;
     
     //보스의 버프상태
     public BossBuff BB;
 
     //애니메이션 관련
-    public Animator Ani;
-
+    //public Animator[] Ani;
+    public BossAniManager bossAniManager;
     //보스 공격 카운트
     [Header("보스 피통입니다")]
     public int HitCount;
@@ -94,15 +92,21 @@ public class Boss : MonoBehaviour
 
     //페이즈 4 메테오 관련
     public MeteorManager meteor;
-     
+
+    //마지막 페이즈
+    public FinalMoon finalMoon;
+
+    public AudioManager Audio;
+
     void Start()
     {
         player = FindObjectOfType<Player>();
         camera = FindObjectOfType<CameraMove>();
-        Ani = GetComponent<Animator>();
         meteor = GetComponent<MeteorManager>();
-        thorn = GetComponent<ThornManager>();             
-
+        thorn = GetComponent<ThornManager>();
+        finalMoon = GetComponent<FinalMoon>();
+        bossAniManager = GetComponent<BossAniManager>();
+        Audio = FindObjectOfType<AudioManager>();
         Invoke("Complete", 2.0f);
     }
 
@@ -111,12 +115,12 @@ public class Boss : MonoBehaviour
     {
         CompeltePhase = false;
         PrevPhase = Phase;
-        while(true)
+
+        while (true)
         {
-            if(Phase==0)
+            if (Phase == 0)
             {
-                
-                Phase = Random.Range(1, MaxPhase);               
+                Phase = Random.Range(1, MaxPhase);
                 SubPhase = 0;
                 CheckPhase(Phase);
                 break;
@@ -131,11 +135,8 @@ public class Boss : MonoBehaviour
                     break;
                 }
             }
-            
+
         }
-      
-       
-       
     }
 
     void CheckPhase(int Phase)
@@ -143,21 +144,16 @@ public class Boss : MonoBehaviour
         switch (Phase)
         {
             case 1:
-                BS = BossState.Attack;
-                Ani.SetTrigger("Attack");
+                bossAniManager.AttackOn();
                 LazerCount = 0;
                 LazerSetOn = true;
                 break;
             case 2:
-                BS = BossState.Attack;
-                Ani.SetTrigger("Attack");               
-                camera.CameraShake();
-                thorn.ThornCount = 0;
-                thorn.ThornSetOn = true;
+                bossAniManager.AttackOn();
                 break;
             case 3:
-                EclipsOn = true;
-                //Ecilps.SetActive(true);
+                Audio.Play(22);
+                EclipsOn = true;                
                 EclipsAni.SetBool("EclipsOn", true);
                 BB = BossBuff.Infinity;
                 break;
@@ -173,7 +169,8 @@ public class Boss : MonoBehaviour
     void Phase01()
     {
         OffDummyLazer();
-        camera.CameraShake();      
+        camera.CameraShake();
+        Audio.OnePlay(17);
         for (int i=0;i< Lazers.Length;i++)
         {
             Lazers[i].SetActive(true);
@@ -194,6 +191,7 @@ public class Boss : MonoBehaviour
         LazerSetOn = false;
         CancelInvoke("SetLazer");
         LazerCount++;
+        Audio.OnePlay(16);
         for (int i = 0; i < DummyLazers.Length; i++)
         {
             DummyLazers[i].SetActive(false);
@@ -257,19 +255,19 @@ public class Boss : MonoBehaviour
     //페이즈2
     void Phase02()
     {
-        if (thorn.Thorns.Count-1 != thorn.ThornCount )
-        {
 
-            thorn.DelaySetThorn(0.2f);
+        if (thorn.Thorns.Count - 1 != thorn.ThornCount)
+        {
+            thorn.DelaySetThorn(0.1f);
         }
-        else 
+        else
         {
             thorn.ThornSetOn = false;
-            if(SubPhase==0)
+            if (SubPhase == 0)
             {
                 Invoke("Complete", Time.Phase2);
             }
-        }
+        }     
        
     }
 
@@ -278,15 +276,18 @@ public class Boss : MonoBehaviour
     {
         BB = BossBuff.Normal;
         SubPhase = 1;
-        CheckPhase(1);
-
+        CheckPhase(1);      
         Invoke("Complete", Time.Phase3);
     }
 
     //페이즈4
     void Phase04()
     {
-        Ani.SetTrigger("Attack");
+        Audio.OnePlay(23);
+        for (int i = 0; i < bossAniManager.Ani.Length; i++)
+        {
+            bossAniManager.Ani[i].SetTrigger("Attack");
+        }
         meteor.MeteorOn();
         Invoke("Complete", Time.Phase4);
     }
@@ -294,7 +295,7 @@ public class Boss : MonoBehaviour
     //마지막 페이즈
     void LastPhase()
     {
-
+        finalMoon.FinalMoonOn = true;
     }
 
     //페이즈가 완료될 때 실행됨
@@ -302,7 +303,6 @@ public class Boss : MonoBehaviour
     {
         if (Phase == 3)
         {
-            //Ecilps.SetActive(false);
             EclipsAni.SetBool("EclipsOn", false);
         }
         CompeltePhase = true;
@@ -314,9 +314,6 @@ public class Boss : MonoBehaviour
                 Lazers[i].SetActive(false);
             }
         }
-
-        
-      
     }
     
     //3페이즈 서브 페이즈가 완료될때 실행됨
@@ -335,13 +332,31 @@ public class Boss : MonoBehaviour
     //보스 체력관련
     public void CountCheck()
     {
-        if(HitCount == 3)
+        if(HitCount !=0)
         {
-            MaxPhase++;
+            bossAniManager.Hit = true;
+            Audio.Play(21);
         }
-        if(HitCount==0)
+
+        switch (HitCount)
         {
-            BS = BossState.Die;
+            case 0:
+                BS = BossState.Die;
+                for (int i = 0; i < bossAniManager.Ani.Length; i++)
+                {
+                    bossAniManager.Ani[i].SetTrigger("Die");
+                }
+                Audio.Play(20);
+                camera.CameraShake();
+                finalMoon.FinalMoonOn = false;
+                finalMoon.ResetMoon();
+                break;
+            case 1:
+                LastPhase();
+                break;
+            case 3:
+                MaxPhase++;
+                break;
         }
     }
     
@@ -352,7 +367,6 @@ public class Boss : MonoBehaviour
     {
         if(BS!=BossState.Die)
         {
-            BoostText.text = BB.ToString();
             if (CompeltePhase)
             {
                 SetPhase();
@@ -370,19 +384,51 @@ public class Boss : MonoBehaviour
                     Invoke("Phase01", 1.5f);                       
                 }
             }
-            if(thorn.ThornSetOn)
+
+            if (bossAniManager.Ani[0].GetCurrentAnimatorStateInfo(0).IsName("attack"))
+            {               
+                if (bossAniManager.Ani[0].GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.7f)
+                {
+                    if (Phase==2)
+                    {                       
+                        thorn.ThornSetOn = true;                       
+                        camera.CameraShake();
+                    }
+                }
+                else if (bossAniManager.Ani[0].GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.45f)
+                {
+                    Audio.OnePlay(18);
+                    if(Phase == 2)
+                    {
+                        thorn.ThornCount = 0;
+                    }
+                }
+            }
+        
+            if (thorn.ThornSetOn)
             {
-                Phase02();            
+                Phase02();               
             }
 
             if(EclipsOn)
-            {
-                if(EclipsAni.GetCurrentAnimatorStateInfo(0).IsName("EclipsOn") && EclipsAni.GetCurrentAnimatorStateInfo(0).normalizedTime>=1f)
+            {               
+                if (EclipsAni.GetCurrentAnimatorStateInfo(0).IsName("EclipsOn") && EclipsAni.GetCurrentAnimatorStateInfo(0).normalizedTime>=1f)
                 {
                     EclipsOn = false;
                     Invoke("Phase03", 0.5f);
                 }
             }
+
+            if(BB==BossBuff.Infinity)
+            {
+                bossAniManager.InfinityOn = true;
+            }
+            else
+            {
+                bossAniManager.InfinityOn = false;
+            }           
         }
+
+       
     }
 }

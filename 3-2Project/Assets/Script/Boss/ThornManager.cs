@@ -40,6 +40,7 @@ public class ThornManager : MonoBehaviour
 
     public void SetThorn()
     {
+        boss.Audio.Play(19);
         ThornSetOn = false;
         CancelInvoke("SetThorn");
         ThornCount++;
