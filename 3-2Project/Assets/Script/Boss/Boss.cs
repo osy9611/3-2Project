@@ -367,7 +367,7 @@ public class Boss : MonoBehaviour
     {
         if(BS!=BossState.Die)
         {
-            if (CompeltePhase)
+            if (CompeltePhase && (finalMoon.SetMoons.Count != finalMoon.MoonCount) )
             {
                 SetPhase();
             }

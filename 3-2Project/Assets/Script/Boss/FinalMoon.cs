@@ -13,7 +13,7 @@ public class FinalMoon : MonoBehaviour
     public bool FinalMoonOn;
 
     [Header("달 생성 딜레이를 입력하세요")]
-    public float MoonDelay = 1.0f;
+    public float MoonDelay;
 
     [Header("달이 생성될 간격을 입력하세요")]
     public float radius;
@@ -23,13 +23,15 @@ public class FinalMoon : MonoBehaviour
     //회전시킬 오브젝트
     public GameObject WheelObj;
     public float TurnSpeed;
+
+    Boss boss;
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
+        boss = GetComponent<Boss>();
 
-        AngleInterval = (Mathf.PI*2)/Moons.Count;
-
+        AngleInterval = (Mathf.PI*2)/Moons.Count;       
         for(int i=0;i<Moons.Count;i++)
         {
             Angle += AngleInterval;
@@ -47,7 +49,8 @@ public class FinalMoon : MonoBehaviour
 
     public void MoonOn()
     {
-        CancelInvoke("MoonOn");       
+        CancelInvoke("MoonOn");
+        boss.Audio.Play(24);
         SetMoons[MoonCount].SetActive(true);
         MoonCount++;
     }
@@ -60,7 +63,7 @@ public class FinalMoon : MonoBehaviour
         }
         else
         {
-           
+            FinalMoonOn = false;           
             StartCoroutine(Restart());
           
         }        
@@ -77,9 +80,10 @@ public class FinalMoon : MonoBehaviour
     
     IEnumerator Restart()
     {
-        yield return new WaitForSeconds(5.0f);
+        boss.bossAniManager.AttackOn();
+        yield return new WaitForSeconds(1.01f);
         player.LightCheck(player.MaxLightCount, false);
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
