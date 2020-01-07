@@ -176,6 +176,7 @@ public class Prism : MonoBehaviour
                 Obj.RazerON = false;
                 Obj = null;
             }
+            //AttackOn = false;
             laser.enabled = false;           
         }
     }

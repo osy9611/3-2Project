@@ -98,10 +98,14 @@ public class Boss : MonoBehaviour
 
     public AudioManager Audio;
 
+    //컷신 메니져 
+    public CutSceneManager Scene;
+
     void Start()
     {
         player = FindObjectOfType<Player>();
         camera = FindObjectOfType<CameraMove>();
+        Scene = FindObjectOfType<CutSceneManager>();
         meteor = GetComponent<MeteorManager>();
         thorn = GetComponent<ThornManager>();
         finalMoon = GetComponent<FinalMoon>();
@@ -130,9 +134,21 @@ public class Boss : MonoBehaviour
                 Phase = Random.Range(1, MaxPhase);
                 if (PrevPhase != Phase)
                 {
-                    SubPhase = 0;
-                    CheckPhase(Phase);
-                    break;
+                    if (Phase == 3 && EclipsAni.GetCurrentAnimatorStateInfo(0).IsName("EclipsOff") && EclipsAni.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+                    {
+                        continue;
+                    }
+                    else if(SubPhase == Phase)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        SubPhase = 0;
+                        CheckPhase(Phase);
+                        break;
+                    }
+                   
                 }
             }
 
@@ -153,7 +169,9 @@ public class Boss : MonoBehaviour
                 break;
             case 3:
                 Audio.Play(22);
-                EclipsOn = true;                
+                EclipsOn = true;
+                SubPhase = 1;
+                CheckPhase(SubPhase);
                 EclipsAni.SetBool("EclipsOn", true);
                 BB = BossBuff.Infinity;
                 break;
@@ -258,7 +276,7 @@ public class Boss : MonoBehaviour
 
         if (thorn.Thorns.Count - 1 != thorn.ThornCount)
         {
-            thorn.DelaySetThorn(0.1f);
+            thorn.DelaySetThorn(0.08f);
         }
         else
         {
@@ -350,6 +368,7 @@ public class Boss : MonoBehaviour
                 camera.CameraShake();
                 finalMoon.FinalMoonOn = false;
                 finalMoon.ResetMoon();
+                Scene.DelayGameSet(5.0f);
                 break;
             case 1:
                 LastPhase();
@@ -428,7 +447,6 @@ public class Boss : MonoBehaviour
                 bossAniManager.InfinityOn = false;
             }           
         }
-
        
     }
 }

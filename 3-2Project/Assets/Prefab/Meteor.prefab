@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4472280496184476546}
   - component: {fileID: 8526716684139957650}
   - component: {fileID: 7623156613031805553}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Meteor
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -4801,7 +4801,7 @@ GameObject:
   - component: {fileID: 4378821533668302492}
   - component: {fileID: 4473762966625427500}
   - component: {fileID: 4472356439843026044}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9554,7 +9554,7 @@ GameObject:
   - component: {fileID: 4385284104036537764}
   - component: {fileID: 4473295197238609664}
   - component: {fileID: 4474134015845579686}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FireDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14307,7 +14307,7 @@ GameObject:
   - component: {fileID: 4385014540685163140}
   - component: {fileID: 4473711430619662528}
   - component: {fileID: 4472107810772674428}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19060,7 +19060,7 @@ GameObject:
   - component: {fileID: 4379156013920007538}
   - component: {fileID: 4473258168871374340}
   - component: {fileID: 4474292253425783582}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

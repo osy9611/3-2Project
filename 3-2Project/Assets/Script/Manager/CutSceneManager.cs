@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 [System.Serializable]
 public class VideoData
 {
@@ -42,7 +44,6 @@ public class CutSceneManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("등장");
             Time.timeScale = 1;
             FadeAni.SetBool("FadeOn", false);
             video.clip = null;
@@ -64,6 +65,11 @@ public class CutSceneManager : MonoBehaviour
     {
         Bgm.BgmFadeOn = true;
         Bgm.SceneChange = true;
+    }
+
+    public void DelayGameSet(float time)
+    {
+        Invoke("GameSet", time);
     }
     
     void Update()
@@ -97,8 +103,16 @@ public class CutSceneManager : MonoBehaviour
                 FadeAni.SetBool("End", true);
             }
             else
-            {                
-                Scene.BossStageDelay(1.5f);
+            {
+                if (SceneManager.GetActiveScene().name == "BossStage")
+                {
+                    Scene.DelayMainTitle(1.5f);                  
+                }
+                else
+                {
+                    Scene.BossStageDelay(1.5f);
+                }
+                    
                 Bgm.BgmFadeOn = false;                
             }           
         }

@@ -117,6 +117,7 @@ public class Player : MonoBehaviour
     public List<GameObject> DestroyPrims;
     public int PrismCount;
     int NowPrism;
+    public float MovePrism;
 
     //비디오를 실행하는 함수
     public CutSceneManager CutManager;
@@ -299,7 +300,7 @@ public class Player : MonoBehaviour
 
         if(SetItem)
         {
-            Prisms[NowPrism].transform.Translate(new Vector2(ItemX, ItemY) * Time.deltaTime * 15, Space.World);
+            Prisms[NowPrism].transform.Translate(new Vector2(ItemX, ItemY) * Time.deltaTime * MovePrism, Space.World);
         }
        
 

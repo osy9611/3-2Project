@@ -163,7 +163,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: EclipsOn
-  m_Speed: 0.1
+  m_Speed: 0.08
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1982506166485852869}
@@ -190,7 +190,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: EclipsOff
-  m_Speed: 0.1
+  m_Speed: 0.08
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -403010419881946509}
