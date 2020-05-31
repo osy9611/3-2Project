@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
+    public Player player;
     public Vector3 Shaft;
     public float Speed;
     public Vector3 OriginPos;
@@ -17,14 +18,15 @@ public class Trap : MonoBehaviour
         SavePointPos = transform.position;
         Shaft.z = OriginPos.z;
         Done = true;
+        player = FindObjectOfType<Player>();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            if((int)collision.contacts[0].point.y > transform.position.y)
-            collision.transform.SetParent(this.transform);
+            if ((int)collision.contacts[0].point.y > transform.position.y)
+                collision.transform.SetParent(this.transform);
         }
     }
 
